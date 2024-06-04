@@ -4,7 +4,7 @@ import NavSearch from '../../molecules/nav/NavSearch';
 import NavMenu from '../../molecules/nav/NavMenu';
 
 const NavBarContainer = styled.div`
-    width: 100%;
+    width: 97.9%;
     display: flex;
     justify-content: space-between;
     align-items: center;

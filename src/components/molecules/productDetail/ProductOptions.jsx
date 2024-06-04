@@ -1,24 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Input from '../../atoms/productDetail/Input';
 import RadioButton from '../../atoms/productDetail/RadioButton';
 
-const OptionContainer = styled.div`
-  margin: 10px 0;
-`;
-
-const Label = styled.label`
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-`;
-
-const RadioGroup = styled.div`
-  display: flex;
-  gap: 15px;
-`;
-
 const ProductOptions = () => {
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantityChange = (event) => {
+    setQuantity(event.target.value);
+  };
+
   return (
     <>
       <OptionContainer>
@@ -41,10 +32,26 @@ const ProductOptions = () => {
       </OptionContainer>
       <OptionContainer>
         <Label>수량</Label>
-        <Input type="number" name="quantity" min="1" max="10" width="50px" />
+        <Input value={quantity} onChange={handleQuantityChange} maxQuantity={99} width="100px" />
       </OptionContainer>
     </>
   );
 };
 
 export default ProductOptions;
+
+
+const OptionContainer = styled.div`
+  margin: 10px 0;
+`;
+
+const Label = styled.label`
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+`;
+
+const RadioGroup = styled.div`
+  display: flex;
+  gap: 15px;
+`;
