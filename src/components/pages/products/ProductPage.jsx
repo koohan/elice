@@ -1,7 +1,7 @@
+import React, { useEffect, useState } from 'react';
 import ProductList from '../../templates/products/ProductList';
 import Sidebar from '../../molecules/sidebar/Sidebar';
 import styled from 'styled-components';
-import myImg from '../../../assets/test.jpg';
 import NavBar from '../../organisms/nav/NavBar';
 
 const PageContainer = styled.div`
@@ -13,45 +13,19 @@ const ContentContainer = styled.div`
   padding: 20px;
 `;
 
-const products = [
-  {
-    id: 1,
-    imageSrc: myImg,
-    name: '클래식 가죽 신발 (검은색)',
-    description: '우아하고 편안한',
-    price: '$59.99',
-  },
-  {
-    id: 2,
-    imageSrc: 'path/to/image2.jpg',
-    name: '디자이너 핸드백 (갈색)',
-    description: '패션 스테이트먼트',
-    price: '$89.99',
-  },
-  {
-    id: 3,
-    imageSrc: 'path/to/image3.jpg',
-    name: '디자이너 핸드백 (갈색)',
-    description: '패션 스테이트먼트',
-    price: '$89.99',
-  },
-  {
-    id: 4,
-    imageSrc: 'path/to/image4.jpg',
-    name: '디자이너 핸드백 (갈색)',
-    description: '패션 스테이트먼트',
-    price: '$89.99',
-  },
-  {
-    id: 5,
-    imageSrc: 'path/to/image5.jpg',
-    name: '디자이너 핸드백 (갈색)',
-    description: '패션 스테이트먼트',
-    price: '$89.99',
-  }
-];
+
 
 const ProductPage = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('/db.json')
+      .then(response => response.json())
+      .then(data => {
+        setProducts(data.products);
+      });
+  }, []);
+
   return (
     <>
     <NavBar/>
