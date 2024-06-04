@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const SlideContainer = styled.div`
   width: 620px;
-  height: auto;
+  height: 430px;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,39 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Slide from '../../atoms/mainSlider/Slide';
 
 const SlideContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 1280px;
   height: 430px;
   overflow: hidden;
   position: relative;
+  margin: 0 auto;
 `;
 
 const SliderWrapper = styled.div`
   display: flex;
-  transition: transform 1s ease-in-out;
-  transform: translateX(${props => -props.$currentIndex * 620}px);
+  transition: ${props => props.$isAnimating ? 'transform 1s ease-in-out' : 'none'};
+  transform: translateX(${props => -props.$currentIndex * 1280}px);
 `;
 
-const Slider = ({ images, interval = 5000 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const Slider = ({ images, currentPage }) => {
+  const [isAnimating, setIsAnimating] = useState(false);
+  const length = images.length;
 
   useEffect(() => {
-    if (images.length > 0) {
-      const timer = setInterval(() => {
-        setCurrentIndex(prevIndex => (prevIndex + 2) % images.length);
-      }, interval);
+    setIsAnimating(true);
+  }, [currentPage]);
 
-      return () => clearInterval(timer);
-    }
-  }, [images, interval]);
+  if (images.length === 0) {
+    return null;
+  }
 
   return (
     <SlideContainer>
-      <SliderWrapper $currentIndex={currentIndex}>
+      <SliderWrapper $currentIndex={currentPage - 1} $isAnimating={isAnimating}>
         {images.map((image, index) => (
-          <Slide key={index} src={image} alt={`slide-${index}`} />
+          <Slide key={index} src={image.src} alt={`slide-${index}`} name={image.name} />
         ))}
       </SliderWrapper>
     </SlideContainer>
