@@ -16,10 +16,10 @@ const ProductDetailPage = () => {
   if (!product) return <div>Loading...</div>;
 
   return (
-    <div> 
+    <div>
       <NavBar />
-      <div style={{ marginTop : "4rem"}}>
-      <ProductDetailTemplate product={product} /> 
+      <div style={{ marginTop: "4rem" }}>
+        <ProductDetailTemplate product={product} />
       </div>
     </div>
   );
