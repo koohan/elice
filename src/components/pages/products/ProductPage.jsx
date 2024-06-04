@@ -1,11 +1,21 @@
-import React from 'react';
 import ProductList from '../../templates/products/ProductList';
-import myImg from '../../../assets/test.jpg'; 
+import Sidebar from '../../molecules/sidebar/Sidebar';
+import styled from 'styled-components';
+import myImg from '../../../assets/test.jpg';
+
+const PageContainer = styled.div`
+  display: flex;
+`;
+
+const ContentContainer = styled.div`
+  flex: 1;
+  padding: 20px;
+`;
 
 const products = [
   {
     id: 1,
-    imageSrc: myImg, 
+    imageSrc: myImg,
     name: '클래식 가죽 신발 (검은색)',
     description: '우아하고 편안한',
     price: '$59.99',
@@ -41,8 +51,14 @@ const products = [
 ];
 
 const ProductPage = () => {
-    console.log(myImg);
-    return <ProductList products={products} />;
-  };
+  return (
+    <PageContainer>
+      <Sidebar />
+      <ContentContainer>
+        <ProductList products={products} />
+      </ContentContainer>
+    </PageContainer>
+  );
+};
 
 export default ProductPage;

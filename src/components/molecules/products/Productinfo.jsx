@@ -1,6 +1,6 @@
 import React from 'react';
-import Image from '../../atoms/products-atom/Image';
-import Text from '../../atoms/products-atom/Text';
+import Image from '../../atoms/products/Image';
+import Text from '../../atoms/products/Text';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 

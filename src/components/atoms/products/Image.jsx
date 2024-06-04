@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const StyledSkeleton = styled(Skeleton)`
   width: 100%;
   height: 19rem; 
-  border-radius: 4px;
+  border-radius: 10px;
 `;
 
 const StyledImage = styled.img`
@@ -14,7 +14,7 @@ const StyledImage = styled.img`
   height: 19rem;  
   object-fit: cover;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 10px;
 `;
 
 const Image = ({ src, alt, isLoading }) => {

@@ -10,6 +10,11 @@ const Card = styled.div`
   flex-direction: column;
   margin-left : auto;
   margin-right : auto;
+  border-radius: 10px;
+  &:hover {
+    background-color: #e9e9e9;
+    cursor : pointer;
+  }
 `;
 
 const ProductCard = ({ product, isLoading }) => (
