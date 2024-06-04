@@ -9,10 +9,13 @@ import WishlistButton from '../../atoms/productDetail/WishlistButton';
 const DetailContainer = styled.div`
   display: flex;
   gap: 20px;
+  border : 1px solid black;
+  padding : 20px;
 `;
 
 const ImageContainer = styled.div`
   flex: 1;
+  padding-right : 30px;
 `;
 
 const InfoContainer = styled.div`
@@ -20,6 +23,7 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width : 40vw;
 `;
 
 const ButtonGroup = styled.div`
