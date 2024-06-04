@@ -7,15 +7,16 @@ const SidebarContainer = styled.div`
   background-color: #fff;
   padding: 10px;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  margin-botton : 5rem;
 `;
 
 const Sidebar = () => {
     return (
       <SidebarContainer>
-        <SidebarItem>카테고리-1</SidebarItem>
-        <SidebarItem>카테고리-2</SidebarItem>
-        <SidebarItem>카테고리-3</SidebarItem>
-        <SidebarItem>카테고리-4</SidebarItem>
+        <SidebarItem>장바구니</SidebarItem>
+        <SidebarItem>위시리스트</SidebarItem>
+        <SidebarItem>주문 내역</SidebarItem>
+        <SidebarItem>내 정보</SidebarItem>
       </SidebarContainer>
     );
   };
