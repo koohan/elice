@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Item = styled.div`
-  padding: 10px 0;
+  padding: 20px 0;
   border-bottom: 1px solid #ddd;
   cursor: pointer;
-  margin-bottom : 20px;
+  margin: 10px;
 
   &:hover {
     background-color: #e9e9e9;
