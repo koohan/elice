@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/atoms/login/login';
+import ProductPage from "./components/pages/products/ProductPage"
+
 
 function App() {
 
@@ -11,6 +13,7 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
+     <ProductPage/>
     </>
   );
 }
