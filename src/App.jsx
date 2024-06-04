@@ -1,4 +1,4 @@
-
+import ProductPage from "./components/pages/products/ProductPage"
 
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-     
+     <ProductPage/>
     </>
   )
 }
