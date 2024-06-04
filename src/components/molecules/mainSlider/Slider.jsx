@@ -4,7 +4,7 @@ import Slide from '../../atoms/mainSlider/Slide';
 
 const SlideContainer = styled.div`
   display: flex;
-  width: 1280px;
+  width: 100%;
   height: 430px;
   overflow: hidden;
   position: relative;
