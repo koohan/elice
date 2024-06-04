@@ -2,31 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 import ProductDetail from '../../organisms/productDetail/ProductDetail';
 
-const TemplateContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-  justify-content: center;
-  align-items: center;
 `;
 
-const Container = styled.div`
+const DetailContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  justify-content: center;
-  align-items: center;
 `;
 
 const ProductDetailTemplate = ({ product }) => {
   return (
-    <TemplateContainer>
-      <Container>
-      <ProductDetail product={product} />
-      </Container>
-    </TemplateContainer>
+    <Container>
+      <DetailContainer>
+        <ProductDetail product={product} />
+      </DetailContainer>
+    </Container>
   );
 };
 

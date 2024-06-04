@@ -9,7 +9,7 @@ const StyledImage = styled.img`
   height: 85%;  
   object-fit: cover;
   border-radius: 10px;
-  cursor : pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const Thumbnailimage = styled.img`
@@ -19,6 +19,11 @@ const Thumbnailimage = styled.img`
   border-radius: 10px;
   margin-top : 15px;
   cursor : pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  &:hover {
+    transform: scale(1.1); 
+    transition: transform 0.2s ease-in-out; 
+  }
 `;
 
 
