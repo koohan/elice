@@ -6,7 +6,7 @@ import ProductOptions from '../../molecules/productDetail/ProductOptions';
 import AddToCartButton from '../../atoms/productDetail/AddToCartButton';
 import WishlistButton from '../../atoms/productDetail/WishlistButton';
 import ProductInfoCard from '../../molecules/productInfocard/ProductInfoCard';
-import Related from '../../molecules/relate/Related';
+import Related from '../../molecules/relate/RelatedComponent';
 
 const DetailWrapper = styled.div`
   display: flex;
