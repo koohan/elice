@@ -2,6 +2,7 @@ import ProductList from '../../templates/products/ProductList';
 import Sidebar from '../../molecules/sidebar/Sidebar';
 import styled from 'styled-components';
 import myImg from '../../../assets/test.jpg';
+import NavBar from '../../organisms/nav/NavBar';
 
 const PageContainer = styled.div`
   display: flex;
@@ -52,12 +53,16 @@ const products = [
 
 const ProductPage = () => {
   return (
+    <>
+    <NavBar/>
     <PageContainer>
       <Sidebar />
       <ContentContainer>
         <ProductList products={products} />
       </ContentContainer>
     </PageContainer>
+    </>
+
   );
 };
 
