@@ -12,12 +12,9 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-    "react-router-dom": "^6.23.1"
-=======
     "react-loading-skeleton": "^3.4.0",
+    "react-router-dom": "^6.23.1",
     "styled-components": "^6.1.11"
->>>>>>> feature-product
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
