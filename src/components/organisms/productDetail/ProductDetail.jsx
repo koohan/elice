@@ -5,11 +5,11 @@ import ProductInfo from '../../molecules/productDetail/ProductInfo';
 import ProductOptions from '../../molecules/productDetail/ProductOptions';
 import AddToCartButton from '../../atoms/productDetail/AddToCartButton';
 import WishlistButton from '../../atoms/productDetail/WishlistButton';
+import ProductInfoCard from '../../molecules/productInfocard/ProductInfoCard';
 
 const DetailContainer = styled.div`
   display: flex;
   gap: 20px;
-  border : 1px solid black;
   padding : 20px;
 `;
 
@@ -31,8 +31,15 @@ const ButtonGroup = styled.div`
   gap: 10px;
 `;
 
+const StyledProductInfoCard = styled.div`
+  width : 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+`;
+
 const ProductDetail = ({ product }) => {
   return (
+    <>
     <DetailContainer>
       <ImageContainer>
         <Image src={product.imageSrc} alt={product.name} />
@@ -46,6 +53,10 @@ const ProductDetail = ({ product }) => {
         </ButtonGroup>
       </InfoContainer>
     </DetailContainer>
+    <StyledProductInfoCard>
+    <ProductInfoCard product={product} />
+    </StyledProductInfoCard>
+    </>
   );
 };
 

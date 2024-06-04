@@ -8,6 +8,7 @@ const InfoContainer = styled.div`
 `;
 
 const ProductTitle = styled.h1`
+  margin-top : 24px;
   font-size: 24px;
 `;
 
