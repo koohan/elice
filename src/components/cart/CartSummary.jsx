@@ -2,10 +2,10 @@ import React from 'react';
 import { SummaryContainer } from './Styles/CartSummaryStyles';
 import Label from './Label';
 
-const CartSummary = () => (
+const CartSummary = ({totalAmount}) => (
   <SummaryContainer>
-    <Label>총 금액:</Label>
-    <h2>$0.00</h2>
+    <Label >총 금액 :</Label>
+    <Label>{totalAmount.toLocaleString('ko-KR')}원</Label>
   </SummaryContainer>
 );
 

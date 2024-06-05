@@ -5,7 +5,7 @@ export const SidebarContainer = styled.div`
   background-color: #fff;
   border-right: 1px solid #eee;
   padding: 20px;
-  width: 250px;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,7 @@ export const MenuItemContainer = styled.div`
 
 export const MenuIcon = styled(FontAwesomeIcon)`
   margin-right: 3.5rem;
+  margin-left: 1rem;
 `;
 
 export const UserInfoContainer = styled.div`

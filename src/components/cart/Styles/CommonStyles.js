@@ -9,7 +9,6 @@ export const StyledImage = styled.img`
 export const StyledLabel = styled.span`
   font-size: ${(props) => props.size};
   color: #333;
-  margin-bottom: 10px;
 `;
 
 export const StyledInput = styled.input`

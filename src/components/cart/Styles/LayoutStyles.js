@@ -7,7 +7,7 @@ export const PageLayout = styled.div`
 `;
 
 export const ContentLayout = styled.div`
-  margin: 5rem;
+  width: 100%;
 `;
 
 export const SidebarLayout = styled.div`
@@ -21,7 +21,7 @@ export const MainContent = styled.div`
 `;
 
 export const CartContainer = styled.div`
-  width: 990px;
+  width: 100%;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;

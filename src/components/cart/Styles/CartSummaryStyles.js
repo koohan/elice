@@ -7,4 +7,5 @@ export const SummaryContainer = styled.div`
   font-weight: bold;
   text-align: right;
   justify-content: space-between;
+  margin: 10px;
 `;
