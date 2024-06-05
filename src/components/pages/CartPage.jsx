@@ -1,6 +1,5 @@
 import React from 'react';
 import CombinedTemplate from '../cart/CombinedTemplate';
-import NavBar from '../organisms/nav/NavBar';
 
 const CartPage = () => {
   const user = {
