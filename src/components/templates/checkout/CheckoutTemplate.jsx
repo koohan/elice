@@ -13,6 +13,8 @@ const Wrapper = styled.div`
   padding: 32px;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top :  4rem;
+  margin-bottom :  4rem;
 `;
 
 const Section = styled.section`

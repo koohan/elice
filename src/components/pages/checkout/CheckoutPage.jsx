@@ -1,5 +1,6 @@
 import React from 'react';
 import CheckoutTemplate from '../../templates/checkout/CheckoutTemplate';
+import NavBar from '../../organisms/nav/NavBar';
 
 const sampleItems = [
   { name: '티셔츠', price: 19900, quantity: 1, color: '검정', size: 'M', imageUrl: 'https://bon-systems.com/m9_data/otherpage/business_design/imgs/20190717277114/01.jpg' },
@@ -11,6 +12,7 @@ const total = sampleItems.reduce((sum, item) => sum + item.price * item.quantity
 const CheckoutPage = () => {
   return (
     <div>
+        <NavBar/>
       <CheckoutTemplate items={sampleItems} total={total} />
     </div>
   );
