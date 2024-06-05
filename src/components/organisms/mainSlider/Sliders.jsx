@@ -36,7 +36,7 @@ const Sliders = () => {
       });
   }, []);
 
-  const totalPage = imageData.length;
+  const totalPage = Math.ceil(imageData.length / 2);
 
   const handlePrevClick = () => {
     if (currentPage > 1) {
@@ -53,20 +53,19 @@ const Sliders = () => {
   return (
     <>
       <div>
-        <h2>Image Slider</h2>
         <Slider images={imageData} currentPage={currentPage} />
       </div>
       <ButtonContainer>
-        <ImageBtn 
+        <ImageBtn
           src={PrevSrc}
-          alt="Prev" 
-          onClick={handlePrevClick} 
+          alt="Prev"
+          onClick={handlePrevClick}
         />
         <PageIndicator>{currentPage} / {totalPage}</PageIndicator>
-        <ImageBtn 
+        <ImageBtn
           src={NextSrc}
-          alt="Next" 
-          onClick={handleNextClick} 
+          alt="Next"
+          onClick={handleNextClick}
         />
       </ButtonContainer>
     </>
