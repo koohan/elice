@@ -12,6 +12,8 @@ const Container = styled.div`
     -ms-overflow-style: none;
     scrollbar-width: none;
     cursor: grab;
+    border : 2px solid #ddd;
+    padding : 20px;
     
     &::-webkit-scrollbar {
         display: none;
