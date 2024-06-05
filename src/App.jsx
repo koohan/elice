@@ -1,8 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login/login';
-import ProductPage from "./components/pages/products/ProductPage"
-import Login from './components/login/login';
 import ProductPage from "./components/pages/ProductPage"
 import Main from './components/pages/main/Mainpage';
 import CartPage from './components/pages/CartPage';
