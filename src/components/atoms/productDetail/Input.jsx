@@ -13,7 +13,7 @@ const StyledSelect = styled.select`
   width: 100%;
   height: 40px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   border-radius: 4px;
   appearance: none;
   cursor: pointer;

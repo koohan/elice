@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from '../../atoms/productDetail/Image';
+import Image from "../../atoms/productDetail/Image"
 import ProductInfo from '../../molecules/productDetail/ProductInfo';
 import ProductOptions from '../../molecules/productDetail/ProductOptions';
-import AddToCartButton from '../../atoms/productDetail/AddToCartButton';
-import WishlistButton from '../../atoms/productDetail/WishlistButton';
+import Button from '../../atoms/productDetail/Button';
 import ProductInfoCard from '../../molecules/productInfocard/ProductInfoCard';
-import Related from '../../molecules/relate/RelatedComponent';
+import RelatedComponent from '../../molecules/relate/RelatedComponent';
+import WishlistButton from '../../atoms/productDetail/WishlistButton';
 
 const DetailWrapper = styled.div`
   display: flex;
@@ -45,14 +45,14 @@ const ProductDetail = ({ product }) => {
           <ProductInfo product={product} />
           <ProductOptions />
           <ButtonGroup>
-            <AddToCartButton>장바구니에 담기</AddToCartButton>
+            <Button>장바구니에 담기</Button>
             <WishlistButton>위시리스트 담기</WishlistButton>
           </ButtonGroup>
         </InfoContainer>
       </DetailWrapper>
       <StyledProductInfoCard>
         <ProductInfoCard product={product} />
-        <Related product={product} />
+        <RelatedComponent product={product} />
       </StyledProductInfoCard>
     </>
   );

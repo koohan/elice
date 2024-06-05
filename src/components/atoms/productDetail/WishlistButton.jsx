@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
-const StyledButton = styled.button`
+const AddtoWishlistButton = styled.button`
   background-color: #fff;
   color: #000;
   padding: 10px 20px;
@@ -12,6 +12,10 @@ const StyledButton = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  width: 12rem;
+  height: 45px;
 
   &:hover {
     background-color: #f0f0f0;
@@ -23,10 +27,10 @@ const StyledButton = styled.button`
 `;
 
 const WishlistButton = ({ children, onClick }) => (
-  <StyledButton onClick={onClick}>
+  <AddtoWishlistButton onClick={onClick}>
     <FontAwesomeIcon icon={faHeart} />
     {children}
-  </StyledButton>
+  </AddtoWishlistButton>
 );
 
 export default WishlistButton;

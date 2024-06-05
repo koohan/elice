@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Input from '../../atoms/productDetail/Input';
 import RadioButton from '../../atoms/productDetail/RadioButton';
+import Label from '../../atoms/productDetail/Label';
+
+const OptionContainer = styled.div`
+  margin: 10px 0;
+`;
+
+const RadioGroup = styled.div`
+  display: flex;
+  gap: 15px;
+`;
 
 const ProductOptions = () => {
   const [quantity, setQuantity] = useState(1);
@@ -10,25 +20,27 @@ const ProductOptions = () => {
     setQuantity(event.target.value);
   };
 
+  const renderRadioButtons = (name, options) => {
+    return (
+      <RadioGroup>
+        {options.map(option => (
+          <RadioButton key={option.value} name={name} value={option.value} label={option.label} />
+        ))}
+      </RadioGroup>
+    );
+  };
+
   return (
     <>
       <OptionContainer>
-        <Label>색상</Label>
-        <RadioGroup>
-          <RadioButton name="color" value="검정" label="검정" />
-          <RadioButton name="color" value="하양" label="하양" />
-          <RadioButton name="color" value="파랑" label="파랑" />
-        </RadioGroup>
-      </OptionContainer>
-      <OptionContainer>
         <Label>사이즈</Label>
-        <RadioGroup>
-          <RadioButton name="size" value="XS" label="XS" />
-          <RadioButton name="size" value="S" label="S" />
-          <RadioButton name="size" value="M" label="M" />
-          <RadioButton name="size" value="L" label="L" />
-          <RadioButton name="size" value="XL" label="XL" />
-        </RadioGroup>
+        {renderRadioButtons('size', [
+          { value: 'XS', label: 'XS' },
+          { value: 'S', label: 'S' },
+          { value: 'M', label: 'M' },
+          { value: 'L', label: 'L' },
+          { value: 'XL', label: 'XL' },
+        ])}
       </OptionContainer>
       <OptionContainer>
         <Label>수량</Label>
@@ -39,19 +51,3 @@ const ProductOptions = () => {
 };
 
 export default ProductOptions;
-
-
-const OptionContainer = styled.div`
-  margin: 10px 0;
-`;
-
-const Label = styled.label`
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-`;
-
-const RadioGroup = styled.div`
-  display: flex;
-  gap: 15px;
-`;

@@ -1,8 +1,5 @@
 import React from 'react';
-import 'react-loading-skeleton/dist/skeleton.css';
 import styled from 'styled-components';
-
-
 
 const StyledImage = styled.img`
   width: 40vw;
@@ -12,13 +9,13 @@ const StyledImage = styled.img`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
-const Thumbnailimage = styled.img`
+const ThumbnailImage = styled.img`
   width: 100px;
   height: 80px;  
   object-fit: cover;
   border-radius: 10px;
-  margin-top : 15px;
-  cursor : pointer;
+  margin-top: 15px;
+  cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   &:hover {
     transform: scale(1.1); 
@@ -26,21 +23,15 @@ const Thumbnailimage = styled.img`
   }
 `;
 
-
-const Image = ({ src, alt}) => {
-
-  return  (
-    <>
+const Image = ({ src, alt }) => (
+  <>
     <StyledImage src={src} alt={alt} />
-    <div style={{ alignItems: "center",justifyContent : "center", display : "flex" , flexDirection : "row" ,  gap : "30px"}}>
-    <Thumbnailimage src={src} alt={alt} />
-    <Thumbnailimage src={src} alt={alt} />
-    <Thumbnailimage src={src} alt={alt} />
-    <Thumbnailimage src={src} alt={alt} />
-    <Thumbnailimage src={src} alt={alt} />
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '30px' }}>
+      {[...Array(5)].map((_, index) => (
+        <ThumbnailImage key={index} src={src} alt={alt} />
+      ))}
     </div>
-    </>
-  )
-};
+  </>
+);
 
 export default Image;

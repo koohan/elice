@@ -4,11 +4,11 @@ import styled from 'styled-components';
 const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom : 10rem;
+  margin-bottom: 10rem;
 `;
 
 const ProductTitle = styled.h1`
-  margin-top : 24px;
+  margin-top: 24px;
   font-size: 24px;
 `;
 
@@ -20,7 +20,7 @@ const ProductPrice = styled.p`
 
 const ProductDescription = styled.p`
   margin-bottom: 20px;
-  opacity : 0.6;
+  opacity: 0.6;
 `;
 
 const ProductInfo = ({ product }) => {

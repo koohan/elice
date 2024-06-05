@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const RadioLabel = styled.label`
   display: flex;
-  width: 5rem;
+  width: 3rem;
   align-items: center;
   padding: 5px 10px;
   border: 1px solid #ddd;
@@ -14,8 +14,8 @@ const RadioLabel = styled.label`
 `;
 
 const Span = styled.span`
-  text-align: center;
-  width: 100%; 
+  text-align: right;
+  width: 70%; 
 `;
 
 const RadioButton = ({ label, ...props }) => (

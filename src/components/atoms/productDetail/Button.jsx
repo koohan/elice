@@ -8,15 +8,20 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  width: 12rem;
+  height: 45px;
 
   &:hover {
     background-color: #333;
   }
 `;
 
-const AddToCartButton = ({ children, onClick }) => (
+const Button = ({ children, onClick }) => (
   <StyledButton onClick={onClick}>{children}</StyledButton>
 );
 
-export default AddToCartButton;
+export default Button;
