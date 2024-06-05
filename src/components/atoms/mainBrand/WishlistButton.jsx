@@ -7,19 +7,14 @@ const AddtoWishlistButton = styled.button`
   background-color: #fff;
   color: #000;
   padding: 10px 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  width: 12rem;
-  height: 45px;
-
-  &:hover {
-    background-color: #f0f0f0;
-  }
+  font-size: 18px;
+  width: 20px;
+  height: 20px;
 
   & > svg {
     margin-right: 5px;
