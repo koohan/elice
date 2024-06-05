@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LoginButton = styled.button`
+const RegisterButton = styled.button`
     width: 100%;
     padding: 16px;
     background-color: #A999DD;
@@ -9,17 +9,17 @@ const LoginButton = styled.button`
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 25px 0 25px 0;
+    margin: 5px 0 0 0;
 
     &:hover {
         background-color: #8076A0;
     }
 `;
 
-function LoginBtn() {
+function RegisterBtn() {
     return (
-        <LoginButton type="submit">Login</LoginButton>
+        <RegisterButton type="submit">회원가입</RegisterButton>
     );
 }
 
-export default LoginBtn;
+export default RegisterBtn;

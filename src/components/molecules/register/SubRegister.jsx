@@ -10,17 +10,10 @@ const LineContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 15px;
-  margin-top: 20px;
   margin-bottom: 20px;
   font-size: 14px;
   color: #554C71;
-
-  .line {
-    flex: 1;
-    height: 1px;
-    margin: 0 15px;
-    background-color: #554C71;
-  }
+  margin-top: 20px;
 `;
 
 const OauthContainer = styled.div`
@@ -47,19 +40,17 @@ const OauthContainer = styled.div`
 `;
 
 const Oauth = () => (
-  <>
-    <LineContainer>
-      <div className='line'></div>
-      <div>간편 로그인</div>
-      <div className='line'></div>
-    </LineContainer>
-    <OauthContainer>
-      <button className='google-login'><img src={googleLogo} alt="Google Sign in" /></button>
-      <button className='naver-login'><img src={naverLogo} alt="Naver Sign in" /></button>
-      <button className='kakao-login'><img src={kakaoLogo} alt="Kakao Sign in" /></button>
-      <button className='apple-login'><img src={appleLogo} alt="Apple Sign in" /></button>
-    </OauthContainer>
-  </>
+    <>
+        <LineContainer>
+            <div>1초 회원가입</div>
+        </LineContainer>
+        <OauthContainer>
+            <button className='google-login'><img src={googleLogo} alt="Google Sign in" /></button>
+            <button className='naver-login'><img src={naverLogo} alt="Naver Sign in" /></button>
+            <button className='kakao-login'><img src={kakaoLogo} alt="Kakao Sign in" /></button>
+            <button className='apple-login'><img src={appleLogo} alt="Apple Sign in" /></button>
+        </OauthContainer>
+    </>
 );
 
 export default Oauth;
