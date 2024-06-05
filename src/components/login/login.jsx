@@ -39,10 +39,6 @@ function Login() {
                     <p className='dot'> • </p>
                     <button className='register'>회원가입</button>
                 </div>
-                <br /><br />
-                <footer>
-                    @@@@@@@@@여기 푸터 들어가야함@@@@@@@@@
-                </footer>
             </div>
         </>
     );
