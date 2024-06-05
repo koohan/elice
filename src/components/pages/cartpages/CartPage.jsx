@@ -16,19 +16,10 @@ const CartPage = () => {
     phone: '010-1234-5678'
   };
 
-  const menuItems = [
-    { icon: 'order', text: '주문 내역' },
-    { icon: 'wishlist', text: '위시리스트' },
-    { icon: 'settings', text: '계정 설정' },
-    { icon: 'payment', text: '결제 수단 관리' },
-    { icon: 'delivery', text: '배송지 관리' },
-    { icon: 'support', text: '고객센터' }
-  ];
-
   return (
     <>
       <NavBar />
-      <CombinedTemplate user={user} menuItems={menuItems} items={items} />
+      <CombinedTemplate user={user} items={items} />
     </>
   );
 };
