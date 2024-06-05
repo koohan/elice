@@ -1,29 +1,6 @@
 import React from 'react';
-import CartTemplate from '../../templates/carttemplates/CartTemplate';
+import CombinedTemplate from '../../templates/combinedTemplate/CombinedTemplate';
 import NavBar from '../../organisms/nav/NavBar';
-import styled from 'styled-components';
-
-const PageLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`;
-
-const ContentLayout = styled.div`
-  display: flex;
-  flex: 1;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  justify-content: center;
-`;
-
-const MainContent = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  background: #fff;
-`;
 
 const CartPage = () => {
   const items = [
@@ -32,15 +9,27 @@ const CartPage = () => {
     { id: 3, product: { name: '가을 패션 모자', description: '스타일리시한 모자로 가을 옷차림을 완성하세요', price: 24.99, image: 'path/to/image3.jpg' } }
   ];
 
+  const user = {
+    avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmK71ObBifzt00f_UVxSxZrB8tB9YxnKjB7Q&s',
+    name: '홍길동',
+    email: 'honggildong@example.com',
+    phone: '010-1234-5678'
+  };
+
+  const menuItems = [
+    { icon: 'order', text: '주문 내역' },
+    { icon: 'wishlist', text: '위시리스트' },
+    { icon: 'settings', text: '계정 설정' },
+    { icon: 'payment', text: '결제 수단 관리' },
+    { icon: 'delivery', text: '배송지 관리' },
+    { icon: 'support', text: '고객센터' }
+  ];
+
   return (
-    <PageLayout>
+    <>
       <NavBar />
-      <ContentLayout>
-        <MainContent>
-          <CartTemplate items={items} />
-        </MainContent>
-      </ContentLayout>
-    </PageLayout>
+      <CombinedTemplate user={user} menuItems={menuItems} items={items} />
+    </>
   );
 };
 
