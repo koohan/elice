@@ -4,6 +4,7 @@ import Login from './components/pages/login/LoginPage';
 import ProductPage from "./components/pages/products/ProductPage"
 import ProductDetailPage from './components/pages/productDetail/ProductDetailPage';
 import Main from './components/organisms/mainSlider/Sliders';
+import CartPage from './components/pages/cartpages/CartPage';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/product" element={<ProductPage/>} />
           <Route path="/productDetail" element={<ProductDetailPage/>} />
+          <Route path="/CartItems" element={<CartPage/>} />
         </Routes>
       </Router>
     </>
