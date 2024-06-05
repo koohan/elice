@@ -1,9 +1,9 @@
 import React from 'react';
 import './login.css';
-import googleLogo from '../../../assets/google.webp';
-import naverLogo from '../../../assets/naver.webp'
-import kakaoLogo from '../../../assets/kakao.webp'
-import appleLogo from '../../../assets/apple.webp'
+import googleLogo from '../../assets/google.webp';
+import naverLogo from '../../assets/naver.webp'
+import kakaoLogo from '../../assets/kakao.webp'
+import appleLogo from '../../assets/apple.webp'
 
 function Login() {
     return (
