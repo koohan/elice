@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import NavBar from '../../organisms/nav/NavBar';
-import Category from '../../organisms/main/Category';
-import Sliders from '../../organisms/main/Sliders';
-import Brand from '../../organisms/main/Brand';
+import Category from './Category';
+import Sliders from './mainSlider';
+import Brand from './Brand';
 
 const SlidersContainer = styled.div`
   margin-top: 60px;
@@ -25,7 +24,6 @@ const BrandContainer = styled.div`
 const Mainpage = () => {
     return (
         <>
-            <NavBar />
             <SlidersContainer>
                 <Sliders />
             </SlidersContainer>

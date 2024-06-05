@@ -1,5 +1,5 @@
 import React from "react";
-import BrandList from "../../molecules/mainBrand/mainBrandList";
+import BrandList from "./BrandList";
 
 function Brand() {
     const images = [

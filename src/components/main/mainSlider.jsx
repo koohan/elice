@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Slider from '../../molecules/mainSlider/Slider';
-import ImageBtn from '../../atoms/mainSlider/ImageBtn';
-import styled from 'styled-components';
-import PrevSrc from '../../../assets/prevbtn.webp';
-import NextSrc from '../../../assets/nextbtn.webp'
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-`;
-
-const PageIndicator = styled.span`
-  margin: 0 20px;
-  font-size: 16px;
-`;
+import { ImageBtn, Slide, Slider } from './Slider'
+import { ButtonContainer, PageIndicator } from './styled/mainSlider';
+import PrevSrc from '../../assets/prevbtn.webp';
+import NextSrc from '../../assets/nextbtn.webp';
 
 const Sliders = () => {
   const [imageData, setImageData] = useState([]);

@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryList from "../../molecules/mainCategory/CategoryList";
+import CategoryList from "./CategoryList";
 
 function Category() {
     const images = [

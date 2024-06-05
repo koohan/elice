@@ -1,28 +1,28 @@
 import React, { useRef, useState } from "react";
-import styled from "styled-components";
-import ImageBtn from "../../atoms/mainBrand/ImgBtn";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { ImgBtn, EtcContainer, Wrapper, AddtoWishlistButton, Container } from './styled/mainBrand';
 
-const Container = styled.div`
-    width: 1280px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    cursor: grab;
-    border : 2px solid #ddd;
-    padding : 20px;
-    
-    &::-webkit-scrollbar {
-        display: none;
-    }
+const WishlistButton = ({ children, onClick }) => (
+    <AddtoWishlistButton onClick={onClick}>
+        <FontAwesomeIcon icon={faHeart} />
+        {children}
+    </AddtoWishlistButton>
+);
 
-    &:active {
-        cursor: grabbing;
-    }
-`;
+function ImageBtn({ imgSrc, brand }) {
+    return (
+        <Wrapper>
+            <ImgBtn>
+                <img src={imgSrc} alt={brand} />
+            </ImgBtn>
+            <EtcContainer>
+                <span>{brand}</span>
+                <WishlistButton />
+            </EtcContainer>
+        </Wrapper>
+    );
+}
 
 function BrandList({ images, brands }) {
     const containerRef = useRef(null);
@@ -53,7 +53,7 @@ function BrandList({ images, brands }) {
     };
 
     if (!images || !brands || images.length === 0 || brands.length === 0) {
-        return <div>데이터를 불러오는 중...</div>;
+        return <div>데이터 0</div>;
     }
 
     return (
@@ -66,7 +66,6 @@ function BrandList({ images, brands }) {
         >
             {images.map((imgSrc, index) => (
                 <ImageBtn
-                    key={index}
                     imgSrc={imgSrc}
                     brand={brands[index]}
                 />

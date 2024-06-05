@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const ImgBtn = styled.button`
+export const ImgBtn = styled.button`
     background: transparent;
     margin: 0;
     cursor: pointer;
@@ -24,13 +23,10 @@ const ImgBtn = styled.button`
     }
 `;
 
-function ImageBtn({ imgSrc, category }) {
-    return (
-        <ImgBtn>
-            <img src={imgSrc} />
-            <span>{category}</span>
-        </ImgBtn>
-    );
-}
-
-export default ImageBtn;
+export const Container = styled.div`
+    width: 1280px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+`;
