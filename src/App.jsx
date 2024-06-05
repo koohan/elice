@@ -5,7 +5,8 @@ import ProductPage from "./components/pages/products/ProductPage"
 import ProductDetailPage from './components/pages/productDetail/ProductDetailPage';
 import Main from './components/pages/main/Mainpage';
 import CartPage from './components/pages/cartpages/CartPage';
-import Test from './components/organisms/main/Brand'
+import Test from './components/organisms/main/Brand';
+import CheckoutPage from './components/pages/checkout/CheckoutPage';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/product" element={<ProductPage/>} />
           <Route path="/productDetail" element={<ProductDetailPage/>} />
           <Route path="/CartItems" element={<CartPage/>} />
+          <Route path="/Checkout" element={<CheckoutPage/>} />
         </Routes>
       </Router>
     </>

@@ -34,10 +34,10 @@ const CartContainer = styled.div`
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 `;
 
-const CombinedTemplate = ({ user, menuItems, items }) => (
+const CombinedTemplate = ({ user, items }) => (
   <PageLayout>
     <SidebarLayout>
-      <Sidebar user={user} menuItems={menuItems} />
+      <Sidebar user={user} />
     </SidebarLayout>
     <ContentLayout>
       <MainContent>
