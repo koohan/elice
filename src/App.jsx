@@ -6,6 +6,7 @@ import Main from './components/main/main';
 import CartPage from './components/pages/CartPage';
 import Register from './components/pages/RegisterPage';
 import CheckoutPage from './components/pages/CheckoutPage';
+import DetailPage from './components/pages/DetailPage';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/products" element={<ProductPage/>} />
           <Route path="/Carts" element={<CartPage/>} />
           <Route path="/Checkouts" element={<CheckoutPage/>} />
+          <Route path="/Details" element={<DetailPage/>} />
         </Routes>
       </Router>
     </>
