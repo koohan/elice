@@ -10,6 +10,7 @@ import DetailPage from './pages/DetailPage';
 import Sidebar from './pages/Sidebarpage';
 import AccountPage from './pages/AccountPage';
 import Test from './components/main/ItemList';
+import OrdersPage from './pages/OrdersPage';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/Carts" element={<CartPage />} />
           <Route path="/Checkouts" element={<CheckoutPage />} />
           <Route path="/Details" element={<DetailPage />} />
+          <Route path="/orders" element={<OrdersPage />} />
         </Routes>
       </Router>
     </>
