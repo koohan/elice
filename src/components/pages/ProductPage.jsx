@@ -32,62 +32,26 @@ const ProductPage = () => {
       price: '₩90,000'
     },
     {
-      id: 3,
+      id: 5,
       imageSrc: 'https://via.placeholder.com/150',
-      name: '제품 3',
-      description: '제품 설명 3',
-      price: '₩70,000'
-    },
-    
-    {
-      id: 3,
-      imageSrc: 'https://via.placeholder.com/150',
-      name: '제품 3',
-      description: '제품 설명 3',
-      price: '₩70,000'
+      name: '제품 5',
+      description: '제품 설명 5',
+      price: '₩110,000'
     },
     {
-      id: 3,
+      id: 6,
       imageSrc: 'https://via.placeholder.com/150',
-      name: '제품 3',
-      description: '제품 설명 3',
-      price: '₩70,000'
+      name: '제품 6',
+      description: '제품 설명 6',
+      price: '₩130,000'
     },
     {
-      id: 3,
+      id: 7,
       imageSrc: 'https://via.placeholder.com/150',
-      name: '제품 3',
-      description: '제품 설명 3',
-      price: '₩70,000'
-    },
-    {
-      id: 3,
-      imageSrc: 'https://via.placeholder.com/150',
-      name: '제품 3',
-      description: '제품 설명 3',
-      price: '₩70,000'
-    },
-    {
-      id: 3,
-      imageSrc: 'https://via.placeholder.com/150',
-      name: '제품 3',
-      description: '제품 설명 3',
-      price: '₩70,000'
-    },
-    {
-      id: 3,
-      imageSrc: 'https://via.placeholder.com/150',
-      name: '제품 3',
-      description: '제품 설명 3',
-      price: '₩70,000'
-    },
-    {
-      id: 3,
-      imageSrc: 'https://via.placeholder.com/150',
-      name: '제품 3',
-      description: '제품 설명 3',
-      price: '₩70,000'
-    },
+      name: '제품 7',
+      description: '제품 설명 7',
+      price: '₩150,000'
+    }
   ];
 
   return (

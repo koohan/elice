@@ -1,47 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Flex,
-  Items,
-  Card,
-  StyledSkeleton,
-  StyledImage,
-  StyledText
-} from './styles';
-
-const Image = ({ src, alt, isLoading }) => {
-  if (isLoading) {
-    return <StyledSkeleton />;
-  }
-
-  return src ? (
-    <StyledImage src={src} alt={alt} />
-  ) : null;
-};
-
-const Text = ({ children, type }) => {
-  return <StyledText type={type}>{children}</StyledText>;
-};
-
-const ProductInfo = ({ imageSrc, name, description, price, isLoading }) => (
-  <>
-    <Image src={imageSrc} alt={name} isLoading={isLoading} />
-    <Text type="h2">{isLoading ? <StyledSkeleton /> : name}</Text>
-    <Text>{isLoading ? <StyledSkeleton count={2} /> : description}</Text>
-    <Text>{isLoading ? <StyledSkeleton width={50} /> : price}</Text>
-  </>
-);
-
-const ProductCard = ({ product, isLoading }) => (
-  <Card>
-    <ProductInfo
-      imageSrc={product.imageSrc}
-      name={product.name}
-      description={product.description}
-      price={product.price}
-      isLoading={isLoading}
-    />
-  </Card>
-);
+import { Flex, Items } from './styles/LayoutStyles';
+import ProductCard from './ProductCard';
 
 const ProductList = ({ products }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,11 +12,19 @@ const ProductList = ({ products }) => {
     return () => clearTimeout(timer);
   }, []);
 
+  const productItems = [...products];
+  const placeholdersNeeded = 4 - (productItems.length % 4);
+  if (placeholdersNeeded < 4) {
+    for (let i = 0; i < placeholdersNeeded; i++) {
+      productItems.push({ id: `placeholder-${i}`, placeholder: true });
+    }
+  }
+
   return (
     <Flex>
-      {products.map(product => (
-        <Items key={product.id}>
-          <ProductCard product={product} isLoading={isLoading} />
+      {productItems.map((product, index) => (
+        <Items key={product.placeholder ? `placeholder-${index}` : `${product.id}-${index}`} className={product.placeholder ? 'placeholder' : ''}>
+          {!product.placeholder && <ProductCard product={product} isLoading={isLoading} />}
         </Items>
       ))}
     </Flex>
