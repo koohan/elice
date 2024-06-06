@@ -8,29 +8,97 @@ export const StyledButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, box-shadow 0.3s;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    display: block;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+  }
+
+  &:hover::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
 
   &:hover {
     background-color: #333;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 `;
+
 export const StyledShoppingButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 18px 24px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 16px 20px;
+  border: 1px solid #fff;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 500;
 
   &:hover {
-    background-color: #f0f0f0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transform: scale(1.01);
+    color: #000;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    display: block;
+    -ms-transform: skewX(-20deg);
+    -webkit-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+    left: -10%;
+    top: 0;
+    transition: all 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  &:before {
+    background: #ddd;
+    z-index: -12;
+    opacity: 1;
+  }
+
+  &:after {
+    background: #fff;
+    z-index: -15;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.2, 0.95, 0.57, 0.99);
+  }
+
+  &:hover:before {
+    opacity: 1;
+    width: 116%;
+  }
+
+  &:hover:after {
+    opacity: 1;
+    width: 120%;
   }
 `;

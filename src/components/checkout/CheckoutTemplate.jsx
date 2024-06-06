@@ -13,7 +13,7 @@ const CheckoutTemplate = ({ items, total }) => (
       <OrderSummary items={items} />
       <Section style={{ flex: 1 }}>
         <OrderConfirmation items={items} total={total} />
-        <Button>주문하기</Button>
+        <Button>결제하기</Button>
       </Section>
     </SummaryWrapper>
     <ShippingAddressForm />

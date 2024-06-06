@@ -3,7 +3,7 @@ import CombinedTemplate from '../cart/CombinedTemplate';
 
 const CartPage = () => {
   const user = {
-    avatar: 'https://via.placeholder.com/80',
+    avatar: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png',
     name: '홍길동',
     email: 'honggildong@example.com',
     phone: '010-1234-5678'

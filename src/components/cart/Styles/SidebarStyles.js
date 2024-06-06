@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const SidebarContainer = styled.div`
   background-color: #fff;
-  border-right: 1px solid #eee;
+  border-right: 1px solid #ddd;
   padding: 20px;
   width: 100%;
   height: 100%;
@@ -20,14 +20,14 @@ export const MenuItemContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 10px;
-  border-bottom: 3px solid #eee;
-  background-color: #f9f9f9;
-  border-radius: 8px;
+  border-bottom: 1px solid #ddd;
   margin-bottom: 2rem;
   cursor: pointer;
-
+  width: 100%;
   &:hover {
     background-color: #f0f0f0;
+    color: #00bfff;
+    border-radius: 10px;
   }
 `;
 
@@ -52,7 +52,7 @@ export const UserAvatar = styled.img`
   width: 80px;
   height: 80px;
   padding: 2px;
-  border: 3px solid #aaa;
+  border: 2px solid #aaa;
   border-radius: 50%;
   margin-bottom: 10px;
 `;
