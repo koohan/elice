@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddToWishlistButtonStyled } from './styles/ProductDetailStyles';
+import { AddToWishlistButtonStyled } from './styles/AddToWishlistButtonStyles';
 
 const AddToWishlistButton = ({ children }) => {
   return <AddToWishlistButtonStyled>{children}</AddToWishlistButtonStyled>;
