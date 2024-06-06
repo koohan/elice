@@ -9,7 +9,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import DetailPage from './pages/DetailPage';
 import Sidebar from './pages/Sidebarpage';
 import AccountPage from './pages/AccountPage';
-import Nav from './components/nav';
+import Nav from './components/nav/nav';
 
 function App() {
 
