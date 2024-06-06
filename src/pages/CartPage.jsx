@@ -1,7 +1,7 @@
 import React from 'react';
-import CombinedTemplate from '../cart/CombinedTemplate';
-import Sidebar from '../sidebar/Sidebar';
-import { PageLayout, SidebarLayout, ContentLayout } from '../cart/Styles/LayoutStyles';
+import CombinedTemplate from '../components/cart/CombinedTemplate';
+import Sidebar from '../components/sidebar/Sidebar';
+import { PageLayout, SidebarLayout, ContentLayout } from '../GlobalStyles/LayoutStyles';
 
 const CartPage = () => {
   const user = {

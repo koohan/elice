@@ -4,7 +4,7 @@ import {
   ContentLayout,
   MainContent,
   CartContainer,
-} from "./Styles/LayoutStyles";
+} from "../../GlobalStyles/LayoutStyles";
 import CartList from "./CartList";
 import CartSummary from "./CartSummary";
 import { StyledShoppingButton } from "./Styles/ButtonStyles";
