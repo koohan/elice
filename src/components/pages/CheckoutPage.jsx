@@ -5,7 +5,7 @@ const ProductAndVariant = (productId, variantId) => {
   const products = [
     {
       "productId": "201",
-      "name": "T-Shirt",
+      "name": "Db테스트용 티셔츠",
       "description": "Comfortable cotton t-shirt",
       "category": "Men's Tops",
       "brand": "Brand A",
