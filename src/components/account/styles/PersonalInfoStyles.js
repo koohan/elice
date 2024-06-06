@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  margin-bottom: 50px;
 `;
 
 export const Section = styled.div`
@@ -15,7 +18,9 @@ export const Section = styled.div`
 `;
 
 export const Title = styled.h2`
-  margin-bottom: 10px;
+  color: #000;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
   font-size: 1.5em;
 `;
 
@@ -26,7 +31,7 @@ export const InputGroup = styled.div`
 `;
 
 export const Label = styled.label`
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: bold;
 `;
 
@@ -36,11 +41,47 @@ export const Input = styled.input`
   border-radius: 4px;
 `;
 
+export const ReadOnlyInput = styled.div`
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  letter-spacing: 5px;
+`;
+
 export const Button = styled.button`
+  width: 8rem;
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #000;
   color: white;
   cursor: pointer;
+`;
+export const Avatar = styled.img`
+  width: 150px;
+  height: 150px;
+  border: 2px solid #aaa;
+  border-radius: 50%;
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const InputSection = styled.div`
+  width: 100%;
+  margin-right: 20px;
+`;
+
+export const AvatarSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
 `;

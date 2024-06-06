@@ -1,7 +1,15 @@
 import React from 'react';
 import ProductList from '../components/product/ProductList';
+import Sidebar from '../components/sidebar/Sidebar';
+import { PageLayout, SidebarLayout, ContentLayout } from '../GlobalStyles/LayoutStyles';
 
 const ProductPage = () => {
+  const user = {
+    avatar: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png',
+    name: '홍길동',
+    email: 'honggildong@example.com',
+    phone: '010-1234-5678'
+  };
   const products = [
     {
       id: 1,
@@ -56,7 +64,14 @@ const ProductPage = () => {
 
   return (
     <div className="app">
+      <PageLayout>
+      <SidebarLayout>
+        <Sidebar user={user} />
+      </SidebarLayout>
+      <ContentLayout>
       <ProductList products={products} />
+      </ContentLayout>
+    </PageLayout>
     </div>
   );
 };
