@@ -1,5 +1,5 @@
 import React from 'react';
-import { QuantitySelectorStyled } from './styles/ProductDetailStyles';
+import { QuantitySelectorStyled } from './styles/QuantitySelectorStyles';
 
 const QuantitySelector = () => {
   const quantities = Array.from({ length: 10 }, (_, i) => i + 1);

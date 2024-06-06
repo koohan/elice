@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledImage } from './Styles/CommonStyles';
+import { StyledImage } from '../../GlobalStyles/CommonStyles';
 
 const Image = ({ src, alt }) => (
   <StyledImage src={src} alt={alt} />

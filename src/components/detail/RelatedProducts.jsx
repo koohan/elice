@@ -1,5 +1,5 @@
 import React from 'react';
-import { RelatedProductsStyled, RelatedProductItem, CommonTitle } from './styles/ProductDetailStyles';
+import { RelatedProductsStyled, RelatedProductItem, CommonTitle } from './styles/RelatedProductsStyles';
 
 const RelatedProducts = ({ products }) => {
   return (

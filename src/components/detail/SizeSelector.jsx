@@ -1,5 +1,5 @@
 import React from 'react';
-import { SizeSelectorContainer, SizeLabel, SizeButtonGroup, SizeButton } from './styles/ProductDetailStyles';
+import { SizeSelectorContainer, SizeLabel, SizeButtonGroup, SizeButton } from './styles/SizeSelectorStyles';
 
 const SizeSelector = () => {
   return (

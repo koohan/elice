@@ -1,5 +1,5 @@
 import React from 'react';
-import { ColorSelectorStyled } from './styles/ProductDetailStyles';
+import { ColorSelectorStyled } from './styles/ColorSelectorStyles';
 
 const ColorSelector = ({ colors }) => {
   return (

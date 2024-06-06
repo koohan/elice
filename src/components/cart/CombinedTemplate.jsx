@@ -1,13 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  PageLayout,
   ContentLayout,
-  SidebarLayout,
   MainContent,
   CartContainer,
-} from "./Styles/LayoutStyles";
-import Sidebar from "./Sidebar";
+} from "../../GlobalStyles/LayoutStyles";
 import CartList from "./CartList";
 import CartSummary from "./CartSummary";
 import { StyledShoppingButton } from "./Styles/ButtonStyles";
@@ -21,10 +18,6 @@ const CombinedTemplate = ({ user, items, totalAmount }) => {
 
 
 return (
-  <PageLayout>
-    <SidebarLayout>
-      <Sidebar user={user} />
-    </SidebarLayout>
     <ContentLayout>
       <MainContent>
         <CartContainer>
@@ -37,7 +30,6 @@ return (
         </CartContainer>
       </MainContent>
     </ContentLayout>
-  </PageLayout>
 )
 }
 

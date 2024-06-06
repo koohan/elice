@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckoutTemplate from "../checkout/CheckoutTemplate";
+import CheckoutTemplate from "../components/checkout/CheckoutTemplate";
 
 const ProductAndVariant = (productId, variantId) => {
   const products = [

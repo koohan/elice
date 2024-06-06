@@ -16,7 +16,7 @@ const ProductDetail = ({ product, relatedProducts }) => {
       </ImageContainer>
       <InfoContainer>
         <ProductTitle>{product.name}</ProductTitle>
-        <ProductDescription description={product.shortDescription} />
+        <p style={{marginTop: "5px" , opacity : "0.7"}}>{product.shortDescription}</p>
         <ProductPrice>{product.price.toLocaleString('ko-KR')}원</ProductPrice>
         <SizeSelector />
         <ColorSelector colors={product.colors} />

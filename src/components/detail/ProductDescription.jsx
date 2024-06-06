@@ -5,7 +5,7 @@ const ProductDescription = ({ description }) => {
   return (
     <ProductDescriptionStyled>
       <CommonTitle>제품 상세 정보</CommonTitle>
-      {description}
+      <p>{description}</p>
     </ProductDescriptionStyled>
   );
 };
