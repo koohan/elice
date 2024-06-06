@@ -9,6 +9,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import DetailPage from './pages/DetailPage';
 import Sidebar from './pages/Sidebarpage';
 import AccountPage from './pages/AccountPage';
+import Nav from './components/nav';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route path='/nav' element={<Nav />} />
           <Route path='/register' element={<Register />} />
           <Route path="/" element={<Main />} />
           <Route path="/account" element={<AccountPage />} />
