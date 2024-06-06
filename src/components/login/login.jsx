@@ -14,7 +14,7 @@ function Login() {
                     <img className="poster" src={poster} />
                     <div className="main-container">
                         <div className="login-container">
-                            <h2>Login</h2>
+                            <h2>LOGIN</h2>
                             <form>
                                 <div className='login-box'>
                                     <div className="email">
