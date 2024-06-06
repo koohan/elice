@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const SizeSelectorContainer = styled.div`
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const SizeLabel = styled.label`

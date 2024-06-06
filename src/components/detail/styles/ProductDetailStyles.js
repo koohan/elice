@@ -8,6 +8,7 @@ export const Container = styled.div`
   margin: auto;
   background: #f9f9f9;
   border-radius: 8px;
+  gap: 8px;
 `;
 
 export const ImageContainer = styled.div`
@@ -28,6 +29,9 @@ export const InfoContainer = styled.div`
   min-width: 300px;
   max-width: 600px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 `;
 
 export const ProductTitle = styled.h1`
@@ -44,7 +48,7 @@ export const ProductDescriptionStyled = styled.div`
 export const ProductPrice = styled.p`
   font-size: 20px;
   color: #000;
-  margin: 20px 0;
+  margin: 2rem 0;
 `;
 
 export const CommonTitle = styled.h3`
