@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PageLayout = styled.div`
   display: flex;
   flex-direction: row;
-  min-height: 100vh;
+  height: 100%;
 `;
 
 export const ContentLayout = styled.div`
@@ -12,6 +12,10 @@ export const ContentLayout = styled.div`
 
 export const SidebarLayout = styled.div`
   width: 300px;
+  height: 100%;
+  z-index: 1;
+  position: sticky;
+  top: 0;
   z-index: 1;
 `;
 

@@ -85,3 +85,15 @@ export const AvatarSection = styled.div`
   border: 1px solid #ddd;
   border-radius: 10px;
 `;
+
+export const InstructionsSection = styled.div`
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+`;

@@ -14,6 +14,7 @@ const Sidebar = ({ user }) => {
   ];
 
   return (
+    <>
     <SidebarContainer>
       <UserInfo user={user} />
       <MenuContainer>
@@ -22,6 +23,7 @@ const Sidebar = ({ user }) => {
         ))}
       </MenuContainer>
     </SidebarContainer>
+    </>
   );
 };
 
