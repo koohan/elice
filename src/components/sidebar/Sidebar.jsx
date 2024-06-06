@@ -1,5 +1,5 @@
 import React from 'react';
-import { SidebarContainer, MenuContainer } from './Styles/SidebarStyles';
+import { SidebarContainer, MenuContainer } from './styles/SidebarStyles';
 import UserInfo from './UserInfo';
 import MenuItem from './MenuItem';
 

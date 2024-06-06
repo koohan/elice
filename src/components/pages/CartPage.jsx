@@ -1,5 +1,7 @@
 import React from 'react';
 import CombinedTemplate from '../cart/CombinedTemplate';
+import Sidebar from '../sidebar/Sidebar';
+import { PageLayout, SidebarLayout, ContentLayout } from '../cart/Styles/LayoutStyles';
 
 const CartPage = () => {
   const user = {
@@ -45,9 +47,14 @@ const CartPage = () => {
   const totalAmount = items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
 
   return (
-    <div className="app">
-      <CombinedTemplate user={user} items={items} totalAmount={totalAmount} />
-    </div>
+    <PageLayout>
+      <SidebarLayout>
+        <Sidebar user={user} />
+      </SidebarLayout>
+      <ContentLayout>
+        <CombinedTemplate items={items} totalAmount={totalAmount} />
+      </ContentLayout>
+    </PageLayout>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserInfoContainer, UserBox, UserAvatar, UserText, UserEmail } from './Styles/SidebarStyles';
+import { UserInfoContainer, UserBox, UserAvatar, UserText, UserEmail } from './styles/SidebarStyles';
 
 const UserInfo = ({ user }) => (
   <>

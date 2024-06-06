@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuItemContainer, MenuIcon } from './Styles/SidebarStyles';
+import { MenuItemContainer, MenuIcon } from './styles/SidebarStyles';
 import Label from './Label';
 import { faCartArrowDown, faHeart, faCog, faCreditCard, faMapMarkerAlt, faHeadset } from '@fortawesome/free-solid-svg-icons';
 
