@@ -1,32 +1,38 @@
 import styled from "styled-components";
 
 export const RelatedProductsStyled = styled.div`
-  margin-top: 30px;
+  margin-top: 2rem;
   h3 {
     font-size: 18px;
     font-weight: bold;
     color: #000;
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
   }
   ul {
     list-style: none;
+    margin: 0;
     padding: 0;
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
   }
 `;
 
 export const RelatedProductItem = styled.li`
-  width: 150px;
-  text-align: center;
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 373px;
+  max-width: calc(33.333% - 20px);
+  box-sizing: border-box;
   img {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 8px;
   }
   p {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
 
