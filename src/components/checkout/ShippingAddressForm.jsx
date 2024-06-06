@@ -8,7 +8,7 @@ const ShippingAddressForm = () => (
     <Title>배송 주소</Title>
       <AdressForm>
           <Input label="이름" placeholder="홍길동" high />
-          <Input label="주소" placeholder="123 메인 스트리트" high />
+          <Input label="주소" placeholder="상세 주소" high />
       </AdressForm>
       <AdressForm>
           <Input label="시/도" placeholder="서울" />

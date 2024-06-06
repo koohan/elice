@@ -22,7 +22,7 @@ const Cell = styled.td`
 
   &:first-child {
     text-align: left;
-    padding-left: 30px;
+    padding-left: 45px;
   }
 
   &:last-child {

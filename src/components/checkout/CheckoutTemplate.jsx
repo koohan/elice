@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, GlobalStyles, SummaryWrapper, Section } from './styles';
+import { Wrapper, SummaryWrapper, Section } from './styles';
 import OrderSummary from './OrderSummary';
 import OrderConfirmation from './OrderConfirmation';
 import ShippingAddressForm from './ShippingAddressForm';
@@ -8,7 +8,6 @@ import Button from './Button';
 
 const CheckoutTemplate = ({ items, total }) => (
   <Wrapper>
-    <GlobalStyles />
     <SummaryWrapper>
       <OrderSummary items={items} />
       <Section style={{ flex: 1 }}>

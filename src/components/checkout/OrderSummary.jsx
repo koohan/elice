@@ -10,7 +10,7 @@ const OrderSummary = ({ items }) => (
           <Cell>품목</Cell>
           <Cell>가격</Cell>
           <Cell>수량</Cell>
-          <Cell>총계</Cell>
+          <Cell>총 금액</Cell>
         </TableRow>
       </THead>
       <TBody>
@@ -25,9 +25,9 @@ const OrderSummary = ({ items }) => (
                 </div>
               </div>
             </td>
-            <Cell>{item.price.toLocaleString('ko-KR')}원</Cell>
+            <Cell>{item.price.toLocaleString('ko-KR')} 원</Cell>
             <Cell>{item.quantity}</Cell>
-            <Cell>{(item.price * item.quantity).toLocaleString('ko-KR')}원</Cell>
+            <Cell>{(item.price * item.quantity).toLocaleString('ko-KR')} 원</Cell>
           </TableRow>
         ))}
       </TBody>

@@ -8,12 +8,12 @@ const OrderConfirmation = ({ total, items }) => {
       {items.map((item, index) => (
         <Row key={index}>
           <span>{item.name}</span>
-          <span>{(item.price * item.quantity).toLocaleString('ko-KR')}원</span>
+          <span>{(item.price * item.quantity).toLocaleString('ko-KR')} 원</span>
         </Row>
       ))}
       <BoldRow>
-        <span>총계</span>
-        <span>{total.toLocaleString('ko-KR')}원</span>
+        <span>총 금액 :</span>
+        <span>{total.toLocaleString('ko-KR')} 원</span>
       </BoldRow>
     </>
   );

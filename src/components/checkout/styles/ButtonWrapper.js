@@ -7,8 +7,7 @@ const ButtonWrapper = styled.div`
   flex-direction: column;
   padding: 16px;
   margin: 0 auto;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 4rem;
   border-bottom: 1px solid #eee;
   border-radius: 10px;
   background: #000;
