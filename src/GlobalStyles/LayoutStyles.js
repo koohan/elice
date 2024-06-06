@@ -31,3 +31,9 @@ export const CartContainer = styled.div`
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
+
+export const Line = styled.div`
+  flex: 1;
+  height: 1px;
+  background-color: #B6BFDA;
+`
