@@ -2,15 +2,14 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/LoginPage';
 import ProductPage from "./pages/ProductPage"
-import Main from './components/main/main';
+import Main from './pages/MainPage';
 import CartPage from './pages/CartPage';
 import Register from './pages/RegisterPage';
 import CheckoutPage from './pages/CheckoutPage';
 import DetailPage from './pages/DetailPage';
 import Sidebar from './pages/Sidebarpage';
 import AccountPage from './pages/AccountPage';
-import Test from './components/main/ItemList';
-import OrdersPage from './pages/OrdersPage';
+import Nav from './components/nav/nav';
 
 function App() {
 
@@ -18,9 +17,9 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/test" element={<Test />} />
+          <Route path='/nav' element={<Nav />} />
           <Route path='/register' element={<Register />} />
-          <Route path="/main" element={<Main />} />
+          <Route path="/" element={<Main />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/side" element={<Sidebar />} />
           <Route path="/login" element={<Login />} />
