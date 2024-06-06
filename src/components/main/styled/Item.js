@@ -19,6 +19,7 @@ export const ProductContainer = styled.div`
     flex-direction: column;
     width: 620px;
     justify-content: center;
+    margin: 0 auto;
 `;
 
 export const Description = styled.div`

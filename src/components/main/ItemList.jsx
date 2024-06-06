@@ -7,7 +7,7 @@ import Item4 from './Item4';
 import Item5 from './Item5';
 
 const ItemList = () => {
-    const [selectedItem, setSelectedItem] = useState(null);
+    const [selectedItem, setSelectedItem] = useState(1);
 
     const renderSelectedItem = () => {
         switch (selectedItem) {
@@ -27,20 +27,18 @@ const ItemList = () => {
     };
 
     return (
-        <>
-            <Container>
-                <ButtonContainer>
-                    <StyledButton onClick={() => setSelectedItem(1)}>버튼 1</StyledButton>
-                    <StyledButton onClick={() => setSelectedItem(2)}>버튼 2</StyledButton>
-                    <StyledButton onClick={() => setSelectedItem(3)}>버튼 3</StyledButton>
-                    <StyledButton onClick={() => setSelectedItem(4)}>버튼 4</StyledButton>
-                    <StyledButton onClick={() => setSelectedItem(5)}>버튼 5</StyledButton>
-                </ButtonContainer>
-                <ItemContainer>
-                    {renderSelectedItem()}
-                </ItemContainer>
-            </Container>
-        </>
+        <Container>
+            <ButtonContainer>
+                <StyledButton className={selectedItem === 1 ? 'selected' : ''} onClick={() => setSelectedItem(1)}>버튼 1</StyledButton>
+                <StyledButton className={selectedItem === 2 ? 'selected' : ''} onClick={() => setSelectedItem(2)}>버튼 2</StyledButton>
+                <StyledButton className={selectedItem === 3 ? 'selected' : ''} onClick={() => setSelectedItem(3)}>버튼 3</StyledButton>
+                <StyledButton className={selectedItem === 4 ? 'selected' : ''} onClick={() => setSelectedItem(4)}>버튼 4</StyledButton>
+                <StyledButton className={selectedItem === 5 ? 'selected' : ''} onClick={() => setSelectedItem(5)}>버튼 5</StyledButton>
+            </ButtonContainer>
+            <ItemContainer>
+                {renderSelectedItem()}
+            </ItemContainer>
+        </Container>
     )
 }
 
