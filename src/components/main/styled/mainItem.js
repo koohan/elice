@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 1280px;
-    border: 1px solid #333;
-    
+    width: 1280px;   
 `;
 
 export const ButtonContainer = styled.div`
     display: flex;
     width: 100%;
     height: 48px;
-    border-bottom: 1px solid #333;
+    border: 1px solid #333;
+    margin-bottom: 40px;
 `;
 
 export const ItemContainer = styled.div`
