@@ -7,7 +7,7 @@ export const ImgBtn = styled.button`
     border: none;
 
     img {
-        width: 400px;
+        width: 360px;
         height: 240px;
         border: 1px solid #333;
         object-fit: cover; 
@@ -15,7 +15,7 @@ export const ImgBtn = styled.button`
 `;
 
 export const EtcContainer = styled.div`
-    width: 400px;
+    width: 360px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -28,13 +28,6 @@ export const EtcContainer = styled.div`
         font-size: 16px;
         user-select: none;
     }
-`;
-
-export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 20px;
 `;
 
 export const AddtoWishlistButton = styled.button`
@@ -58,21 +51,24 @@ export const AddtoWishlistButton = styled.button`
 export const Container = styled.div`
     width: 1280px;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
     align-items: center;
-    padding: 10px;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    cursor: grab;
-    border : 2px solid #ddd;
-    padding : 20px;
-    
+    border: 2px solid #ddd;
+    padding: 20px;
+    overflow-y: auto;
+    height: ${props => props.height || "auto"};
+    transition: height 0.5s ease;
+
     &::-webkit-scrollbar {
         display: none;
     }
+`;
 
-    &:active {
-        cursor: grabbing;
-    }
+export const Wrapper = styled.div`
+    width: calc(33.3333% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
 `;

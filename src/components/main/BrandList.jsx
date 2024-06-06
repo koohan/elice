@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { ImgBtn, EtcContainer, Wrapper, AddtoWishlistButton, Container } from './styled/mainBrand';
@@ -25,47 +25,35 @@ function ImageBtn({ imgSrc, brand }) {
 }
 
 function BrandList({ images, brands }) {
+    const [containerHeight, setContainerHeight] = useState("350px");
     const containerRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
 
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.pageX - containerRef.current.offsetLeft);
-        setScrollLeft(containerRef.current.scrollLeft);
-    };
+    useEffect(() => {
+        const handleScroll = () => {
+            setContainerHeight("auto");
+        };
 
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    };
+        const container = containerRef.current;
+        if (container) {
+            container.addEventListener("scroll", handleScroll);
+        }
 
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - containerRef.current.offsetLeft;
-        const walk = (x - startX) * 2;
-        containerRef.current.scrollLeft = scrollLeft - walk;
-    };
+        return () => {
+            if (container) {
+                container.removeEventListener("scroll", handleScroll);
+            }
+        };
+    }, []);
 
     if (!images || !brands || images.length === 0 || brands.length === 0) {
-        return <div>데이터 0</div>;
+        return <div>데이터 없음</div>;
     }
 
     return (
-        <Container
-            ref={containerRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-        >
+        <Container height={containerHeight} ref={containerRef}>
             {images.map((imgSrc, index) => (
                 <ImageBtn
+                    key={index}
                     imgSrc={imgSrc}
                     brand={brands[index]}
                 />
