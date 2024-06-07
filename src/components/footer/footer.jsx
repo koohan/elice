@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const FooterContainer = styled.footer`
     border-top: 1px solid #D8D8D8;
@@ -49,13 +50,15 @@ const ExplanDiv = styled.div`
 `;
 
 const Footer = () => {
+    const navigate = useNavigate();
+
     return (
         <FooterContainer>
             <DetailDiv>
                 <TeamDiv>
                     <Div>팀 소개</Div>
                     |
-                    <Btn>고객 지원</Btn>
+                    <Btn onClick={() => navigate("/support")}>고객 지원</Btn>
                 </TeamDiv>
             </DetailDiv>
             <Line />
