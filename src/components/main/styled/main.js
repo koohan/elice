@@ -21,7 +21,7 @@ export const ItemContainer = styled.div`
 export const BrandContainer = styled.div`
     display: flex;
     justify-content: center;
-    margin-bottom: 500px;
+    margin-bottom: 100px;
 `;
 
 export const LineContainer = styled.div`

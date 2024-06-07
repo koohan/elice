@@ -2,11 +2,13 @@
 // main 요소는 components/main/main.jsx에 추가하기
 import React from 'react';
 import Main from '../components/main/main';
+import Footer from '../components/footer/footer';
 
 const Mainpage = () => {
   return (
     <>
         <Main />
+        <Footer />
     </>
   );
 };
