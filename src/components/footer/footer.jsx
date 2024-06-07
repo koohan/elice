@@ -2,16 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGitlab, faGithub, faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { faGitlab } from "@fortawesome/free-brands-svg-icons";
+import { faStore } from "@fortawesome/free-solid-svg-icons";
 
 const FooterContainer = styled.footer`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #D8D8D8;
     height: 100px;
     padding: 20px;
-   
+    background-color: #f9f9f9;
 `;
 
 const DeveloperInfo = styled.div`
@@ -43,17 +43,13 @@ const Footer = () => {
     return (
         <FooterContainer>
             <DeveloperInfo>
-                Developed by <a href="https://example.com">2TEAM</a>
+                <FontAwesomeIcon icon={faStore} style={{ marginRight: "5px" }} />
+                <span>Elice Store Developed by </span>
+                <a href="https://example.com">2TEAM</a>
             </DeveloperInfo>
             <ProjectLink>
-                <a href="https://github.com">
-                    <FontAwesomeIcon icon={faGithub} size="2x" />
-                </a>
                 <a href="https://gitlab.com">
                     <FontAwesomeIcon icon={faGitlab} size="2x" />
-                </a>
-                <a href="https://discord.com">
-                    <FontAwesomeIcon icon={faDiscord} size="2x" />
                 </a>
             </ProjectLink>
         </FooterContainer>
