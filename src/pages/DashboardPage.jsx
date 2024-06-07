@@ -24,7 +24,12 @@ const DashboardPage = () => {
       totalStock: 5673,
     },
     productList: [
-      { id: 3210, brand: '나이키', amount: 42250, status: '판매중' },
+        { id: 1, name: '아크메 프리즘 티셔츠', brand: '나이키', price: '20,000원', category: '남성 상의' },
+        { id: 2, name: '선셋 비치 반바지', brand: '나이키', price: '20,000원', category: '남성 반바지' },
+        { id: 3, name: '에코 플랜터', brand: '나이키', price: '20,000원', category: '홈데코' },
+        { id: 4, name: '제스트 주서기', brand: '나이키', price: '20,000원', category: '주방용품' },
+        { id: 5, name: '플렉시 웨어러블', brand: '나이키', price: '20,000원', category: '남성 액티브웨어' },
+        { id: 6, name: '선셋 비치 타월', brand: '나이키', price: '20,000원', category: '액세서리' },
     ],
   };
 

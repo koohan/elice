@@ -7,8 +7,11 @@ export const CommonTitle = styled.h1`
   width: 100%;
 `;
 
-export const ProductItem = styled.div`
+export const ProductItemUpdate = styled.span`
   margin: 5px 0;
   width: 25%;
   text-align: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
 `;
