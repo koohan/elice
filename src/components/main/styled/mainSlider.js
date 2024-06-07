@@ -14,7 +14,7 @@ export const Button = styled.button`
 `;
 
 export const SlideContainer = styled.div`
-  width: 620px;
+  width: 600px;
   height: 430px;
   display: flex;
   flex-direction: column;
@@ -23,13 +23,12 @@ export const SlideContainer = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 620px;
+  width: 600px;
   height: 400px;
   object-fit: cover;
 `;
 
 export const ProductName = styled.div`
-  margin-top: 10px;
   font-size: 20px;
   color: #333;
 `;
@@ -45,8 +44,6 @@ export const SliderContainer = styled.div`
 
 export const SliderWrapper = styled.div`
   display: flex;
-  transition: ${props => props.$isAnimating ? 'transform 1s ease-in-out' : 'none'};
-  transform: translateX(${props => -props.$currentIndex * 1280}px);
 `;
 
 export const ButtonContainer = styled.div`
