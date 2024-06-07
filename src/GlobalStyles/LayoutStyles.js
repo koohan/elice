@@ -12,7 +12,7 @@ export const ContentLayout = styled.div`
 
 export const SidebarLayout = styled.div`
   width: 300px;
-  height: 100%;
+  height: 100vh;
   z-index: 1;
   position: sticky;
   top: 0;
@@ -35,5 +35,5 @@ export const CartContainer = styled.div`
 export const Line = styled.div`
   flex: 1;
   height: 1px;
-  background-color: #B6BFDA;
-`
+  background-color: #b6bfda;
+`;
