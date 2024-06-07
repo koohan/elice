@@ -11,6 +11,7 @@ import Sidebar from './pages/Sidebarpage';
 import AccountPage from './pages/AccountPage';
 import OrdersPage from './pages/OrdersPage';
 import Nav from './components/nav/nav';
+import Dashboard from '../src/pages/DashboardPage';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/nav' element={<Nav />} />
+          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/register' element={<Register />} />
           <Route path="/" element={<Main />} />
           <Route path="/account" element={<AccountPage />} />

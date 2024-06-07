@@ -1,7 +1,11 @@
-import React from "react";
+import React from 'react'
 
-const NavBar = () => {
-
+const nav = () => {
+  return (
+    <div>
+      <h1>네비바 들어갈 공간</h1>
+    </div>
+  )
 }
 
-export default NavBar;
+export default nav
