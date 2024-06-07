@@ -7,6 +7,7 @@ import {
   ContentLayout,
 } from "../GlobalStyles/LayoutStyles";
 import NavBar from "../components/nav/nav";
+import Footer from "../components/footer/footer";
 
 const DashboardPage = () => {
   const user = {
@@ -45,6 +46,7 @@ const DashboardPage = () => {
         <Dashboard data={data} />
       </ContentLayout>
     </PageLayout>
+    <Footer/>
     </>
   );
 };

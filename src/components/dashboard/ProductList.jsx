@@ -11,8 +11,8 @@ const ProductList = ({ productList }) => (
           <TableHeaderImg>이미지</TableHeaderImg>
           <TableHeader>이름</TableHeader>
           <TableHeader>브랜드</TableHeader>
-          <TableHeader>가격</TableHeader>
           <TableHeader>카테고리</TableHeader>
+          <TableHeader>가격</TableHeader>
           <TableHeader>정보 수정</TableHeader>
         </TableRow>
       </thead>
@@ -22,8 +22,8 @@ const ProductList = ({ productList }) => (
             <TableCellImg><ImagePlaceholder /></TableCellImg>
             <TableCell>{product.name}</TableCell>
             <TableCell>{product.brand}</TableCell>
-            <TableCell>{product.price}</TableCell>
             <TableCell>{product.category}</TableCell>
+            <TableCell>{product.price}</TableCell>
             <TableCell>
               <ActionButton>
                 <FontAwesomeIcon icon={faEdit} /> 수정
