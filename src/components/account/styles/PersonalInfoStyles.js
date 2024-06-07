@@ -64,6 +64,23 @@ export const Button = styled.button`
   background-color: #455186;
   }
 `;
+
+export const DelBtn = styled.button`
+  width: 8rem;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #B40404;
+  color: white;
+  cursor: pointer;
+  margin-left: 20px;
+
+  &:hover{
+  background-color: #F6CECE;
+  color: #B40404;
+  }
+`
+
 export const Avatar = styled.img`
   width: 150px;
   height: 150px;

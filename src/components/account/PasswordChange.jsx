@@ -11,6 +11,7 @@ import {
   InputSection,
   ReadOnlyInput,
   InstructionsSection,
+  DelBtn
 } from "./styles/PersonalInfoStyles";
 
 const PasswordChange = ({ user }) => {
@@ -57,6 +58,7 @@ const PasswordChange = ({ user }) => {
               />
             </InputGroup>
             <Button>비밀번호 변경</Button>
+            <DelBtn>탈퇴하기</DelBtn>
           </InputSection>
           <InstructionsSection>
             <Label>안녕하세요 {user.name}님,</Label>
