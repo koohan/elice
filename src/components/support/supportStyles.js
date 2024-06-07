@@ -16,6 +16,7 @@ export const TextArea = styled.textarea`
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
+    resize: none;
 `;
 
 export const Button = styled.button`

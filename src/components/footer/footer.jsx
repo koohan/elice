@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const FooterContainer = styled.footer`
     border-top: 1px solid #D8D8D8;
@@ -22,12 +23,13 @@ const TeamDiv = styled.div`
     flex-direction: row;
     height: 30px;
     font-size: 16px;
-    color: #343a40;
+    color: #57638A;
     margin-bottom: 10px;
     align-item: center;
 `;
 
 const Div = styled.div`
+    color: #57638A;
     font-size: 16px;
     align-item: center;
     height: 20px;
@@ -38,24 +40,26 @@ const Btn = styled.button`
     font-size: 16px;
     border: none;
     background-color: transparent;
-    color: #343a40;
+    color: #57638A;
     cursor: pointer;
 `
 
 const ExplanDiv = styled.div`
     margin-top: 20px;
     font-size: 15px;
-    color: #6c757d;
+    color: #777;
 `;
 
 const Footer = () => {
+    const navigate = useNavigate();
+
     return (
         <FooterContainer>
             <DetailDiv>
                 <TeamDiv>
                     <Div>팀 소개</Div>
                     |
-                    <Btn>고객 지원</Btn>
+                    <Btn onClick={() => navigate("/support")}>고객 지원</Btn>
                 </TeamDiv>
             </DetailDiv>
             <Line />

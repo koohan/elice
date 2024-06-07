@@ -25,6 +25,11 @@ export const ProductContainer = styled.div`
 export const Description = styled.div`
     margin-left: 40px;
     padding-bottom: 10px;
+    color: #57638A;
+    
+    h2 {
+    color: #0C0E46;
+    }
 `; //나중에 색이랑 글시체 넣을 예정
 
 export const Products = styled.div`
@@ -52,8 +57,10 @@ export const Pic = styled.div`
 export const Name = styled.div`
     margin: 5px 0;
     font-size: 14px;
+    color: #57638A;
 `;//나중에 색이랑 글시체 넣을 예정
 
 export const Price = styled.div`
     font-weight: bold;
+    color: #0C0E46;
 `;//나중에 색이랑 글시체 넣을 예정
