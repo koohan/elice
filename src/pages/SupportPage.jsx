@@ -5,7 +5,8 @@ import {
     ContentLayout,
 } from "../GlobalStyles/LayoutStyles";
 import Sidebar from "../components/sidebar/Sidebar";
-import Support from '../components/support/support.jsx'
+import Support from '../components/support/support'
+import NavBar from "../components/nav/nav";
 
 
 const SupportPage = () => {
@@ -17,14 +18,17 @@ const SupportPage = () => {
     };
 
     return (
-        <PageLayout>
-            <SidebarLayout>
-                <Sidebar user={user} />
-            </SidebarLayout>
-            <ContentLayout>
+        <>
+            <NavBar />
+            <PageLayout>
+                <SidebarLayout>
+                    <Sidebar user={user} />
+                </SidebarLayout>
+                <ContentLayout>
                     <Support />
-            </ContentLayout>
-        </PageLayout>
+                </ContentLayout>
+            </PageLayout>
+        </>
     );
 };
 
