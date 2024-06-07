@@ -23,12 +23,13 @@ const TeamDiv = styled.div`
     flex-direction: row;
     height: 30px;
     font-size: 16px;
-    color: #343a40;
+    color: #57638A;
     margin-bottom: 10px;
     align-item: center;
 `;
 
 const Div = styled.div`
+    color: #57638A;
     font-size: 16px;
     align-item: center;
     height: 20px;
@@ -39,14 +40,14 @@ const Btn = styled.button`
     font-size: 16px;
     border: none;
     background-color: transparent;
-    color: #343a40;
+    color: #57638A;
     cursor: pointer;
 `
 
 const ExplanDiv = styled.div`
     margin-top: 20px;
     font-size: 15px;
-    color: #6c757d;
+    color: #777;
 `;
 
 const Footer = () => {

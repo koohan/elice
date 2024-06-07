@@ -3,7 +3,8 @@ import {
     RegisterButton, 
     StyledInput, 
     PlaceholderSpan, 
-    LineContainer, 
+    LineContainer,
+    Line, 
     OauthContainer, 
     RegisterContainerWrapper, 
     RegisterMainContainer 
@@ -41,7 +42,9 @@ const RegisterBox = () => (
 const Oauth = () => (
     <>
         <LineContainer>
+            <Line />
             <div>1초 회원가입</div>
+            <Line />
         </LineContainer>
         <OauthContainer>
             <button className='google-login'><img src={googleLogo} /></button>

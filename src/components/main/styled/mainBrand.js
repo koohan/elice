@@ -54,7 +54,6 @@ export const Container = styled.div`
     flex-wrap: wrap;
     gap: 20px;
     align-items: center;
-    border: 2px solid #ddd;
     padding: 20px;
     overflow-y: auto;
     height: ${props => props.height || "auto"};

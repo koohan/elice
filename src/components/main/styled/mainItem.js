@@ -8,7 +8,7 @@ export const ButtonContainer = styled.div`
     display: flex;
     width: 100%;
     height: 48px;
-    border: 1px solid #333;
+    border: 1px solid #7485BC;
     margin-bottom: 40px;
 `;
 
@@ -23,8 +23,9 @@ export const StyledButton = styled.button`
     text-align: center;
     background-color: transparent;
     cursor: pointer;
+    color: #0C0E46;
     
     &.selected {
-        background-color: #ddd;
+        background-color: #D1DCFD;
     }
 `;

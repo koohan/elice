@@ -18,7 +18,7 @@ export const ImgBtn = styled.button`
 
     span {
         margin-top: 10px;
-        color: #222222;
+        color: #0C0E46;
         font-size: 14px;
     }
 `;

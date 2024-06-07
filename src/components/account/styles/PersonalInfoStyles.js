@@ -18,8 +18,7 @@ export const Section = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: #000;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  color: #151515;
   margin-bottom: 20px;
   font-size: 1.5em;
 `;
@@ -37,13 +36,17 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #7485BC;
   border-radius: 4px;
+
+  &:focus{
+  border: 1px solid #455186;
+  }
 `;
 
 export const ReadOnlyInput = styled.div`
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #7485BC;
   border-radius: 4px;
   letter-spacing: 5px;
 `;
@@ -53,9 +56,13 @@ export const Button = styled.button`
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: #000;
+  background-color: #7485BC;
   color: white;
   cursor: pointer;
+
+  &:hover{
+  background-color: #455186;
+  }
 `;
 export const Avatar = styled.img`
   width: 150px;

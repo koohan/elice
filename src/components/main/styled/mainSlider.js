@@ -30,7 +30,7 @@ export const Image = styled.img`
 
 export const ProductName = styled.div`
   font-size: 20px;
-  color: #333;
+  color: #0C0E46;
 `;
 
 export const SliderContainer = styled.div`
@@ -56,4 +56,5 @@ export const ButtonContainer = styled.div`
 export const PageIndicator = styled.span`
   margin: 0 20px;
   font-size: 16px;
+  color: #0C0E46;
 `;
