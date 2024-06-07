@@ -36,50 +36,51 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   padding: 10px;
-  border: 1px solid #7485BC;
+  border: 1px solid #7485bc;
   border-radius: 4px;
 
-  &:focus{
-  border: 1px solid #455186;
+  &:focus {
+    border: 1px solid #455186;
   }
 `;
 
 export const ReadOnlyInput = styled.div`
   padding: 10px;
-  border: 1px solid #7485BC;
+  border: 1px solid #7485bc;
   border-radius: 4px;
   letter-spacing: 5px;
 `;
 
 export const Button = styled.button`
   width: 8rem;
+  font-size: 16px;
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: #7485BC;
+  background-color: #7485bc;
   color: white;
   cursor: pointer;
 
-  &:hover{
-  background-color: #455186;
+  &:hover {
+    background-color: #455186;
   }
 `;
 
 export const DelBtn = styled.button`
   width: 8rem;
+  font-size: 16px;
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background-color: #B40404;
+  background-color: #b40404;
   color: white;
   cursor: pointer;
   margin-left: 20px;
 
-  &:hover{
-  background-color: #F6CECE;
-  color: #B40404;
+  &:hover {
+    background-color: darkred;
   }
-`
+`;
 
 export const Avatar = styled.img`
   width: 150px;

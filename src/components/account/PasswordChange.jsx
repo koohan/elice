@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import {
   Container,
   Section,
@@ -11,25 +11,23 @@ import {
   InputSection,
   ReadOnlyInput,
   InstructionsSection,
-  DelBtn
+  DelBtn,
 } from "./styles/PersonalInfoStyles";
+import usePasswordChange from "./usePasswordChange";
 
 const PasswordChange = ({ user }) => {
-  const currentPasswordRef = useRef(null);
-  const newPasswordRef = useRef(null);
-  const confirmPasswordRef = useRef(null);
-
-  const handleKeyDown = (e, nextInputRef) => {
-    if (e.key === "Enter" && nextInputRef) {
-      nextInputRef.current.focus();
-    }
-  };
-
-  const maskPassword = (password) => {
-    const visibleLength = 2;
-    const maskedLength = password.length - visibleLength;
-    return "*".repeat(maskedLength) + password.slice(-visibleLength);
-  };
+  const {
+    newPassword,
+    confirmPassword,
+    newPasswordRef,
+    confirmPasswordRef,
+    setNewPassword,
+    setConfirmPassword,
+    handleKeyDown,
+    handlePasswordChange,
+    handleDeleteUser,
+    maskPassword,
+  } = usePasswordChange(user);
 
   return (
     <Container>
@@ -41,24 +39,34 @@ const PasswordChange = ({ user }) => {
               <Label>현재 비밀번호</Label>
               <ReadOnlyInput>{maskPassword(user.password)}</ReadOnlyInput>
             </InputGroup>
-            <InputGroup>
-              <Label>새 비밀번호</Label>
-              <Input
-                type="password"
-                ref={newPasswordRef}
-                onKeyDown={(e) => handleKeyDown(e, confirmPasswordRef)}
-              />
-            </InputGroup>
-            <InputGroup>
-              <Label>새 비밀번호 확인</Label>
-              <Input
-                type="password"
-                ref={confirmPasswordRef}
-                onKeyDown={(e) => handleKeyDown(e, null)}
-              />
-            </InputGroup>
-            <Button>비밀번호 변경</Button>
-            <DelBtn>탈퇴하기</DelBtn>
+            <form onSubmit={handlePasswordChange}>
+              <InputGroup>
+                <Label>새 비밀번호</Label>
+                <Input
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  ref={newPasswordRef}
+                  onKeyDown={(e) => handleKeyDown(e, confirmPasswordRef)}
+                  autoComplete="new-password"
+                />
+              </InputGroup>
+              <InputGroup>
+                <Label>새 비밀번호 확인</Label>
+                <Input
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  ref={confirmPasswordRef}
+                  onKeyDown={(e) => handleKeyDown(e, null)}
+                  autoComplete="new-password"
+                />
+              </InputGroup>
+              <div style={{ display: "flex", gap: "10px" }}>
+                <Button type="submit">비밀번호 변경</Button>
+                <DelBtn type="button" onClick={handleDeleteUser}>탈퇴하기</DelBtn>
+              </div>
+            </form>
           </InputSection>
           <InstructionsSection>
             <Label>안녕하세요 {user.name}님,</Label>
