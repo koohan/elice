@@ -1,63 +1,86 @@
-import React, { useRef, useEffect } from 'react';
-import { Container, Section, Title, InputGroup, Label, Input, Button, Avatar, FlexContainer, InputSection, AvatarSection } from './styles/PersonalInfoStyles';
+import React, { useRef, useEffect, useState } from "react";
+import {
+  Container,
+  Section,
+  Title,
+  InputGroup,
+  Label,
+  Input,
+  Button,
+  Avatar,
+  FlexContainer,
+  InputSection,
+  AvatarSection,
+} from "./styles/PersonalInfoStyles";
 
 const PersonalInfo = ({ user }) => {
-    const nameInputRef = useRef(null);
-    const emailInputRef = useRef(null);
-    const phoneInputRef = useRef(null);
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [phone, setPhone] = useState(user.phone);
 
-    useEffect(() => {
-        nameInputRef.current.focus();
-    }, []);
+  const nameInputRef = useRef(null);
+  const emailInputRef = useRef(null);
+  const phoneInputRef = useRef(null);
 
-    const handleKeyDown = (e, nextInputRef) => {
-        if (e.key === 'Enter' && nextInputRef) {
-            nextInputRef.current.focus();
-        }
-    };
+  useEffect(() => {
+    nameInputRef.current.focus();
+  }, []);
 
-    return (
-        <Container>
-            <Section>
-                <Title>{user.name} 님의 정보</Title>
-                <FlexContainer>
-                    <InputSection>
-                        <InputGroup>
-                            <Label>이름</Label>
-                            <Input 
-                                type="text" 
-                                value={user.name} 
-                                ref={nameInputRef} 
-                                onKeyDown={(e) => handleKeyDown(e, emailInputRef)}
-                            />
-                        </InputGroup>
-                        <InputGroup>
-                            <Label>이메일</Label>
-                            <Input 
-                                type="email" 
-                                value={user.email} 
-                                ref={emailInputRef} 
-                                onKeyDown={(e) => handleKeyDown(e, phoneInputRef)}
-                            />
-                        </InputGroup>
-                        <InputGroup>
-                            <Label>전화번호</Label>
-                            <Input 
-                                type="text" 
-                                value={user.phone} 
-                                ref={phoneInputRef} 
-                                onKeyDown={(e) => handleKeyDown(e, null)}
-                            />
-                        </InputGroup>
-                        <Button>편집</Button>
-                    </InputSection>
-                    <AvatarSection>
-                        <Avatar src={user.avatar} alt={`${user.name} 님의 아바타`} />
-                    </AvatarSection>
-                </FlexContainer>
-            </Section>
-        </Container>
-    );
+  const handleKeyDown = (e, nextInputRef) => {
+    if (e.key === "Enter" && nextInputRef) {
+      nextInputRef.current.focus();
+    }
+  };
+
+  const handleEdit = () => {
+    console.log("Edited:", { name, email, phone });
+  };
+
+  return (
+    <Container>
+      <Section>
+        <Title>{user.name} 님의 정보</Title>
+        <FlexContainer>
+          <InputSection>
+            <InputGroup>
+              <Label>이름</Label>
+              <Input
+                type="text"
+                value={name}
+                ref={nameInputRef}
+                onChange={(e) => setName(e.target.value)}
+                onKeyDown={(e) => handleKeyDown(e, emailInputRef)}
+              />
+            </InputGroup>
+            <InputGroup>
+              <Label>이메일</Label>
+              <Input
+                type="email"
+                value={email}
+                ref={emailInputRef}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={(e) => handleKeyDown(e, phoneInputRef)}
+              />
+            </InputGroup>
+            <InputGroup>
+              <Label>전화번호</Label>
+              <Input
+                type="text"
+                value={phone}
+                ref={phoneInputRef}
+                onChange={(e) => setPhone(e.target.value)}
+                onKeyDown={(e) => handleKeyDown(e, null)}
+              />
+            </InputGroup>
+            <Button onClick={handleEdit}>편집</Button>
+          </InputSection>
+          <AvatarSection>
+            <Avatar src={user.avatar} alt={`${user.name} 님의 아바타`} />
+          </AvatarSection>
+        </FlexContainer>
+      </Section>
+    </Container>
+  );
 };
 
 export default PersonalInfo;
