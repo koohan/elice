@@ -11,7 +11,7 @@ const Sidebar = ({ user }) => {
     { icon: "settings", text: "계정 설정", path: "/account" },
     { icon: "payment", text: "결제 수단 관리", path: "아직 안 만듦" },
     { icon: "delivery", text: "배송지 관리", path: "아직 안 만듦" },
-    { icon: "support", text: "고객센터", path: "아직 안 만듦" },
+    { icon: "support", text: "고객센터", path: "/support" },
   ];
 
   const navigate = useNavigate();
