@@ -12,6 +12,7 @@ import AccountPage from './pages/AccountPage';
 import OrdersPage from './pages/OrdersPage';
 import Nav from './components/nav/nav';
 import Dashboard from '../src/pages/DashboardPage';
+import SupportPage from './pages/SupportPage'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/Checkouts" element={<CheckoutPage />} />
           <Route path="/Details" element={<DetailPage />} />
           <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/support" element={<SupportPage />} />
         </Routes>
       </Router>
     </>

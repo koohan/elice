@@ -6,7 +6,7 @@ import NextSrc from '../../assets/nextbtn.webp';
 
 const Sliders = () => {
   const [imageData, setImageData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     fetch('/db.json')
@@ -23,17 +23,29 @@ const Sliders = () => {
       });
   }, []);
 
-  const totalPage = Math.ceil(imageData.length / 2);
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      setCurrentPage(currentPage => (currentPage + 1) % imageData.length);
+    }, 5000);
+
+    return () => clearInterval(slideInterval);
+  }, [imageData.length]);
+
+  const totalPage = imageData.length;
 
   const handlePrevClick = () => {
-    if (currentPage > 1) {
+    if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
+    } else {
+      setCurrentPage(totalPage - 1);
     }
   };
 
   const handleNextClick = () => {
-    if (currentPage < totalPage) {
+    if (currentPage < totalPage - 1) {
       setCurrentPage(currentPage + 1);
+    } else {
+      setCurrentPage(0);
     }
   };
 
@@ -48,7 +60,7 @@ const Sliders = () => {
           alt="Prev"
           onClick={handlePrevClick}
         />
-        <PageIndicator>{currentPage} / {totalPage}</PageIndicator>
+        <PageIndicator>{currentPage + 1} / {totalPage}</PageIndicator>
         <ImageBtn
           src={NextSrc}
           alt="Next"

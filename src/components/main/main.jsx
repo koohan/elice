@@ -36,7 +36,6 @@ const Mainpage = () => {
       <BrandContainer>
         <Brand />
       </BrandContainer>
-      <footer>asdfasdfasdf</footer>
     </>
   );
 };

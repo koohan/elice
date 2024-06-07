@@ -1,38 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Button, SlideContainer, Image, ProductName, SliderContainer, SliderWrapper } from './styled/mainSlider';
 
-const ImageBtn = ({ src, alt, onClick }) => {
-    return (
-        <Button onClick={onClick}>
-            <img src={src} alt={alt} style={{ maxWidth: '100%', maxHeight: '100%' }} />
-        </Button>
-    );
-};
+const ImageBtn = ({ src, alt, onClick }) => (
+    <Button onClick={onClick}>
+        <img src={src} alt={alt} style={{ maxWidth: '100%', maxHeight: '100%' }} />
+    </Button>
+);
 
-const Slide = ({ src, alt, name }) => {
-    return (
-        <SlideContainer>
-            <Image src={src} alt={alt} />
-            <ProductName>{name}</ProductName>
-        </SlideContainer>
-    );
-};
+const Slide = ({ src, alt, name }) => (
+    <SlideContainer>
+        <Image src={src} alt={alt} />
+        <ProductName>{name}</ProductName>
+    </SlideContainer>
+);
 
 const Slider = ({ images, currentPage }) => {
-    const [isAnimating, setIsAnimating] = useState(false);
     const length = images.length;
 
-    useEffect(() => {
-        setIsAnimating(true);
-    }, [currentPage]);
-
-    if (images.length === 0) {
+    if (length === 0) {
         return null;
     }
 
+    const sliderStyle = {
+        transform: `translateX(-${currentPage * (100 / length)}%)`,
+        transition: 'transform 0.5s ease-out',
+        width: `${length * 100}%`,
+    };
+
     return (
         <SliderContainer>
-            <SliderWrapper $currentIndex={currentPage - 1} $isAnimating={isAnimating}>
+            <SliderWrapper style={sliderStyle}>
                 {images.map((image, index) => (
                     <Slide key={index} src={image.src} alt={`slide-${index}`} name={image.name} />
                 ))}
