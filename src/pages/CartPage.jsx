@@ -22,18 +22,29 @@ const CartPage = () => {
     return <p>Error: {error.message}</p>;
   }
 
-  const items = [].concat(...data.product.map(({ variants }) => 
-    variants.map(({ variantId, name, shortdescription, price, stock, images }) => ({
-      id: variantId,
-      product: {
-        name,
-        description: shortdescription,
-        price,
-        image: images[0]  
-      },
-      stock: stock  
-    }))
-  ));
+
+  //Array.Prototype.flatMap <- mdn참조해보세요
+  // 1. data.json 파일 구조 보면 [[[]]] 이런식
+  // 2. 커스텀 훅으로 전달받은 data를 flatMap으로 1차 분해
+  // 3. 분해한 product를 variants로 2차 분해
+  // 4. variants 구조 분해 할당으로 쓰이는 것들 프롭스로 전달
+  // 데이터 관리 준비하실때 제 설명 한번씩 참고해주세요
+  // ui 개발 단계에선 프롭스 네이밍을 신경 안쓰고 했는데 데이터 구조화 됐다고 가정하고
+  // 프롭스 네이밍을 구조 분해 할당 할때 나눠도 괜찮고 컴포넌트 단위로 들어가서 직접 바꿔도 괜찮아요
+  const items = data.flatMap(({ product }) => 
+    product.flatMap(({ variants }) => 
+      variants.map(({ variantId, name, shortdescription, price, stock, images }) => ({
+        id: variantId,
+        product: {
+          name,
+          description: shortdescription,
+          price,
+          image: images[0]  
+        },
+        stock
+      }))
+    )
+  );
 
   const totalAmount = items.reduce((acc, { product: { price }, stock }) => {
     return acc + price * stock;
