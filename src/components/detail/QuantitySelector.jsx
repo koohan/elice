@@ -8,8 +8,8 @@ const QuantitySelector = () => {
     <QuantitySelectorStyled>
       <label>수량</label>
       <select>
-        {quantities.map((quantity, index) => (
-          <option key={index} value={quantity}>{quantity}</option>
+        {quantities.map((quantity) => (
+          <option key={quantity} value={quantity}>{quantity}</option>
         ))}
       </select>
     </QuantitySelectorStyled>

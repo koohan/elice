@@ -18,7 +18,7 @@ import AddProductPages from './pages/AddProductPages';
 function App() {
 
   return (
-    <>
+
       <Router>
         <Routes>
           <Route path='/nav' element={<Nav />} />
@@ -29,15 +29,14 @@ function App() {
           <Route path="/side" element={<Sidebar />} />
           <Route path="/login" element={<Login />} />
           <Route path="/products" element={<ProductPage />} />
-          <Route path="/Carts" element={<CartPage />} />
-          <Route path="/Checkouts" element={<CheckoutPage />} />
+          <Route path="/carts" element={<CartPage />} />
+          <Route path="/checkouts" element={<CheckoutPage />} />
           <Route path="/Details" element={<DetailPage />} />
           <Route path="/orders" element={<OrdersPage />} />
           <Route path="/support" element={<SupportPage />} />
-          <Route path='/Add' element={<AddProductPages />} />
+          <Route path="/add" element={<AddProductPages />} />
         </Routes>
       </Router>
-    </>
   );
 }
 

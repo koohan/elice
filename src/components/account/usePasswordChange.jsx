@@ -1,10 +1,12 @@
 import { useState, useRef } from "react";
 
-const usePasswordChange = (user) => {
+const usePasswordChange = () => {
   const newPasswordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwords, setPasswords] = useState({
+    newPassword: "",
+    confirmPassword: "",
+  });
 
   const handleKeyDown = (e, nextInputRef) => {
     if (e.key === "Enter" && nextInputRef) {
@@ -14,11 +16,11 @@ const usePasswordChange = (user) => {
 
   const handlePasswordChange = (e) => {
     e.preventDefault();
-    if (newPassword !== confirmPassword) {
+    if (passwords.newPassword !== passwords.confirmPassword) {
       alert("비밀번호가 일치하지 않습니다.");
       return;
     }
-    console.log("New Password:", newPassword);
+    console.log("New Password:", passwords.newPassword);
     // 비밀번호 변경 관련해서 백엔드로 UPDATE 요청 보내야 함
   };
 
@@ -28,6 +30,14 @@ const usePasswordChange = (user) => {
     // 사용자 탈퇴 관련해서 백엔드로 DELETE 요청 보내야 함
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPasswords((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const maskPassword = (password) => {
     const visibleLength = 2;
     const maskedLength = password.length - visibleLength;
@@ -35,12 +45,10 @@ const usePasswordChange = (user) => {
   };
 
   return {
-    newPassword,
-    confirmPassword,
+    passwords,
     newPasswordRef,
     confirmPasswordRef,
-    setNewPassword,
-    setConfirmPassword,
+    handleChange,
     handleKeyDown,
     handlePasswordChange,
     handleDeleteUser,
