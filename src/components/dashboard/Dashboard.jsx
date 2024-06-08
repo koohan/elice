@@ -1,14 +1,20 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PriceData from "./PriceData";
 import ProductList from "./ProductList";
 import { Container } from "./styles/GlobalLayout";
 import { HeaderContainer } from "./styles/BoardLayout";
-import { ProductInput, ProductButton, PaginationButton, PaginationContainer,PaginationMainContainer } from "./styles/ProductLayout";
+import { ProductInput, ProductButton, PaginationButton, PaginationContainer, PaginationMainContainer } from "./styles/ProductLayout";
 import { CommonTitle } from "./styles/FontStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = ({ data }) => {
+
+  const navigate = useNavigate();
+
+  const pathProduct = { text: "제품 추가하기", path: "/Add" };
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
@@ -23,50 +29,55 @@ const Dashboard = ({ data }) => {
     currentPage * itemsPerPage
   );
 
+const handleNavigateAdd = () => {
+    navigate(pathProduct.path);
+  };
+
   return (
     <>
-    <Container>
-      <HeaderContainer>
-        <CommonTitle>대시보드</CommonTitle>
-        <div style={{ position: "relative", width: "350px" }}>
-          <FontAwesomeIcon
-            icon={faSearch}
-            style={{
-              position: "absolute",
-              left: "10px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              color: "#aaa",
-            }}
-          />
-          <ProductInput
-            placeholder="제품 검색..."
-            style={{ paddingLeft: "40px" }}
-          />
-        </div>
-      </HeaderContainer>
-      <PriceData priceData={data.priceData} />
-      <HeaderContainer>
-        <CommonTitle>제품 목록</CommonTitle>
-        <div style={{ position: "relative", width: "300px" }}>
-          <ProductButton>제품 추가하기</ProductButton>
-        </div>
-      </HeaderContainer>
-      <ProductList productList={paginatedProductList} />
-    </Container>
-    <PaginationMainContainer>
-    <PaginationContainer>
-         <PaginationButton onClick={() => handlePageChange(currentPage - 1)}>
-           -
-         </PaginationButton>
-         <span>{currentPage}</span>
-         <PaginationButton onClick={() => handlePageChange(currentPage + 1)}>
-           +
-         </PaginationButton>
-       </PaginationContainer>
-       </PaginationMainContainer>
-       </>
+      <Container>
+        <HeaderContainer>
+          <CommonTitle>대시보드</CommonTitle>
+          <div style={{ position: "relative", width: "350px" }}>
+            <FontAwesomeIcon
+              icon={faSearch}
+              style={{
+                position: "absolute",
+                left: "10px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                color: "#aaa",
+              }}
+            />
+            <ProductInput
+              placeholder="제품 검색..."
+              style={{ paddingLeft: "40px" }}
+            />
+          </div>
+        </HeaderContainer>
+        <PriceData priceData={data.priceData} />
+        <HeaderContainer>
+          <CommonTitle>제품 목록</CommonTitle>
+          <div style={{ position: "relative", width: "300px" }}>
+            <ProductButton onClick={handleNavigateAdd}>제품 추가하기</ProductButton>
+          </div>
+        </HeaderContainer>
+        <ProductList productList={paginatedProductList} />
+      </Container>
+      <PaginationMainContainer>
+        <PaginationContainer>
+          <PaginationButton onClick={() => handlePageChange(currentPage - 1)}>
+            -
+          </PaginationButton>
+          <span>{currentPage}</span>
+          <PaginationButton onClick={() => handlePageChange(currentPage + 1)}>
+            +
+          </PaginationButton>
+        </PaginationContainer>
+      </PaginationMainContainer>
+    </>
   );
 };
 
 export default Dashboard;
+
