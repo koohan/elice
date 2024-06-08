@@ -13,6 +13,7 @@ import OrdersPage from './pages/OrdersPage';
 import Nav from './components/nav/nav';
 import Dashboard from '../src/pages/DashboardPage';
 import SupportPage from './pages/SupportPage'
+import AddProductPages from './pages/AddProductPages';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/Details" element={<DetailPage />} />
           <Route path="/orders" element={<OrdersPage />} />
           <Route path="/support" element={<SupportPage />} />
+          <Route path='/Add' element={<AddProductPages />} />
         </Routes>
       </Router>
     </>
