@@ -19,17 +19,15 @@ import usePasswordChange from "./usePasswordChange";
 
 const PasswordChange = ({ user }) => {
   const {
-    newPassword,
-    confirmPassword,
+    passwords,
     newPasswordRef,
     confirmPasswordRef,
-    setNewPassword,
-    setConfirmPassword,
+    handleChange,
     handleKeyDown,
     handlePasswordChange,
     handleDeleteUser,
     maskPassword,
-  } = usePasswordChange(user);
+  } = usePasswordChange();
 
   return (
     <Container>
@@ -46,8 +44,9 @@ const PasswordChange = ({ user }) => {
                 <Label>새 비밀번호</Label>
                 <Input
                   type="password"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
+                  name="newPassword"
+                  value={passwords.newPassword}
+                  onChange={handleChange}
                   ref={newPasswordRef}
                   onKeyDown={(e) => handleKeyDown(e, confirmPasswordRef)}
                   autoComplete="new-password"
@@ -57,8 +56,9 @@ const PasswordChange = ({ user }) => {
                 <Label>새 비밀번호 확인</Label>
                 <Input
                   type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  name="confirmPassword"
+                  value={passwords.confirmPassword}
+                  onChange={handleChange}
                   ref={confirmPasswordRef}
                   onKeyDown={(e) => handleKeyDown(e, null)}
                   autoComplete="new-password"
