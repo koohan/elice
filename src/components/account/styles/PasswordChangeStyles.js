@@ -27,21 +27,25 @@ export const Button = styled.button`
   }
 `;
 
-export const Avatar = styled.img`
-  width: 150px;
-  height: 150px;
-  border: 2px solid #aaa;
-  border-radius: 50%;
+export const DelBtn = styled.button`
+  width: 8rem;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #b40404;
+  color: white;
+  cursor: pointer;
+  margin-left: 20px;
+
+  &:hover {
+    background-color: darkred;
+  }
 `;
 
-export const AvatarSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 30px;
-  margin-bottom: 50px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+export const ReadOnlyInput = styled.div`
+  padding: 10px;
+  border: 1px solid #7485bc;
+  border-radius: 4px;
+  letter-spacing: 5px;
 `;

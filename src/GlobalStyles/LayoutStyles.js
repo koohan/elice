@@ -16,7 +16,6 @@ export const SidebarLayout = styled.div`
   z-index: 1;
   position: sticky;
   top: 0;
-  z-index: 1;
 `;
 
 export const MainContent = styled.div`

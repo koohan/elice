@@ -5,11 +5,13 @@ import {
   Title,
   InputGroup,
   Label,
+  FlexContainer,
+  InputSection,
+} from "./styles/commonStyles";
+import {
   Input,
   Button,
   Avatar,
-  FlexContainer,
-  InputSection,
   AvatarSection,
 } from "./styles/PersonalInfoStyles";
 

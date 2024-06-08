@@ -5,14 +5,16 @@ import {
   Title,
   InputGroup,
   Label,
-  Input,
-  Button,
   FlexContainer,
   InputSection,
-  ReadOnlyInput,
   InstructionsSection,
+} from "./styles/commonStyles";
+import {
+  Input,
+  Button,
   DelBtn,
-} from "./styles/PersonalInfoStyles";
+  ReadOnlyInput,
+} from "./styles/PasswordChangeStyles";
 import usePasswordChange from "./usePasswordChange";
 
 const PasswordChange = ({ user }) => {
@@ -32,7 +34,7 @@ const PasswordChange = ({ user }) => {
   return (
     <Container>
       <Section>
-        <Title>비밀번호</Title>
+        <Title>{user.name} 님의 비밀번호</Title>
         <FlexContainer>
           <InputSection>
             <InputGroup>
