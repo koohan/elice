@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Flex, Items } from './styles/LayoutStyles';
 import ProductCard from './ProductCard';
 
+const addPlaceholders = (products, itemsPerRow) => {
+  const placeholdersNeeded = itemsPerRow - (products.length % itemsPerRow);
+  if (placeholdersNeeded < itemsPerRow) {
+    return [...products, ...Array.from({ length: placeholdersNeeded }, (_, i) => ({ id: `placeholder-${i}`, placeholder: true }))];
+  }
+  return products;
+};
+
 const ProductList = ({ products }) => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -12,18 +20,15 @@ const ProductList = ({ products }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const productItems = [...products];
-  const placeholdersNeeded = 4 - (productItems.length % 4);
-  if (placeholdersNeeded < 4) {
-    for (let i = 0; i < placeholdersNeeded; i++) {
-      productItems.push({ id: `placeholder-${i}`, placeholder: true });
-    }
-  }
+  const productItems = addPlaceholders(products, 4);
 
   return (
     <Flex>
       {productItems.map((product, index) => (
-        <Items key={product.placeholder ? `placeholder-${index}` : `${product.id}-${index}`} className={product.placeholder ? 'placeholder' : ''}>
+        <Items
+          key={product.placeholder ? `placeholder-${index}` : product.id}
+          className={product.placeholder ? 'placeholder' : ''}
+        >
           {!product.placeholder && <ProductCard product={product} isLoading={isLoading} />}
         </Items>
       ))}

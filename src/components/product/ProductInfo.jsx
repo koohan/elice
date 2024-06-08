@@ -11,7 +11,7 @@ const ProductInfo = ({ imageSrc, name, description, price, isLoading }) => (
     <TextContainer>
     <Text type="h2" isLoading={isLoading}>{name}</Text>
     <Text isLoading={isLoading}>{description}</Text>
-    <Text isLoading={isLoading}>{price}</Text>
+    <Text isLoading={isLoading}>{`${price} 원`}</Text>
   </TextContainer>
   </>
 );
