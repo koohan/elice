@@ -1,9 +1,22 @@
-{
-    "salesData": {
-      "totalSales": 45231890,
-      "totalProducts": 12234,
-      "totalBrands": 2350,
-      "totalStock": 5673
-    }
+[
+  {
+    "category": "남성 상의",
+    "brand": "나이키",
+    "variants": [
+      {
+        "variantId": "123",
+        "name": "남자 맨투맨",
+        "color": "Red",
+        "size": "M",
+        "price": 20000,
+        "stock": 50,
+        "shortdescription": "나이키 남성 상의입니다",
+        "longdescription": "나이키에서 2011년 출시한 남성 상의 제품으로 이 옷은 ~~ 소재로 . . .",
+        "images": [
+          "제품 이미지 1번",
+          "제품 이미지 2번"
+        ]
+      }
+    ]
   }
-  
+]
