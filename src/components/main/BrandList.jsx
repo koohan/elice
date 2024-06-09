@@ -4,7 +4,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { ImgBtn, EtcContainer, Wrapper, AddtoWishlistButton, Container } from './styled/mainBrand';
 
 function BrandList({ images, brands }) {
-    const [containerHeight, setContainerHeight] = useState('350px');
+    const [containerHeight, setContainerHeight] = useState('450px');
     const containerRef = useRef(null);
 
     useEffect(() => {

@@ -8,9 +8,9 @@ import NavBar from "../components/nav/nav";
 const Mainpage = () => {
   return (
     <>
-        <NavBar />
-        <Main />
-        <Footer />
+      <NavBar />
+      <Main />
+      <Footer />
     </>
   );
 };

@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Header, Logo, Navbar, NavLink, SearchContainer, SearchButton, SearchInput } from './Stylednav.js';
 
-const nav = () => {
+const NavBar = () => {
+  const [searchActive, setSearchActive] = useState(false);
+
+  const handleSearchClick = () => {
+    setSearchActive((prev) => !prev);
+  };
+
   return (
-    <div>
-      <h1>네비바 들어갈 공간</h1>
-    </div>
-  )
+    <Header>
+      <Logo src="src/assets/logo2.png" href='/' />
+      <Navbar>
+        <SearchContainer>
+          <SearchInput type="text" placeholder="SEARCH" className={searchActive ? 'active' : ''} />
+          <SearchButton className={searchActive ? 'active' : ''} onClick={handleSearchClick}>SEARCH</SearchButton>
+        </SearchContainer>
+        <NavLink href='/'>LOGIN</NavLink>
+        <NavLink href='/'>CART</NavLink>
+        <NavLink href='/'>MYPAGE</NavLink>
+      </Navbar>
+    </Header>
+  );
 }
 
-export default nav
+export default NavBar;

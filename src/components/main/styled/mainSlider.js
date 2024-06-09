@@ -14,36 +14,35 @@ export const Button = styled.button`
 `;
 
 export const SlideContainer = styled.div`
-  width: 600px;
-  height: 430px;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 400px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: 0 20px;
 `;
 
 export const Image = styled.img`
-  width: 600px;
+  width: 1280px;
   height: 400px;
-  object-fit: cover;
-`;
-
-export const ProductName = styled.div`
-  font-size: 20px;
-  color: #0C0E46;
+  object-fit: contain;
 `;
 
 export const SliderContainer = styled.div`
   display: flex;
-  width: 1280px;
+  justify-content: center;
+  width: 100%;
   height: 430px;
   overflow: hidden;
-  position: relative;
+  align-items: center;
   margin: 0 auto;
 `;
 
 export const SliderWrapper = styled.div`
   display: flex;
+  transition: transform 0.3s ease-out;
+  width: fit-content;
 `;
 
 export const ButtonContainer = styled.div`

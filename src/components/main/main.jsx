@@ -21,6 +21,10 @@ const Mainpage = () => {
       <SlidersContainer>
         <Sliders />
       </SlidersContainer>
+      <StyledH2>카테고리별 상품 페이지</StyledH2>
+      <CategoryContainer>
+        <Category />
+      </CategoryContainer>
       <AdStyled src={logo} />
       <ItemContainer>
         <ItemList />
@@ -28,10 +32,6 @@ const Mainpage = () => {
       <LineContainer>
         <Line />
       </LineContainer>
-      <StyledH2>카테고리별 상품 페이지</StyledH2>
-      <CategoryContainer>
-        <Category />
-      </CategoryContainer>
       <StyledH2>브랜드 더보기</StyledH2>
       <BrandContainer>
         <Brand />
