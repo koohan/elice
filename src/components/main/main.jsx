@@ -21,18 +21,18 @@ const Mainpage = () => {
       <SlidersContainer>
         <Sliders />
       </SlidersContainer>
-      <StyledH2>카테고리별 상품 페이지</StyledH2>
       <CategoryContainer>
         <Category />
       </CategoryContainer>
       <AdStyled src={logo} />
+      <StyledH2>여름의 신선함을 만나보세요</StyledH2>
       <ItemContainer>
         <ItemList />
       </ItemContainer>
       <LineContainer>
         <Line />
       </LineContainer>
-      <StyledH2>브랜드 더보기</StyledH2>
+      <StyledH2>브랜드 갤러리</StyledH2>
       <BrandContainer>
         <Brand />
       </BrandContainer>

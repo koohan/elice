@@ -8,13 +8,14 @@ export const SlidersContainer = styled.div`
 export const CategoryContainer = styled.div`
     display: flex;
     justify-content: center;
-    margin-bottom: 150px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 `;
 
 export const ItemContainer = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 160px;
+    margin-top: 20px;
     margin-bottom: 100px;
 `;
 
