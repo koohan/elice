@@ -7,14 +7,7 @@ const ImageBtn = ({ src, alt, onClick }) => (
     </Button>
 );
 
-const Slide = ({ src, alt, name }) => (
-    <SlideContainer>
-        <Image src={src} alt={alt} />
-        <ProductName>{name}</ProductName>
-    </SlideContainer>
-);
-
-const Slider = ({ images, currentPage }) => {
+function Slider({ images, currentPage }) {
     const length = images.length;
 
     if (length === 0) {
@@ -27,6 +20,13 @@ const Slider = ({ images, currentPage }) => {
         width: `${length * 100}%`,
     };
 
+    const Slide = ({ src, alt, name }) => (
+        <SlideContainer>
+            <Image src={src} alt={alt} />
+            <ProductName>{name}</ProductName>
+        </SlideContainer>
+    );
+
     return (
         <SliderContainer>
             <SliderWrapper style={sliderStyle}>
@@ -36,6 +36,6 @@ const Slider = ({ images, currentPage }) => {
             </SliderWrapper>
         </SliderContainer>
     );
-};
+}
 
-export { ImageBtn, Slide, Slider };
+export { ImageBtn, Slider };

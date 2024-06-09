@@ -1,17 +1,17 @@
 import React from 'react';
 import { Container, ImgBtn } from './styled/mainCategory';
 
-function ImageBtn({ imgSrc, category }) {
-    return (
+function CategoryList({ images, categories }) {
+    const ImageBtn = ({ imgSrc, category }) => (
         <ImgBtn>
             <img src={imgSrc} alt={category} />
             <span>{category}</span>
         </ImgBtn>
     );
-}
 
-function CategoryList({ images, categories }) {
-    if (!images || !categories) { return <div>데이터 0</div> };
+    if (!images || !categories) { 
+        return <div>데이터 0</div>;
+    }
 
     return (
         <Container>
