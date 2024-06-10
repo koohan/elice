@@ -11,7 +11,7 @@ export const ContentLayout = styled.div`
 `;
 
 export const SidebarLayout = styled.div`
-  width: 300px;
+  width: 350px;
   height: 100vh;
   z-index: 1;
   position: sticky;
