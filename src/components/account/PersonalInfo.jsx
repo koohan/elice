@@ -18,7 +18,7 @@ import {
 const PersonalInfo = ({ user,Mockuser }) => {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
-  const [phone, setPhone] = useState(user.phone);
+  const [phone, setPhone] = useState(user.phoneNumber);
 
   const nameInputRef = useRef(null);
   const emailInputRef = useRef(null);
@@ -68,7 +68,7 @@ const PersonalInfo = ({ user,Mockuser }) => {
               <Label>전화번호</Label>
               <Input
                 type="text"
-                value={Mockuser.phone}
+                value={phone}
                 ref={phoneInputRef}
                 onChange={(e) => setPhone(e.target.value)}
                 onKeyDown={(e) => handleKeyDown(e, null)}

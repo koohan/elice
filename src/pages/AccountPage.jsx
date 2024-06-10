@@ -14,8 +14,7 @@ const AccountPage = () => {
     if (error) return <p>Error: {error}</p>;
   
     const Mockuser = {
-      avatar: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png',
-      phone: '전화번호를 입력해주세요'
+      avatar: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png'
     };
   
     const defaultUser = {

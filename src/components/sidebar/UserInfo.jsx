@@ -29,7 +29,7 @@ const UserInfo = () => {
       <UserInfoContainer>
         <UserText>{displayedUser.name}님 안녕하세요</UserText>
         <UserEmail>{displayedUser.email}</UserEmail>
-        <UserEmail>{Mockuser.phone}</UserEmail>
+        <UserEmail>{displayedUser.phoneNumber}</UserEmail>
       </UserInfoContainer>
     </>
   );
