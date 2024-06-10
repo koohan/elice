@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+// 얘는 나중에 바디 구조 분해 할당이랑 url 변수로 빼서 쓰면 됨
+
 const useRegister = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
