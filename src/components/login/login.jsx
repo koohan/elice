@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
 import googleLogo from '../../assets/google.webp';
 import naverLogo from '../../assets/naver.webp';
@@ -7,6 +8,11 @@ import appleLogo from '../../assets/apple.webp';
 import poster from '../../assets/poster.png';
 
 function Login() {
+    const navigate = useNavigate();
+
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
     return (
         <>
             <div className='container'>
@@ -41,7 +47,7 @@ function Login() {
                         <div className='sub-container'>
                             <button className='findPW'>비밀번호 찾기</button>
                             <p className='dot'> • </p>
-                            <button className='register'>회원가입</button>
+                            <button className='register' onClick={() => handleNavigation('/register')}>회원가입</button>
                         </div>
                     </div>
                 </div>
