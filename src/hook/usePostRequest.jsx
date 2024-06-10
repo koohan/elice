@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const usePostRequest = (url) => {
   const [data, setData] = useState(null);
@@ -11,22 +11,23 @@ const usePostRequest = (url) => {
 
     try {
       const response = await fetch(url, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(body),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || '요청에 실패했습니다.');
+        throw new Error(errorData.message);
       }
 
       const data = await response.json();
       setData(data);
     } catch (err) {
-      setError(err.message);
+      setError("요청에 실패했습니다.");
+      console.log(err.message);
     } finally {
       setLoading(false);
     }

@@ -11,7 +11,7 @@ export const BtnContainer = styled.button`
   padding: 15px;
   margin-top: 15px;
   border: 1px solid #aaa;
-  border-radius: 5px;
+  border-radius: 15px;
   background: none;
   color: inherit;
   font-size: 14px;
