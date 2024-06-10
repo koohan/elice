@@ -55,5 +55,5 @@ export const OrderActions = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  text-align: center;
+  text-align: end;
 `;

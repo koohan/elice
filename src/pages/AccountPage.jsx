@@ -2,6 +2,7 @@ import React from 'react';
 import Account from '../components/account/Account';
 import Sidebar from '../components/sidebar/Sidebar';
 import { PageLayout, SidebarLayout, ContentLayout } from '../GlobalStyles/LayoutStyles';
+import NavBar from '../components/nav/nav';
 
 const AccountPage = () => {
     const user = {
@@ -13,6 +14,8 @@ const AccountPage = () => {
     };
 
     return (
+        <>
+        <NavBar/>
         <PageLayout>
             <SidebarLayout>
                 <Sidebar user={user} />
@@ -21,6 +24,7 @@ const AccountPage = () => {
                 <Account user={user} />
             </ContentLayout>
         </PageLayout>
+        </>
     );
 };
 

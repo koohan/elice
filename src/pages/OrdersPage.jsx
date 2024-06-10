@@ -20,7 +20,7 @@ const ordersData = {
     {
       order_date: "2023-02-23",
       order_id: "11415",
-      status: "주문 처리 완료",
+      status: "주문 완료",
       name: "홍길동",
       product: {
         productId: "201",
@@ -46,7 +46,7 @@ const ordersData = {
     {
       order_date: "2023-02-21",
       order_id: "11416",
-      status: "주문 처리 완료",
+      status: "주문 완료",
       name: "홍길동",
       product: {
         productId: "202",

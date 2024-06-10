@@ -45,6 +45,7 @@ const PasswordChange = ({ user }) => {
                 <Input
                   type="password"
                   name="newPassword"
+                  placeholder="새 비밀번호를 입력하세요."
                   value={passwords.newPassword}
                   onChange={handleChange}
                   ref={newPasswordRef}
@@ -66,7 +67,7 @@ const PasswordChange = ({ user }) => {
               </InputGroup>
               <div style={{ display: "flex", gap: "10px" }}>
                 <Button type="submit">비밀번호 변경</Button>
-                <DelBtn type="button" onClick={handleDeleteUser}>탈퇴하기</DelBtn>
+                <DelBtn type="button" onClick={handleDeleteUser}>회원 탈퇴하기</DelBtn>
               </div>
             </form>
           </InputSection>

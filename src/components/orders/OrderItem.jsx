@@ -44,7 +44,10 @@ const OrderItem = ({ order }) => {
         <OrderRightSection>
           <OrderActions>
             <OrderPrice>{`ID - #${order_id}`}</OrderPrice>
+            <div style={{display : "flex", gap : "5px"}}>
             <OrderActionsButton>주문 취소</OrderActionsButton>
+            <OrderActionsButton>주문 수정</OrderActionsButton>
+            </div>
           </OrderActions>
         </OrderRightSection>
       </OrderContent>

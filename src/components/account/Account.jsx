@@ -4,7 +4,7 @@ import PasswordChange from './PasswordChange';
 
 const Account = ({ user }) => {
     return (
-        <div>
+        <div style={{marginTop : "2rem"}}>
             <PersonalInfo user={user} />
             <PasswordChange user={user}/>
         </div>
