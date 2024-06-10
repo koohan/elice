@@ -24,8 +24,8 @@ return (
           <CartList items={items} />
           <CartSummary items={items} totalAmount={totalAmount} />
           <div style={{ display: "flex", margin: "20px", gap: "40rem" }}>
-            <StyledShoppingButton style={{ flex: 1, backgroundColor: "#000"}}>쇼핑하기</StyledShoppingButton>
-            <StyledShoppingButton style={{ flex: 1, backgroundColor: "#000"}} onClick={handleOrderClick}>주문하기</StyledShoppingButton>
+            <StyledShoppingButton style={{ flex: 1, backgroundColor: "#97A6D9"}}>쇼핑하기</StyledShoppingButton>
+            <StyledShoppingButton style={{ flex: 1, backgroundColor: "#97A6D9"}} onClick={handleOrderClick}>주문하기</StyledShoppingButton>
           </div>
         </CartContainer>
       </MainContent>

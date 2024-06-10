@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-  background-color: #ce2f24;
+  background-color: #C53A3A;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -61,7 +61,8 @@ export const StyledShoppingButton = styled.button`
   font-weight: 500;
 
   &:hover {
-    color: #000;
+    color: #515B7C;
+    font-weight: bold;
   }
 
   &:before,
@@ -80,13 +81,13 @@ export const StyledShoppingButton = styled.button`
   }
 
   &:before {
-    background: #ddd;
+    background: #97A6D9;
     z-index: -12;
     opacity: 1;
   }
 
   &:after {
-    background: #fff;
+    background: #7485BC;
     z-index: -15;
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.2, 0.95, 0.57, 0.99);

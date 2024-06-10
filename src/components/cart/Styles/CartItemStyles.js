@@ -4,9 +4,11 @@ export const CartItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 3px solid #ddd;
+  border: 1px solid #7485BC;
+  border-bottom: 2px solid #8690AE;
+  border-right: 2px solid #8690AE;
   margin-bottom: 20px;
-  background-color: #f9f9f9;
+  background-color: #FEFEFF;
   border-radius: 8px;
   padding: 20px;
 `;
