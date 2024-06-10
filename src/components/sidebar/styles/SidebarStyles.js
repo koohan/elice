@@ -20,13 +20,13 @@ export const MenuItemContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #D1DCFD;
+  border-bottom: 1px solid #d1dcfd;
   margin-bottom: 2rem;
   cursor: pointer;
   width: 100%;
   &:hover {
     background-color: #f0f0f0;
-    color: #95A5DF;
+    color: #95a5df;
     border-radius: 10px;
   }
 `;
@@ -38,10 +38,11 @@ export const MenuIcon = styled(FontAwesomeIcon)`
 
 export const UserInfoContainer = styled.div`
   margin-bottom: 20px;
-  background-color: #F4F7FF;
+  background-color: #f4f7ff;
   border-radius: 8px;
   padding: 20px;
-  border: 3px solid #D0D8EE;
+  border: 3px solid #d0d8ee;
+  width: 100%;
 `;
 
 export const UserBox = styled.div`
@@ -52,7 +53,7 @@ export const UserAvatar = styled.img`
   width: 80px;
   height: 80px;
   padding: 2px;
-  border: 2px solid #93A0CC;
+  border: 2px solid #93a0cc;
   border-radius: 50%;
   margin-bottom: 10px;
 `;

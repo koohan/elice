@@ -9,12 +9,21 @@ const UserInfo = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/users/first-user');
-        if (!response.ok) {
-          throw new Error('사용자를 가져오는 데 실패했습니다.');
+        const token = localStorage.getItem('token');
+        if (token) {
+          const response = await fetch('http://localhost:8000/api/users/me', {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          if (!response.ok) {
+            throw new Error('사용자를 가져오는 데 실패했습니다.');
+          }
+          const data = await response.json();
+          setUser(data);
+        } else {
+          setUser(null);
         }
-        const data = await response.json();
-        setUser(data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -34,14 +43,21 @@ const UserInfo = () => {
     phone: '010-1234-1234'
   };
 
+  const defaultUser = {
+    name: 'GUEST',
+    email: '엘리스 스토어입니다'
+  };
+
+  const displayedUser = user || defaultUser;
+
   return (
     <>
       <UserBox>
         <UserAvatar src={Mockuser.avatar} alt="User Avatar" />
       </UserBox>
       <UserInfoContainer>
-        <UserText>{user.name}</UserText>
-        <UserEmail>{user.email}</UserEmail>
+        <UserText>{displayedUser.name}님 안녕하세요</UserText>
+        <UserEmail>{displayedUser.email}</UserEmail>
         <UserEmail>{Mockuser.phone}</UserEmail>
       </UserInfoContainer>
     </>
