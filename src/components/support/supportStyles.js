@@ -5,8 +5,13 @@ export const Input = styled.input`
     padding: 10px;
     margin: 10px 0;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid #BDC9F2;
     border-radius: 4px;
+
+    &:focus {
+        outline: none;
+        border-color: #7485BC;
+    }
 `;
 
 export const TextArea = styled.textarea`
@@ -14,9 +19,14 @@ export const TextArea = styled.textarea`
     padding: 10px;
     margin: 10px 0 20px 0;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid #BDC9F2;
     border-radius: 4px;
     resize: none;
+
+    &:focus {
+        outline: none;
+        border-color: #7485BC;
+    }
 `;
 
 export const Button = styled.button`

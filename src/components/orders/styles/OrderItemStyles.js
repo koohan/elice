@@ -28,13 +28,13 @@ export const OrderPrice = styled.div`
 export const OrderActionsButton = styled.button`
   font-size: 14px;
   padding: 8px 16px;
-  border: 1px solid #ddd;
+  border: 1px solid #7485BC;
   border-radius: 4px;
   background-color: #fff;
   color: #000;
   cursor: pointer;
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color: rgba(151, 163, 201, 0.5);
   }
 `;

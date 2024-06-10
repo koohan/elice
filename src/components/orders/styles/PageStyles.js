@@ -4,17 +4,18 @@ export const PageContainer = styled.div`
   display: flex;
   gap: 16px;
   padding: 16px;
-  background: #eee;
+  background: #F4F6F9;
   width: 95%;
   margin: 0 auto;
   border-radius: 15px;
+  border: 1px solid #97A3C9;
 `;
 
 export const OrderContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  border: 1px solid #ddd;
+  border: 1px solid #DAE1F4;
   border-radius: 8px;
   padding: 16px;
   background: #fff;
