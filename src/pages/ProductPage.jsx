@@ -2,6 +2,7 @@ import React from 'react';
 import ProductList from '../components/product/ProductList';
 import Sidebar from '../components/sidebar/Sidebar';
 import { PageLayout, SidebarLayout, ContentLayout } from '../GlobalStyles/LayoutStyles';
+import NavBar from '../components/nav/nav';
 
 const ProductPage = () => {
   const user = {
@@ -64,6 +65,7 @@ const ProductPage = () => {
 
   return (
     <div className="app">
+      <NavBar/>
       <PageLayout>
       <SidebarLayout>
         <Sidebar user={user} />
