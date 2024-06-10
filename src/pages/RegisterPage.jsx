@@ -1,7 +1,6 @@
 import React from "react";
 import Register from "../components/register/register.jsx";
 import {
-  BlackBox,
   WelcomeTitle,
   WelcomeText,
   SignInButton,
