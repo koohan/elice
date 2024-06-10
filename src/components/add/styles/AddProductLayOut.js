@@ -17,6 +17,8 @@ export const CategoryLayOut = styled.div`
 `;
 
 export const ProductDetailLayOut = styled.div`
+  height: 100%;
+  margin-top: 1rem;
   font-size: 18px;
   background: #fff;
   border-radius: 15px;

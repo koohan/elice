@@ -13,8 +13,8 @@ const ProductRoot = () => {
       </div>
       <AddProductLayOut style={{ display: "flex", gap: "20px" }}>
         <AddProduct />
-        <AddProductDetail />
       </AddProductLayOut>
+      <AddProductDetail />
     </div>
   );
 };

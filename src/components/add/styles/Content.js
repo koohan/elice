@@ -19,6 +19,7 @@ export const TitleStyled = styled.h3`
 `;
 
 export const StyledSelect = styled.select`
+  width: 100%;
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 4px;
