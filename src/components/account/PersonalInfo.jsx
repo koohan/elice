@@ -15,7 +15,7 @@ import {
   AvatarSection,
 } from "./styles/PersonalInfoStyles";
 
-const PersonalInfo = ({ user }) => {
+const PersonalInfo = ({ user,Mockuser }) => {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [phone, setPhone] = useState(user.phone);
@@ -68,7 +68,7 @@ const PersonalInfo = ({ user }) => {
               <Label>전화번호</Label>
               <Input
                 type="text"
-                value={phone}
+                value={Mockuser.phone}
                 ref={phoneInputRef}
                 onChange={(e) => setPhone(e.target.value)}
                 onKeyDown={(e) => handleKeyDown(e, null)}
@@ -77,7 +77,7 @@ const PersonalInfo = ({ user }) => {
             <Button onClick={handleEdit}>편집</Button>
           </InputSection>
           <AvatarSection>
-            <Avatar src={user.avatar} alt={`${user.name} 님의 아바타`} />
+            <Avatar src={Mockuser.avatar} alt={`${user.name} 님의 아바타`} />
           </AvatarSection>
         </FlexContainer>
       </Section>

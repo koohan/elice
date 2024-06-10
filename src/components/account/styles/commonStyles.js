@@ -42,6 +42,9 @@ export const FlexContainer = styled.div`
 export const InputSection = styled.div`
   width: 100%;
   margin-right: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const InstructionsSection = styled.div`
