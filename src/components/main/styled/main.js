@@ -36,7 +36,7 @@ export const LineContainer = styled.div`
 export const StyledH2 = styled.h2`
     width: 1280px;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     text-align: center;
     margin: 10px auto;
     padding-top: 100px;
@@ -53,4 +53,7 @@ export const AdStyled = styled.img`
     margin: 0 auto;
     object-fit: cover;
     margin-bottom: 50px;
+`
+export const ThemaContainer = styled.div`
+    margin-bottom: 100px;
 `

@@ -3,6 +3,7 @@ import Category from './Category';
 import Sliders from './mainSlider';
 import Brand from './Brand';
 import ItemList from './ItemList';
+import ThemaItem from './ThemaItem';
 import { Line } from '../../GlobalStyles/LayoutStyles';
 import logo from '../../assets/logo.png';
 import {
@@ -12,7 +13,8 @@ import {
   BrandContainer,
   LineContainer,
   StyledH2,
-  AdStyled
+  AdStyled,
+  ThemaContainer
 } from './styled/main';
 
 const Mainpage = () => {
@@ -32,6 +34,12 @@ const Mainpage = () => {
       <LineContainer>
         <Line />
       </LineContainer>
+      <StyledH2>모아둔 이유</StyledH2>
+      <ThemaContainer>
+        <ThemaItem />
+        <br />
+        <ThemaItem />
+      </ThemaContainer>
       <StyledH2>브랜드 갤러리</StyledH2>
       <BrandContainer>
         <Brand />
