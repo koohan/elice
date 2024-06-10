@@ -3,7 +3,7 @@ import ProductInfo from './ProductInfo';
 import { Container, Card } from './styles/LayoutStyles';
 
 
-const ProductCard = ({ product, isLoading }) => (
+const ProductCard = ({ product }) => (
   <Container>
     <Card>
       <ProductInfo
@@ -11,7 +11,6 @@ const ProductCard = ({ product, isLoading }) => (
         name={product.name}
         description={product.description}
         price={product.price}
-        isLoading={isLoading}
       />
     </Card>
   </Container>

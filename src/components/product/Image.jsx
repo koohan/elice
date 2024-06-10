@@ -1,10 +1,7 @@
 import React from 'react';
-import { StyledSkeleton, StyledImage } from './styles/SkeletonStyles';
+import { StyledImage } from './styles/SkeletonStyles';
 
-const Image = ({ src, alt, isLoading }) => {
-  if (isLoading) {
-    return <StyledSkeleton width="100%" height="250px" />;
-  }
+const Image = ({ src, alt }) => {
 
   return src ? (
     <StyledImage src={src} alt={alt} />

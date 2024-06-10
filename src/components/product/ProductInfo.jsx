@@ -4,18 +4,18 @@ import Text from './Text';
 import { Card, TextContainer, LineContainer } from './styles/LayoutStyles';
 import { Line } from '../../GlobalStyles/LayoutStyles';
 
-const ProductInfo = ({ imageSrc, name, description, price, isLoading }) => (
+const ProductInfo = ({ imageSrc, name, description, price }) => (
     <>
     <Card>
-    <Image src={imageSrc} alt={name} isLoading={isLoading} />
+    <Image src={imageSrc} alt={name} />
     </Card>
     <LineContainer>
       <Line />
     </LineContainer>
     <TextContainer>
-    <Text type="h2" isLoading={isLoading}>{name}</Text>
-    <Text isLoading={isLoading}>{description}</Text>
-    <Text isLoading={isLoading}>{`${price} 원`}</Text>
+    <Text type="h2" >{name}</Text>
+    <Text >{description}</Text>
+    <Text >{`${price} 원`}</Text>
   </TextContainer>
   </>
 );

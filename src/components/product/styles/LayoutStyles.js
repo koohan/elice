@@ -36,13 +36,13 @@ export const TextContainer = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const LineContainer = styled.div`
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    margin-top: 5px;
-`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 2px;
+`;

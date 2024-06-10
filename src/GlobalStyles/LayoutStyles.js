@@ -33,6 +33,6 @@ export const CartContainer = styled.div`
 
 export const Line = styled.div`
   flex: 1;
-  height: 1px;
+  height: 2px;
   background-color: #b6bfda;
 `;

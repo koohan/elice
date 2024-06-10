@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Flex, Items } from './styles/LayoutStyles';
 import ProductCard from './ProductCard';
 
@@ -11,14 +11,6 @@ const addPlaceholders = (products, itemsPerRow) => {
 };
 
 const ProductList = ({ products }) => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
 
   const productItems = addPlaceholders(products, 4);
 
@@ -29,7 +21,7 @@ const ProductList = ({ products }) => {
           key={product.placeholder ? `placeholder-${index}` : product.id}
           className={product.placeholder ? 'placeholder' : ''}
         >
-          {!product.placeholder && <ProductCard product={product} isLoading={isLoading} />}
+          {!product.placeholder && <ProductCard product={product} />}
         </Items>
       ))}
     </Flex>
