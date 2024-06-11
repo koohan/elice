@@ -7,20 +7,18 @@ import {
 } from "../GlobalStyles/LayoutStyles";
 import NavBar from "../components/nav/nav";
 import Footer from "../components/footer/footer";
-import AddProduct from "../components/add/ProductRoot";
+import ProductRoot from "../components/add/ProductRoot";
 
 const AddProductPages = () => {
-
-
   return (
     <>
       <NavBar />
       <PageLayout>
         <SidebarLayout>
-          <Sidebar/>
+          <Sidebar />
         </SidebarLayout>
         <ContentLayout>
-          <AddProduct />
+          <ProductRoot />
         </ContentLayout>
       </PageLayout>
       <Footer />
@@ -28,4 +26,4 @@ const AddProductPages = () => {
   );
 };
 
-export default AddProductPages
+export default AddProductPages;

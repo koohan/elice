@@ -10,7 +10,7 @@ const ProductRoot = () => {
 
   return (
     <div style={{ padding: "50px", width: "100%", height: "auto", marginBottom: "5rem" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem"  }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
         <TitleStyled>제품</TitleStyled>
         <ButtonStyled onClick={handleAddProduct}>제품 추가</ButtonStyled>
       </div>
