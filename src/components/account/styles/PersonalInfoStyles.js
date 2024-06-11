@@ -40,7 +40,7 @@ export const AvatarSection = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 23px;
   margin-bottom: 50px;
   border: 1px solid #ddd;
   border-radius: 10px;

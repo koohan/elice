@@ -11,12 +11,8 @@ function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { data, loading, error, postData } = usePostRequest(
-    "http://localhost:8000/api/users/login"
+    "http://localhost:8000/api/login/login"
   );
-
-  const handleNavigation = (path) => {
-    navigate(path);
-  };
 
   const handleLogin = async (e) => {
     e.preventDefault();

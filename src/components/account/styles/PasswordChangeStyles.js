@@ -6,7 +6,7 @@ export const Input = styled.input`
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
-
+  margin-bottom: 5px;
   &:focus {
     border: 1px solid #455186;
   }
@@ -48,4 +48,6 @@ export const ReadOnlyInput = styled.div`
   border: 1px solid #7485bc;
   border-radius: 4px;
   letter-spacing: 5px;
+  margin-top: 30px;
+  margin-bottom: 5px;
 `;

@@ -52,7 +52,8 @@ export const InstructionsSection = styled.div`
   padding: 30px;
   flex-direction: column;
   width: 100%;
-  margin-top: 30px;
+  justify-content: center;
+  margin-top: 22px;
   margin-bottom: 50px;
   border: 1px solid #ddd;
   border-radius: 10px;

@@ -26,7 +26,6 @@ const PasswordChange = ({ user }) => {
     handleKeyDown,
     handlePasswordChange,
     handleDeleteUser,
-    maskPassword,
   } = usePasswordChange();
 
   return (
@@ -36,8 +35,7 @@ const PasswordChange = ({ user }) => {
         <FlexContainer>
           <InputSection>
             <InputGroup>
-              <Label>현재 비밀번호</Label>
-              <ReadOnlyInput>{maskPassword(user.password)}</ReadOnlyInput>
+              <ReadOnlyInput>보안을 위해 주기적으로 비밀번호를 변경해주세요.</ReadOnlyInput>
             </InputGroup>
             <form onSubmit={handlePasswordChange}>
               <InputGroup>

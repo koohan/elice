@@ -8,21 +8,16 @@ const useUserInfo = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const token = localStorage.getItem('token');
-        if (token) {
-          const response = await fetch('http://localhost:8000/api/users/me', {
-            headers: {
-              'Authorization': `Bearer ${token}`
-            }
-          });
-          if (!response.ok) {
-            throw new Error('사용자를 가져오는 데 실패했습니다.');
-          }
-          const data = await response.json();
-          setUser(data);
-        } else {
-          setUser(null);
+        const response = await fetch('http://localhost:8000/api/users/me', {
+          credentials: 'include' 
+        });
+
+        if (!response.ok) {
+          throw new Error('사용자를 가져오는 데 실패했습니다.');
         }
+
+        const data = await response.json();
+        setUser(data);
       } catch (error) {
         setError(error.message);
       } finally {

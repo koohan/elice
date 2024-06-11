@@ -38,11 +38,7 @@ const usePasswordChange = () => {
     }));
   };
 
-  const maskPassword = (password) => {
-    const visibleLength = 2;
-    const maskedLength = password.length - visibleLength;
-    return "*".repeat(maskedLength) + password.slice(-visibleLength);
-  };
+
 
   return {
     passwords,
@@ -52,7 +48,6 @@ const usePasswordChange = () => {
     handleKeyDown,
     handlePasswordChange,
     handleDeleteUser,
-    maskPassword,
   };
 };
 
