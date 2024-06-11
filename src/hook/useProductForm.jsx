@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useProductForm = (url) => {
+const useProductForm = () => {
   const [product, setProduct] = useState({
     name: '',
     brand: '',
@@ -49,7 +49,7 @@ const useProductForm = (url) => {
   };
   
 
-  return { product, handleProductChange, handleAddProduct };
+  return { handleProductChange, handleAddProduct };
 };
 
 export default useProductForm;

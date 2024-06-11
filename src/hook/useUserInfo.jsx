@@ -7,20 +7,9 @@ const useUserInfo = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const defaultUser = {
-        name: 'GUEST',
-      };
-
       try {
-        const cookies = document.cookie;
-        if (!cookies.includes('adminCookie') && !cookies.includes('userCookie')) {
-          setUser(defaultUser);
-          setLoading(false);
-          return;
-        }
-
         const response = await fetch('http://localhost:8000/api/users/me', {
-          credentials: 'include'
+          credentials: 'include' 
         });
 
         if (!response.ok) {
@@ -31,7 +20,6 @@ const useUserInfo = () => {
         setUser(data);
       } catch (error) {
         setError(error.message);
-        setUser(defaultUser);
       } finally {
         setLoading(false);
       }
