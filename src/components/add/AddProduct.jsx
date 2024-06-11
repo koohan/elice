@@ -2,11 +2,11 @@ import React from "react";
 import CategorySelector from "./CategorySelector";
 import ProductDetails from "./Product";
 
-const AddProduct = () => {
+const AddProduct = ({ onChange, onAddImage }) => {
   return (
     <>
-     <ProductDetails />
-      <CategorySelector />
+      <ProductDetails onChange={onChange} />
+      <CategorySelector onChange={onChange} onAddImage={onAddImage} />
     </>
   );
 };

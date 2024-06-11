@@ -1,5 +1,5 @@
-import React from "react";
-import { StyledSelect, StyledInput } from "./styles/Content";
+import React, { useState, useRef } from "react";
+import { StyledSelect, StyledInput, ButtonStyled } from "./styles/Content";
 import { CategoryLayOut } from "./styles/AddProductLayOut";
 
 const categories = [
@@ -7,21 +7,32 @@ const categories = [
   "남성 상의",
   "남성 하의",
   "여성 상의",
-  "여성 하의",
-  "아동 상의",
-  "아동 하의",
+  "여성 하의"
 ];
 
-const brand = [
+const brands = [
   "기존 브랜드",
   "나이키",
   "아디다스",
-  "스파이더",
-  "뉴발란스",
-  "언더아머",
+  "푸마"
 ];
 
-const CategorySelector = () => {
+const CategorySelector = ({ onChange }) => {
+  const [imageUrl, setImageUrl] = useState("");
+  const imageUrlRef = useRef("");
+
+  const handleImageUrlChange = (e) => {
+    setImageUrl(e.target.value);
+    imageUrlRef.current = e.target.value;
+  };
+
+  const handleAddImageUrl = () => {
+    if (imageUrlRef.current.trim()) {
+      onChange('images', imageUrlRef.current);
+      setImageUrl(""); 
+    }
+  };
+
   return (
     <CategoryLayOut>
       <div
@@ -32,7 +43,7 @@ const CategorySelector = () => {
           width: "100%",
         }}
       >
-        <StyledSelect style={{ marginBottom: "35px" }}>
+        <StyledSelect style={{ marginBottom: "35px" }} onChange={(e) => onChange('category', e.target.value)}>
           {categories.map((category, index) => (
             <option key={index} value={category}>
               {category}
@@ -40,8 +51,8 @@ const CategorySelector = () => {
           ))}
         </StyledSelect>
 
-        <StyledSelect style={{ marginBottom: "35px" }}>
-          {brand.map((brand, index) => (
+        <StyledSelect style={{ marginBottom: "35px" }} onChange={(e) => onChange('brand', e.target.value)}>
+          {brands.map((brand, index) => (
             <option key={index} value={brand}>
               {brand}
             </option>
@@ -53,17 +64,23 @@ const CategorySelector = () => {
         type="text"
         placeholder="새 카테고리 이름"
         style={{ marginBottom: "35px" }}
+        onChange={(e) => onChange('newCategory', e.target.value)}
       />
       <StyledInput
         type="text"
         placeholder="새 브랜드 이름"
         style={{ marginBottom: "35px" }}
+        onChange={(e) => onChange('newBrand', e.target.value)}
       />
-            <StyledInput
-        type="text"
-        placeholder="이미지 주소 추가"
-        style={{ marginBottom: "35px" }}
-      />
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <StyledInput
+          type="text"
+          placeholder="이미지 주소 추가"
+          value={imageUrl}
+          onChange={handleImageUrlChange}
+        />
+        <ButtonStyled style={{height : "38px"}} onClick={handleAddImageUrl}>추가</ButtonStyled>
+      </div>
     </CategoryLayOut>
   );
 };
