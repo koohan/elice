@@ -11,15 +11,9 @@ const UserInfo = () => {
 
   const Mockuser = {
     avatar: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png',
-    phone: '전화번호를 입력해주세요'
   };
 
-  const defaultUser = {
-    name: 'GUEST',
-    email: '엘리스 스토어입니다'
-  };
-
-  const displayedUser = user || defaultUser;
+  const displayedUser = user 
 
   return (
     <>
@@ -27,7 +21,7 @@ const UserInfo = () => {
         <UserAvatar src={Mockuser.avatar} alt="User Avatar" />
       </UserBox>
       <UserInfoContainer>
-        <UserText>{displayedUser.name}님 안녕하세요</UserText>
+        <UserText>{displayedUser.name}님 안녕하세요.</UserText>
         <UserEmail>{displayedUser.email}</UserEmail>
         <UserEmail>{displayedUser.phoneNumber}</UserEmail>
       </UserInfoContainer>
