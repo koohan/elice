@@ -39,7 +39,8 @@ export const InfoContainer = styled.div`
 
 export const ProductTitle = styled.h1`
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
 `;
 
 export const ProductDescriptionStyled = styled.div`
@@ -51,7 +52,7 @@ export const ProductDescriptionStyled = styled.div`
 export const ProductPrice = styled.p`
   font-size: 20px;
   color: #000;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 `;
 
 export const CommonTitle = styled.h3`

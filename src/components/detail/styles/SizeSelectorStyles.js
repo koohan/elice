@@ -21,10 +21,11 @@ export const SizeButtonGroup = styled.div`
 export const SizeButton = styled.button`
   padding: 10px;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #A3B0DC;
   background: #fff;
   cursor: pointer;
+  
   &:hover {
-    background: #eee;
+    background-color: rgba(151, 163, 201, 0.5);
   }
 `;

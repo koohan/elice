@@ -10,7 +10,7 @@ export const ColorSelectorStyled = styled.div`
   select {
     padding: 10px;
     width: 100%;
-    border: 1px solid #ddd;
+    border: 1px solid #A3B0DC;
   }
 `;
 
@@ -28,24 +28,24 @@ export const QuantitySelectorStyled = styled.div`
     align-items: center;
 
     button {
-      background-color: #000;
+      background-color: transparent;
       border: none;
-      border-radius: 10px;
+      border-radius: 5px;
       padding: 10px 20px;
-      width: 70%;
+      width: 50%;
       font-size: 20px;
-      color: #fff;
+      color: #131B36;
       cursor: pointer;
       transition: background 0.3s ease;
 
       &:hover {
-        background-color: #333;
+        background-color: transparent;
       }
     }
 
     input {
       text-align: center;
-      border: 1px solid #ddd;
+      border: 1px solid #A3B0DC;
       width: 100%;
       height: 2.5rem;
       padding-left: 15px;
