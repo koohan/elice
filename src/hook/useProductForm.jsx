@@ -38,6 +38,7 @@ const useProductForm = (url) => {
       if (response.ok) {
         const newProduct = await response.json();
         console.log("Product added:", newProduct);
+        window.location.reload();
       } else {
         const errorData = await response.json();
         console.error("Failed to add product:", response.status, errorData);
