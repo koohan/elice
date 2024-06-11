@@ -33,6 +33,7 @@ export const OrderActionsButton = styled.button`
   background-color: #fff;
   color: #000;
   cursor: pointer;
+  font-family: var(--font-nanumfont);
 
   &:hover {
     background-color: rgba(151, 163, 201, 0.5);

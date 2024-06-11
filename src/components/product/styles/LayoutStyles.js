@@ -39,7 +39,7 @@ export const Container = styled.div`
 `;
 
 export const LineContainer = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;

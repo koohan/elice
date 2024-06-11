@@ -112,6 +112,7 @@ export const ProductButton = styled.button`
   cursor: pointer;
   font-size: 18px;
   transition: background-color 0.3s;
+  font-family: var(--font-nanumfont);
 
   &:hover {
     background-color: #555;
@@ -145,6 +146,7 @@ export const PaginationButton = styled.button`
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s;
+  font-family: var(--font-nanumfont);
 
   &:hover {
     background-color: #555;

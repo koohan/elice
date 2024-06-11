@@ -37,6 +37,7 @@ export const Button = styled.button`
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-family: var(--font-nanumfont);
 
     &:hover {
         background-color: #7485BC;
