@@ -9,7 +9,7 @@ export const SizeSelectorContainer = styled.div`
 export const SizeLabel = styled.label`
   font-size: 16px;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 `;
 
 export const SizeButtonGroup = styled.div`

@@ -20,9 +20,7 @@ export const RelatedProductsStyled = styled.div`
 `;
 
 export const RelatedProductItem = styled.li`
-  flex: 1 1 calc(33.333% - 20px);
-  min-width: 373px;
-  max-width: calc(33.333% - 20px);
+  flex: 1 1 calc(50% - 20px);
   box-sizing: border-box;
   img {
     width: 100%;
@@ -35,7 +33,6 @@ export const RelatedProductItem = styled.li`
     font-size: 16px;
   }
 `;
-
 export const CommonTitle = styled.h3`
   font-size: 18px;
   font-weight: bold;

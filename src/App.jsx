@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/LoginPage';
 import ProductPage from "./pages/ProductPage"
@@ -12,32 +12,30 @@ import AccountPage from './pages/AccountPage';
 import OrdersPage from './pages/OrdersPage';
 import Nav from './components/nav/nav';
 import Dashboard from '../src/pages/DashboardPage';
-import SupportPage from './pages/SupportPage'
+import SupportPage from './pages/SupportPage';
 import AddProductPages from './pages/AddProductPages';
 
 function App() {
-
   return (
-
-      <Router>
-        <Routes>
-          <Route path='/nav' element={<Nav />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/register' element={<Register />} />
-          <Route path="/" element={<Main />} />
-          <Route path="/account" element={<AccountPage />} />
-          <Route path="/side" element={<Sidebar />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/products" element={<ProductPage />} />
-          <Route path="/carts" element={<CartPage />} />
-          <Route path="/checkouts" element={<CheckoutPage />} />
-          <Route path="/Details" element={<DetailPage />} />
-          <Route path="/orders" element={<OrdersPage />} />
-          <Route path="/support" element={<SupportPage />} />
-          <Route path="/add" element={<AddProductPages />} />
-        </Routes>
-      </Router>
+    <Router>
+      <Routes>
+        <Route path='/nav' element={<Nav />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/register' element={<Register />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/account" element={<AccountPage />} />
+        <Route path="/side" element={<Sidebar />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/carts" element={<CartPage />} />
+        <Route path="/checkouts" element={<CheckoutPage />} />
+        <Route path="/product/:productId" element={<DetailPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/support" element={<SupportPage />} />
+        <Route path="/add" element={<AddProductPages />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App
+export default App;

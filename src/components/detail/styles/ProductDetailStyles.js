@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 60%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-  background: #f9f9f9;
+  margin: 0 auto;
+  background: #ffffff;
   border-radius: 8px;
-  gap: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 16px;
 `;
 
 export const ImageContainer = styled.div`
@@ -20,7 +22,8 @@ export const ImageContainer = styled.div`
 
 export const ProductImage = styled.img`
   width: 100%;
-  height: auto;
+  height: 98%;
+  min-height: 85%;
   border-radius: 8px;
 `;
 
@@ -36,11 +39,11 @@ export const InfoContainer = styled.div`
 
 export const ProductTitle = styled.h1`
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 export const ProductDescriptionStyled = styled.div`
-  margin: 20px 0;
+  margin: 10px 0;
   font-size: 16px;
   color: #666;
 `;
