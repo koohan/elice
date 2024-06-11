@@ -40,8 +40,9 @@ export const VerticalContainer = styled.div`
 `;
 
 export const LoginSection = styled.div`
-  width: 40%;
-  margin: 5rem;
+  width: 50%;
+  margin-left: 4rem;
+  padding: 6rem;
 `;
 
 const fadeIn = css`
