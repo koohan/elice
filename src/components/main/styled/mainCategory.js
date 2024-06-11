@@ -20,6 +20,7 @@ export const ImgBtn = styled.button`
         margin-top: 10px;
         color: #0C0E46;
         font-size: 14px;
+        font-family: var(--font-nanumfont);
     }
 `;
 

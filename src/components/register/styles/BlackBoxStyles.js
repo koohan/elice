@@ -21,6 +21,7 @@ export const SignInButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  font-family: var(--font-nanumfont);
 
   &:hover {
     background-color: white;

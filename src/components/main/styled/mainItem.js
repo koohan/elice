@@ -24,6 +24,7 @@ export const StyledButton = styled.button`
     background-color: transparent;
     cursor: pointer;
     color: #0C0E46;
+    font-family: var(--font-nanumfont);
     
     &.selected {
         background-color: #D1DCFD;

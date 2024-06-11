@@ -67,6 +67,7 @@ const SearchButton = styled.button`
   text-decoration: none;
   transition: transform 0.3s ease;
   line-height: 1;
+  font-family: var(--font-nanumfont);
 
   &::before {
     content: "";

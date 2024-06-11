@@ -9,6 +9,7 @@ export const RegisterButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   margin: 5px 0 0 0;
+  font-family: var(--font-nanumfont);
 
   &:hover {
     background-color: #7485bc;
