@@ -40,7 +40,7 @@ export const VerticalContainer = styled.div`
 `;
 
 export const LoginSection = styled.div`
-  width: 50%;
+  width: 40%;
   margin: 5rem;
 `;
 
