@@ -10,14 +10,14 @@ const ButtonWrapper = styled.div`
   margin-top: 4rem;
   border-bottom: 1px solid #eee;
   border-radius: 10px;
-  background: #000;
+  background: #97A6D9;
   color: #fff;
   cursor: pointer;
   width: 30%;
   transition: background-color 0.3s, color 0.3s;
 
   &:hover {
-    background: #333;
+    background: #7485BC;
     color: #ccc;
   }
 `;
@@ -29,7 +29,7 @@ const PaymentOptionsWrapper = styled.div`
   flex-direction: column;
   padding: 20px;
   margin: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #7485BC;
   border-radius: 10px;
   cursor: pointer;
   transition: box-shadow 0.3s, transform 0.3s;

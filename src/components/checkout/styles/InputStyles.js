@@ -17,17 +17,25 @@ const Label = styled.label`
 const StyledInput = styled.input`
   padding: 16px;
   margin: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #97A6D9;
   border-radius: 4px;
   font-size: 14px;
+  &:focus {
+        outline: none;
+        border: 2px solid #7485BC;
+    }
 `;
 
 const StyledInputHigh = styled.input`
   padding: 16px;
   margin: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #97A6D9;
   border-radius: 4px;
   font-size: 14px;
+  &:focus {
+        outline: none;
+        border: 2px solid #7485BC;
+    }
 `;
 
 export { InputWrapper, Label, StyledInput, StyledInputHigh };

@@ -3,17 +3,17 @@ import styled from "styled-components";
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #97A3C9;
 `;
 
 export const THead = styled.thead`
-  background-color: #f0f0f0;
+  background-color: #F4F6F9;
 `;
 
 export const TBody = styled.tbody``;
 
 export const TableRow = styled.tr`
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #97A3C9;
 `;
 
 export const Cell = styled.td`
