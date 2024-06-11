@@ -1,7 +1,7 @@
 import React from 'react';
 import { MenuItemContainer, MenuIcon } from './styles/SidebarStyles';
 import Label from './Label';
-import { faCartArrowDown, faHeart, faCog, faCreditCard, faMapMarkerAlt, faHeadset, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faCartArrowDown, faHeart, faCog, faCreditCard, faMapMarkerAlt, faHeadset, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 
 const iconMap = {
   order: faCartArrowDown,
@@ -10,6 +10,7 @@ const iconMap = {
   payment: faCreditCard,
   delivery: faMapMarkerAlt,
   support: faHeadset,
+  dashboard: faTachometerAlt,
 };
 
 const MenuItem = ({ icon, text, onClick }) => (

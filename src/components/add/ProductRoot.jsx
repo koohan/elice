@@ -11,7 +11,7 @@ const ProductRoot = () => {
         <TitleStyled>제품</TitleStyled>
         <ButtonStyled>제품 추가</ButtonStyled>
       </div>
-      <AddProductLayOut style={{ display: "flex", gap: "20px" }}>
+      <AddProductLayOut >
         <AddProduct />
       </AddProductLayOut>
       <AddProductDetail />

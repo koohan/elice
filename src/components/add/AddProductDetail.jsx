@@ -5,7 +5,7 @@ import { TitleStyled , StyledTextarea} from "./styles/Content"
 const AddProductDetail = () => {
   return (
     <ProductDetailLayOut>
-      <TitleStyled style={{marginBottom : "1.5rem"}}>제품 상세 설명</TitleStyled>
+      <p style={{marginBottom : "1.5rem", fontSize : "1rem"}}>제품 상세 설명</p>
      <StyledTextarea ></StyledTextarea>
     </ProductDetailLayOut>
   );

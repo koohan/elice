@@ -8,6 +8,7 @@ export const ButtonStyled = styled.button`
   border-radius: 5px;
   border-style: none;
   color: #fff;
+  cursor: pointer;
 `;
 
 export const TitleStyled = styled.h3`
@@ -16,6 +17,7 @@ export const TitleStyled = styled.h3`
   font-weight: bold;
   color: #333;
   letter-spacing: 2px;
+  padding: 10px;
 `;
 
 export const StyledSelect = styled.select`
@@ -27,7 +29,7 @@ export const StyledSelect = styled.select`
 `;
 
 export const StyledInput = styled.input`
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   width: 100%;
   padding: 10px;
   border-radius: 4px;

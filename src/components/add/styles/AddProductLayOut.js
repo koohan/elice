@@ -14,6 +14,8 @@ export const CategoryLayOut = styled.div`
   box-sizing: border-box;
   flex: 1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ProductDetailLayOut = styled.div`
@@ -30,14 +32,12 @@ export const ProductDetailLayOut = styled.div`
 `;
 
 export const StyledSelect = styled.select`
-  margin-bottom: 10px;
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
 `;
 
 export const StyledInput = styled.input`
-  margin-bottom: 10px;
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
