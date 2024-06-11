@@ -24,11 +24,12 @@ export const MainContent = styled.div`
 `;
 
 export const CartContainer = styled.div`
-  width: 100%;
+  width: 90%;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 `;
 
 export const Line = styled.div`
