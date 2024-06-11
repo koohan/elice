@@ -15,6 +15,7 @@ const Header = styled.header`
 
 const Logo = styled.img`
   height: 40px;
+  cursor: pointer;
 `;
 
 const Navbar = styled.nav`
