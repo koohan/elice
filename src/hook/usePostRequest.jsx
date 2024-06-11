@@ -26,6 +26,9 @@ const usePostRequest = (url) => {
 
       const data = await response.json();
       setData(data);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     } catch (err) {
       setError("요청에 실패했습니다.");
       console.log(err.message);
