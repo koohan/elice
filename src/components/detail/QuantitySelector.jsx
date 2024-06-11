@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { QuantitySelectorStyled } from './styles/ColorSelectorStyles';
 import {SizeLabel} from './styles/SizeSelectorStyles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 const QuantitySelector = () => {
@@ -18,13 +20,17 @@ const QuantitySelector = () => {
     <QuantitySelectorStyled>
       <SizeLabel style={{marginBottom: "20px"}}>수량</SizeLabel>
       <div className="quantity-control">
-        <button onClick={handleDecrease}>-</button>
+      <button onClick={handleDecrease}>
+          <FontAwesomeIcon icon={faMinus} />
+        </button>
         <input 
           type="number" 
           value={quantity} 
           readOnly 
         />
-        <button onClick={handleIncrease}>+</button>
+        <button onClick={handleIncrease}>
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
       </div>
     </QuantitySelectorStyled>
   );

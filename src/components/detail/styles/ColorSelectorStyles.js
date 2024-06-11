@@ -9,7 +9,7 @@ export const ColorSelectorStyled = styled.div`
   }
   select {
     padding: 10px;
-    width: 71%;
+    width: 100%;
     border: 1px solid #ddd;
   }
 `;
@@ -28,22 +28,25 @@ export const QuantitySelectorStyled = styled.div`
     align-items: center;
 
     button {
-      background-color: #f0f0f0;
-      border: 1px solid #ddd;
-      border-radius: 5px;
+      background-color: #000;
+      border: none;
+      border-radius: 10px;
       padding: 10px 20px;
+      width: 70%;
       font-size: 20px;
+      color: #fff;
       cursor: pointer;
+      transition: background 0.3s ease;
 
       &:hover {
-        background-color: #e0e0e0;
+        background-color: #333;
       }
     }
 
     input {
       text-align: center;
       border: 1px solid #ddd;
-      width: 70px;
+      width: 100%;
       height: 2.5rem;
       padding-left: 15px;
       font-size: 20px;

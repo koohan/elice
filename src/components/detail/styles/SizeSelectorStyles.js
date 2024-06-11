@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SizeSelectorContainer = styled.div`
   margin-bottom: 20px;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -19,7 +20,7 @@ export const SizeButtonGroup = styled.div`
 
 export const SizeButton = styled.button`
   padding: 10px;
-  width: 50px;
+  width: 100%;
   border: 1px solid #ddd;
   background: #fff;
   cursor: pointer;
