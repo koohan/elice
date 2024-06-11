@@ -11,14 +11,13 @@ const addPlaceholders = (products, itemsPerRow) => {
 };
 
 const ProductList = ({ products }) => {
-
   const productItems = addPlaceholders(products, 4);
 
   return (
     <Flex>
       {productItems.map((product, index) => (
         <Items
-          key={product.placeholder ? `placeholder-${index}` : product.id}
+          key={product.placeholder ? `placeholder-${index}` : product._id}
           className={product.placeholder ? 'placeholder' : ''}
         >
           {!product.placeholder && <ProductCard product={product} />}

@@ -7,17 +7,17 @@ import { Line } from '../../GlobalStyles/LayoutStyles';
 const ProductInfo = ({ imageSrc, name, description, price }) => (
     <>
     <Card>
-    <Image src={imageSrc} alt={name} />
+      <Image src={imageSrc} alt={name} /> 
     </Card>
     <LineContainer>
       <Line />
     </LineContainer>
     <TextContainer>
-    <Text type="h2" >{name}</Text>
-    <Text >{description}</Text>
-    <Text >{`${price} 원`}</Text>
-  </TextContainer>
-  </>
+      <Text type="h2" >{name}</Text>
+      <Text >{description}</Text>
+      <Text >{`${price} 원`}</Text>
+    </TextContainer>
+    </>
 );
 
 export default ProductInfo;
