@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { Header, Logo, Navbar, NavLink, SearchContainer, SearchButton, SearchInput } from './Stylednav.js';
 
-const NavBar = () => {
+const NavBar = ({ setSearchQuery, searchInputRef }) => {
   const [searchActive, setSearchActive] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -16,7 +16,14 @@ const NavBar = () => {
   }, [cookies]);
 
   const handleSearchClick = () => {
+    if (searchActive) {
+      setSearchQuery(searchInputRef.current);
+    }
     setSearchActive((prev) => !prev);
+  };
+
+  const handleSearchChange = (e) => {
+    searchInputRef.current = e.target.value;
   };
 
   const handleNavigation = (path) => {
@@ -34,8 +41,18 @@ const NavBar = () => {
       <Logo src="src/assets/logo2.png" onClick={() => handleNavigation('/')} />
       <Navbar>
         <SearchContainer>
-          <SearchInput type="text" placeholder="SEARCH" className={searchActive ? 'active' : ''} />
-          <SearchButton className={searchActive ? 'active' : ''} onClick={handleSearchClick}>SEARCH</SearchButton>
+          <SearchInput 
+            type="text" 
+            placeholder="SEARCH" 
+            className={searchActive ? 'active' : ''} 
+            onChange={handleSearchChange}
+          />
+          <SearchButton 
+            className={searchActive ? 'active' : ''} 
+            onClick={handleSearchClick}
+          >
+            {searchActive ? 'CLICK' : 'SEARCH'}
+          </SearchButton>
         </SearchContainer>
         {isLoggedIn ? (
           <NavLink onClick={handleLogout}>LOGOUT</NavLink>
