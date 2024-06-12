@@ -32,6 +32,7 @@ export const InputGroup = styled.div`
 export const Label = styled.label`
   margin-bottom: 10px;
   font-weight: bold;
+  font-size: 18px;
 `;
 
 export const FlexContainer = styled.div`
@@ -57,5 +58,5 @@ export const InstructionsSection = styled.div`
   margin-bottom: 50px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-nanumfont);
 `;
