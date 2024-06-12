@@ -14,7 +14,7 @@ const ProductInfo = ({ imageSrc, name, description, price }) => (
     </LineContainer>
     <TextContainer>
       <Text type="h2" >{name}</Text>
-      <Text >{description}</Text>
+      <Text type="description">{description}</Text>
       <Text >{`${price.toLocaleString("ko-KR")} 원`}</Text>
     </TextContainer>
     </>

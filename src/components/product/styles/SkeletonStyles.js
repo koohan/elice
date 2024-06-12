@@ -17,4 +17,5 @@ export const StyledText = styled.p`
   font-weight: ${({ type }) => (type === "h2" ? "bold" : "normal")};
   line-height: ${({ type }) => (type === "h2" ? "1.2rem" : "1rem")};
   display: block;
+  color: ${({ type }) => (type === "description" ? "gray" : "black")};
 `;

@@ -14,6 +14,7 @@ export const StyledButton = styled.button`
   text-decoration: none;
   display: inline-block;
   overflow: hidden;
+  font-family: var(--font-nanumfont);
 
   &:before {
     content: "";
@@ -57,12 +58,13 @@ export const StyledShoppingButton = styled.button`
   background: transparent;
   transition: all 0.3s ease-in-out;
   z-index: 10;
-  font-family: "proxima-nova", sans-serif;
+  font-family: var(--font-nanumfont);
   font-weight: 500;
 
   &:hover {
     color: #515B7C;
     font-weight: bold;
+    font-family: var(--font-nanumfont);
   }
 
   &:before,
