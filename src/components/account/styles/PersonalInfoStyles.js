@@ -8,7 +8,8 @@ export const Input = styled.input`
   box-sizing: border-box;
 
   &:focus {
-    border: 1px solid #455186;
+    outline: none;
+    border: 2px solid #455186;
   }
 `;
 
@@ -21,6 +22,7 @@ export const Button = styled.button`
   background-color: #7485bc;
   color: white;
   cursor: pointer;
+  font-family: var(--font-nanumfont);
 
   &:hover {
     background-color: #455186;
