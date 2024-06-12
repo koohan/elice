@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import usePostRequest from "../../hook/usePostRequest";
 import { Title, LineContainer, Line } from "./styles/LoginStyles";
 import Input from "./Input";
@@ -10,9 +11,8 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { data, loading, error, postData } = usePostRequest(
-    "/api/login/login"
-  );
+  const { data, loading, error, postData } = usePostRequest("/api/login/login");
+  const [cookies, setCookie] = useCookies(['loginstate']);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,10 +21,10 @@ function Login() {
 
   useEffect(() => {
     if (data) {
-      localStorage.setItem("token", data.token);
+      setCookie("loginstate", data.token, { path: '/' });
       navigate("/");
     }
-  }, [data, navigate]);
+  }, [data, navigate, setCookie]);
 
   return (
     <>
