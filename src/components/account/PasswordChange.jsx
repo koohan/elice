@@ -15,7 +15,7 @@ import {
   DelBtn,
   ReadOnlyInput,
 } from "./styles/PasswordChangeStyles";
-import usePasswordChange from "./usePasswordChange";
+import useUserManagement from "../../hook/useUserManagement";
 
 const PasswordChange = ({ user }) => {
   const {
@@ -26,7 +26,7 @@ const PasswordChange = ({ user }) => {
     handleKeyDown,
     handlePasswordChange,
     handleDeleteUser,
-  } = usePasswordChange();
+  } = useUserManagement();
 
   return (
     <Container>
