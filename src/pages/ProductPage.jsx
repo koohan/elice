@@ -10,7 +10,7 @@ import background from "../assets/product.png";
 const BackgroundWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   overflow: hidden;
 `;
 
