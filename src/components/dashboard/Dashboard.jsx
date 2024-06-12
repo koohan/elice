@@ -1,40 +1,56 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PriceData from "./PriceData";
+import Notification from "../notification/Notification";
 import ProductList from "./ProductList";
 import { Container } from "./styles/GlobalLayout";
 import { HeaderContainer } from "./styles/BoardLayout";
-import { ProductInput, ProductButton, PaginationButton, PaginationContainer, PaginationMainContainer } from "./styles/ProductLayout";
+import { ProductInput, ProductButton } from "./styles/ProductLayout";
 import { CommonTitle } from "./styles/FontStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const Dashboard = ({ data }) => {
-
+const Dashboard = ({ data, total }) => {
   const navigate = useNavigate();
+  const [productList, setProductList] = useState(data.productList);
+  const [notification, setNotification] = useState("");
+  const [searchQuery, setSearchQuery] = useState(""); 
 
-  const pathProduct = { text: "제품 추가하기", path: "/Add" };
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
-
-  const handlePageChange = (newPage) => {
-    if (newPage > 0 && newPage <= Math.ceil(data.productList.length / itemsPerPage)) {
-      setCurrentPage(newPage);
-    }
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
   };
 
-  const paginatedProductList = data.productList.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  const filteredProductList = productList.filter((product) => {
+    const query = searchQuery.toLowerCase();
+    return (
+      product.name.toLowerCase().includes(query) ||
+      product.brand.name.toLowerCase().includes(query) ||
+      product.category.name.toLowerCase().includes(query)
+    );
+  });
 
-const handleNavigateAdd = () => {
-    navigate(pathProduct.path);
+  const handleNavigateAdd = () => {
+    navigate("/add");
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:8000/api/product/${id}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        setProductList(productList.filter(product => product._id !== id));
+        setNotification("제품이 성공적으로 삭제되었습니다.");
+        setTimeout(() => setNotification(""), 2000);
+      } 
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
   };
 
   return (
     <>
+      {notification && <Notification message={notification} />}
       <Container>
         <HeaderContainer>
           <CommonTitle>대시보드</CommonTitle>
@@ -52,32 +68,22 @@ const handleNavigateAdd = () => {
             <ProductInput
               placeholder="제품 검색..."
               style={{ paddingLeft: "40px" }}
+              value={searchQuery}
+              onChange={handleSearch}
             />
           </div>
         </HeaderContainer>
-        <PriceData priceData={data.priceData} />
+        <PriceData priceData={total.priceData} />
         <HeaderContainer>
           <CommonTitle>제품 목록</CommonTitle>
           <div style={{ position: "relative", width: "300px" }}>
             <ProductButton onClick={handleNavigateAdd}>제품 추가하기</ProductButton>
           </div>
         </HeaderContainer>
-        <ProductList productList={paginatedProductList} />
+        <ProductList productList={filteredProductList} onDelete={handleDelete} />
       </Container>
-      <PaginationMainContainer>
-        <PaginationContainer>
-          <PaginationButton onClick={() => handlePageChange(currentPage - 1)}>
-            -
-          </PaginationButton>
-          <span>{currentPage}</span>
-          <PaginationButton onClick={() => handlePageChange(currentPage + 1)}>
-            +
-          </PaginationButton>
-        </PaginationContainer>
-      </PaginationMainContainer>
     </>
   );
 };
 
 export default Dashboard;
-

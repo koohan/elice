@@ -35,13 +35,13 @@ const PriceData = ({ priceData }) => {
         <Card>
           <div style={{ display: 'flex', alignItems: 'center', padding: '10px', margin: '-16px', marginBottom: '2.5rem' }}>
             <FontAwesomeIcon icon={faWarehouse} style={{ margin: '8px', color: '#aaa' }} />
-            <Label>총 재고</Label>
+            <Label>총 가치</Label>
           </div>
-          <CommonTitle>{priceData.totalStock.toLocaleString('ko-KR')} 개</CommonTitle>
+          <CommonTitle>{priceData.totalStock.toLocaleString('ko-KR')} 원</CommonTitle>
         </Card>
       </CardContainer>
     </>
   );
 };
 
-export default PriceData;
+export default PriceData; 

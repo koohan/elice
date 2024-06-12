@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useProductForm = () => {
+const useProductForm = (url) => {
   const [product, setProduct] = useState({
     name: '',
     brand: '',
@@ -28,7 +28,7 @@ const useProductForm = () => {
 
   const handleAddProduct = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/admin/products', {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

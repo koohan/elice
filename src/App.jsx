@@ -14,6 +14,7 @@ import Nav from './components/nav/nav';
 import Dashboard from '../src/pages/DashboardPage';
 import SupportPage from './pages/SupportPage';
 import AddProductPages from './pages/AddProductPages';
+import UpdateProduct from './components/update/ProductRoot';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/support" element={<SupportPage />} />
         <Route path="/add" element={<AddProductPages />} />
+        <Route path="/update/:id" element={<UpdateProduct />} />
       </Routes>
     </Router>
   );
