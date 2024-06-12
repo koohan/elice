@@ -1,5 +1,5 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import UpdateProduct from './UpdateProduct';
 import { ButtonStyled, TitleStyled } from "./styles/Content";
 import { UpdateProductLayOut } from "./styles/UpdateProductLayOut";
@@ -8,6 +8,9 @@ import useUpdateProductForm from '../../hook/useUpdateProductForm';
 const ProductRoot = () => {
   const { id } = useParams();
   const apiUrl = '/api/product';
+  const brandUrl = '/api/brand';
+  const categoryUrl = '/api/category';
+  const navigate = useNavigate();
 
   const {
     productData,
@@ -15,9 +18,30 @@ const ProductRoot = () => {
     fetchError,
     setProductData,
     handleUpdateProduct,
-    updateError,
     updating,
   } = useUpdateProductForm(apiUrl, id);
+
+  const [brands, setBrands] = useState([]);
+  const [categories, setCategories] = useState([]);
+  
+  useEffect(() => {
+    const fetchBrandsAndCategories = async () => {
+      try {
+        const [brandResponse, categoryResponse] = await Promise.all([
+          fetch(brandUrl),
+          fetch(categoryUrl)
+        ]);
+        const brandsData = await brandResponse.json();
+        const categoriesData = await categoryResponse.json();
+        setBrands(brandsData);
+        setCategories(categoriesData);
+      } catch (error) {
+        console.error('Error fetching brands and categories:', error);
+      }
+    };
+
+    fetchBrandsAndCategories();
+  }, [brandUrl, categoryUrl]);
 
   if (fetchLoading) {
     return <div>Loading...</div>;
@@ -31,8 +55,34 @@ const ProductRoot = () => {
     setProductData(prev => ({ ...prev, [key]: value }));
   };
 
-  const handleSaveProduct = () => {
-    handleUpdateProduct(productData);
+  const handleSave = async () => {
+    try {
+      await handleUpdateProduct(productData);
+      
+      const response = await fetch(`${apiUrl}/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          brand: productData.brand,
+          category: productData.category,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('카테고리 업데이트에 실패했습니다.');
+      }
+
+      const updatedProduct = await response.json();
+      setProductData(updatedProduct);
+
+      setTimeout(() => {
+        navigate(-1);
+      }, 500);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -41,14 +91,18 @@ const ProductRoot = () => {
         <TitleStyled>제품 정보 수정</TitleStyled>
       </div>
       <UpdateProductLayOut>
-        <UpdateProduct data={productData} onChange={handleProductChange} />
+        <UpdateProduct 
+          data={productData} 
+          onChange={handleProductChange} 
+          brands={brands} 
+          categories={categories} 
+        />
       </UpdateProductLayOut>
       <div style={{ display: "flex", width: "50%", margin: "0 auto", marginTop: "15px", justifyContent: "end" }}>
-        <ButtonStyled onClick={handleSaveProduct} disabled={updating}>
-          {updating ? '업데이트 중...' : '제품 업데이트'}
+        <ButtonStyled onClick={handleSave} disabled={updating}>
+          업데이트
         </ButtonStyled>
       </div>
-      {updateError && <div>Error: {updateError.message}</div>}
     </div>
   );
 };

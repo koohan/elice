@@ -1,53 +1,53 @@
 import { useState } from 'react';
 
-const useProductForm = (url) => {
+const useProductForm = (apiUrl) => {
   const [product, setProduct] = useState({
     name: '',
-    brand: '',
-    category: '',
     description: '',
+    price: 0,
+    images: [],
     longdescription: '',
-    price: '',
-    images: [] 
   });
 
   const handleProductChange = (field, value) => {
-    setProduct(prevProduct => {
-      if (field === 'images') {
-        return {
-          ...prevProduct,
-          images: [...prevProduct.images, value]
-        };
-      }
-      return {
-        ...prevProduct,
-        [field]: value
-      };
-    });
+    setProduct((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
   };
 
-  const handleAddProduct = async () => {
+  const handleAddProduct = async (category, brand) => {
+    const { name, description, price, images, longdescription } = product;
+
+    const productData = {
+      name,
+      description,
+      price,
+      images,
+      longdescription,
+      category, // ID 값을 그대로 사용
+      brand, // ID 값을 그대로 사용
+    };
+
     try {
-      const response = await fetch(url, {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(product)
+        body: JSON.stringify(productData),
       });
-      if (response.ok) {
-        const newProduct = await response.json();
-        console.log("Product added:", newProduct);
-        window.location.reload();
-      } else {
+
+      if (!response.ok) {
         const errorData = await response.json();
-        console.error("Failed to add product:", response.status, errorData);
+        throw new Error(errorData.message || 'Failed to add product');
       }
+
+      console.log('Product added successfully');
     } catch (error) {
-      console.error("Error:", error);
+      console.error('Failed to add product:', error.message);
     }
   };
-  
 
   return { handleProductChange, handleAddProduct };
 };
