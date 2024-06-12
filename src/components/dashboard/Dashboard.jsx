@@ -35,7 +35,7 @@ const Dashboard = ({ data, total }) => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/product/${id}`, {
+      const response = await fetch(`/api/product/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {

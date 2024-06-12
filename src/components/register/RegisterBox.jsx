@@ -4,13 +4,15 @@ import RegisterBtn from './RegisterBtn';
 import RegisterInput from './RegisterInput';
 
 const RegisterBox = () => {
-    const { data, loading, error, postData } = usePostRequest('http://localhost:8000/api/register');
+    const { data, loading, error, postData } = usePostRequest('/api/register');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [passwordError, setPasswordError] = useState('');
+
+    // 시간 남을때 스테이트 객체로 관리하는 것으로 변경
 
     const handleSubmit = async (event) => {
         event.preventDefault();

@@ -6,7 +6,7 @@ import { AddProductLayOut } from "./styles/AddProductLayOut";
 import useProductForm from '../../hook/useProductForm';
 
 const ProductRoot = () => {
-  const { handleProductChange, handleAddProduct } = useProductForm('http://localhost:8000/api/admin/products');
+  const { handleProductChange, handleAddProduct } = useProductForm('/api/admin/products');
 
   return (
     <div style={{ padding: "50px", width: "100%", height: "auto", marginBottom: "5rem" }}>

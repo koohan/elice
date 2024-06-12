@@ -5,7 +5,7 @@ import useFetchData from '../hook/useFetchData';
 
 const DetailPage = () => {
   const { productId } = useParams();
-  const productUrl = `http://localhost:8000/api/product/${productId}`;
+  const productUrl = `/api/product/${productId}`;
   const { data: product, loading: productLoading, error: productError } = useFetchData(productUrl);
 
   const [categoryUrl, setCategoryUrl] = useState(null);
@@ -15,7 +15,7 @@ const DetailPage = () => {
 
   useEffect(() => {
     if (product && product.category && product.category._id) {
-      setCategoryUrl(`http://localhost:8000/api/category/${product.category._id}`);
+      setCategoryUrl(`/api/category/${product.category._id}`);
     }
   }, [product]);
 

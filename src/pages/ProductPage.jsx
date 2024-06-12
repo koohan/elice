@@ -6,7 +6,7 @@ import NavBar from '../components/nav/nav';
 import useFetchData from '../hook/useFetchData'; 
 
 const ProductPage = () => {
-  const { data, loading, error } = useFetchData("http://localhost:8000/api/product");
+  const { data, loading, error } = useFetchData("/api/product");
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;

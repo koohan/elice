@@ -11,7 +11,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { data, loading, error, postData } = usePostRequest(
-    "http://localhost:8000/api/login/login"
+    "/api/login/login"
   );
 
   const handleLogin = async (e) => {

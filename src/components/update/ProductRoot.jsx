@@ -7,7 +7,7 @@ import useUpdateProductForm from '../../hook/useUpdateProductForm';
 
 const ProductRoot = () => {
   const { id } = useParams();
-  const apiUrl = 'http://localhost:8000/api/product';
+  const apiUrl = '/api/product';
 
   const {
     productData,

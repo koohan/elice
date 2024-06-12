@@ -11,7 +11,7 @@ import Footer from "../components/footer/footer";
 import useFetchData from "../hook/useFetchData";
 
 const DashboardPage = () => {
-  const { data, loading, error } = useFetchData("http://localhost:8000/api/product");
+  const { data, loading, error } = useFetchData("/api/product");
 
   if (loading) {
     return <p>Loading...</p>;

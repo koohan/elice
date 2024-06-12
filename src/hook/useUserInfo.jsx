@@ -8,7 +8,7 @@ const useUserInfo = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/users/me', {
+        const response = await fetch('/api/users/me', {
           credentials: 'include'
         });
 
