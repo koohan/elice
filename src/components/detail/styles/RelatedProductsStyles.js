@@ -20,7 +20,8 @@ export const RelatedProductsStyled = styled.div`
 `;
 
 export const RelatedProductItem = styled.li`
-  flex: 1 1 calc(50% - 20px);
+  flex: 1 1 calc(45% - 20px);
+  max-width: calc(45% - 20px);
   box-sizing: border-box;
   img {
     width: 100%;

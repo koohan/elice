@@ -30,7 +30,7 @@ const ProductDetail = ({ product, variants, relatedProducts }) => {
         <CheckoutButton>결제하기</CheckoutButton>
         </div>
       </InfoContainer>
-      <div>
+      <div style={{width : "100%"}}>
       <ProductDescription description={product.longdescription} />
       <RelatedProducts products={relatedProducts} />
       </div>

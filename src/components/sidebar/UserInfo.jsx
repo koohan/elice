@@ -7,7 +7,9 @@ const UserInfo = () => {
 
   if (loading) return <p>Loading...</p>;
 
-  if (error) return <p>Error: {error}</p>;
+  if (error) {
+    return null;
+  }
 
   const Mockuser = {
     avatar: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png',
@@ -17,7 +19,7 @@ const UserInfo = () => {
   const defaultUser = {
     name: 'GUEST',
     email: '엘리스 스토어입니다',
-  
+    phoneNumber: Mockuser.phone
   };
 
   const displayedUser = user || defaultUser;

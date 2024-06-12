@@ -9,11 +9,11 @@ const useUserInfo = () => {
     const fetchUser = async () => {
       try {
         const response = await fetch('http://localhost:8000/api/users/me', {
-          credentials: 'include' 
+          credentials: 'include'
         });
 
         if (!response.ok) {
-          throw new Error('사용자를 가져오는 데 실패했습니다.');
+          return setUser(null);
         }
 
         const data = await response.json();
