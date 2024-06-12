@@ -6,11 +6,17 @@ const useFetchData = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!url) return;
+
     const fetchData = async () => {
       try {
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error('Error Data not Found');
+          throw new Error('Error: Data not found');
+        }
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Received non-JSON response');
         }
         const data = await response.json();
         setData(data);

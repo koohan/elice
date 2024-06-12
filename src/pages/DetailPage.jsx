@@ -1,50 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ProductDetail from '../components/detail/ProductDetail';
+import useFetchData from '../hook/useFetchData'; 
 
 const DetailPage = () => {
   const { productId } = useParams();
-  const [product, setProduct] = useState(null);
-  const [variants, setVariants] = useState([]);
-  const [relatedProducts, setRelatedProducts] = useState([]);
+  const productUrl = `http://localhost:8000/api/product/${productId}`;
+  const { data: product, loading: productLoading, error: productError } = useFetchData(productUrl);
+
+  const [categoryUrl, setCategoryUrl] = useState(null);
+  const { data: relatedProductsData, loading: relatedProductsLoading, error: relatedProductsError } = useFetchData(categoryUrl);
+
+  const [filteredRelatedProducts, setFilteredRelatedProducts] = useState([]);
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await fetch(`http://localhost:8000/api/product/${productId}`);
-        const data = await response.json();
+    if (product && product.category && product.category._id) {
+      setCategoryUrl(`http://localhost:8000/api/category/${product.category._id}`);
+    }
+  }, [product]);
 
-        console.log('Fetched product data:', data);
+  useEffect(() => {
+    if (relatedProductsData && product) {
+      setFilteredRelatedProducts(relatedProductsData.filter(p => p._id !== productId));
+    }
+  }, [relatedProductsData, product, productId]);
 
-        const { product, variants } = data;
-
-        if (!product || !product.category || !product.category._id) {
-          throw new Error('Product data is incomplete');
-        }
-
-        setProduct(product);
-        setVariants(variants);
-
-        const relatedResponse = await fetch(`http://localhost:8000/api/category/${product.category._id}`);
-        const relatedProductsData = await relatedResponse.json();
-        setRelatedProducts(relatedProductsData.filter(p => p._id !== productId));
-      } catch (error) {
-        console.error('Error fetching product:', error);
-      }
-    };
-
-    fetchProduct();
-  }, [productId]);
-
-  if (!product) {
+  if (productLoading || relatedProductsLoading) {
     return <div>Loading...</div>;
+  }
+
+  if (productError) {
+    return <div>Error: {productError.message}</div>;
+  }
+
+  if (relatedProductsError) {
+    return <div>Error: {relatedProductsError.message}</div>;
   }
 
   return (
     <ProductDetail
       product={product}
-      variants={variants}
-      relatedProducts={relatedProducts}
+      relatedProducts={filteredRelatedProducts}
     />
   );
 };

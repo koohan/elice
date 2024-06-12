@@ -1,7 +1,7 @@
 import React from 'react';
 import { RelatedProductsStyled, RelatedProductItem, CommonTitle } from './styles/RelatedProductsStyles';
 
-const RelatedProducts = ({ products }) => {
+const RelatedProducts = ({ products = [] }) => {
   const placeholderImage = 'https://via.placeholder.com/150';
 
   return (
