@@ -18,7 +18,6 @@ const ProductList = ({ products }) => {
       {productItems.map((product, index) => (
         <Items
           key={product.placeholder ? `placeholder-${index}` : product._id}
-          className={product.placeholder ? 'placeholder' : ''}
         >
           {!product.placeholder && <ProductCard product={product} />}
         </Items>
