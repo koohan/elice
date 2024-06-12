@@ -55,7 +55,7 @@ export const InstructionsSection = styled.div`
   width: 100%;
   justify-content: center;
   margin-top: 22px;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 10px;
   font-family: var(--font-nanumfont);

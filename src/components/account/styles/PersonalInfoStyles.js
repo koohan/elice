@@ -6,11 +6,6 @@ export const Input = styled.input`
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
-
-  &:focus {
-    outline: none;
-    border: 2px solid #455186;
-  }
 `;
 
 export const Button = styled.button`
@@ -43,7 +38,7 @@ export const AvatarSection = styled.div`
   justify-content: center;
   width: 100%;
   margin-top: 23px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 10px;
 `;

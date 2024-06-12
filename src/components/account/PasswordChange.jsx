@@ -11,22 +11,12 @@ import {
 } from "./styles/commonStyles";
 import {
   Input,
-  Button,
-  DelBtn,
-  ReadOnlyInput,
+  ReadOnlyInput
 } from "./styles/PasswordChangeStyles";
-import useUserManagement from "../../hook/useUserManagement";
+
 
 const PasswordChange = ({ user }) => {
-  const {
-    passwords,
-    newPasswordRef,
-    confirmPasswordRef,
-    handleChange,
-    handleKeyDown,
-    handlePasswordChange,
-    handleDeleteUser,
-  } = useUserManagement();
+
 
   return (
     <Container>
@@ -37,36 +27,20 @@ const PasswordChange = ({ user }) => {
             <InputGroup>
               <ReadOnlyInput>보안을 위해 주기적으로 비밀번호를 변경해주세요.</ReadOnlyInput>
             </InputGroup>
-            <form onSubmit={handlePasswordChange}>
+            <form>
               <InputGroup>
                 <Label>새 비밀번호</Label>
                 <Input
                   type="password"
-                  name="newPassword"
                   placeholder="새 비밀번호를 입력하세요."
-                  value={passwords.newPassword}
-                  onChange={handleChange}
-                  ref={newPasswordRef}
-                  onKeyDown={(e) => handleKeyDown(e, confirmPasswordRef)}
-                  autoComplete="new-password"
                 />
               </InputGroup>
               <InputGroup>
                 <Label>새 비밀번호 확인</Label>
                 <Input
                   type="password"
-                  name="confirmPassword"
-                  value={passwords.confirmPassword}
-                  onChange={handleChange}
-                  ref={confirmPasswordRef}
-                  onKeyDown={(e) => handleKeyDown(e, null)}
-                  autoComplete="new-password"
                 />
               </InputGroup>
-              <div style={{ display: "flex", gap: "10px" }}>
-                <Button type="submit">비밀번호 변경</Button>
-                <DelBtn type="button" onClick={handleDeleteUser}>회원 탈퇴하기</DelBtn>
-              </div>
             </form>
           </InputSection>
           <InstructionsSection>

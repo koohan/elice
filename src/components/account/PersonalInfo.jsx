@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Container,
   Section,
@@ -10,74 +10,64 @@ import {
 } from "./styles/commonStyles";
 import {
   Input,
-  Button,
   Avatar,
   AvatarSection,
 } from "./styles/PersonalInfoStyles";
 
-const PersonalInfo = ({ user,Mockuser }) => {
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
-  const [phone, setPhone] = useState(user.phoneNumber);
+const PersonalInfo = ({ user, Mockuser }) => {
+  const [formData, setFormData] = useState({
+    name: user.name,
+    email: user.email,
+    phoneNumber: user.phoneNumber
+  });
 
-  const nameInputRef = useRef(null);
-  const emailInputRef = useRef(null);
-  const phoneInputRef = useRef(null);
-
-  useEffect(() => {
-    nameInputRef.current.focus();
-  }, []);
-
-  const handleKeyDown = (e, nextInputRef) => {
-    if (e.key === "Enter" && nextInputRef) {
-      nextInputRef.current.focus();
-    }
-  };
-
-  const handleEdit = () => {
-    console.log("Edited:", { name, email, phone });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
   return (
     <Container>
       <Section>
-        <Title>{user.name} 님의 정보</Title>
+        <Title>{formData.name} 님의 정보</Title>
         <FlexContainer>
           <InputSection>
             <InputGroup>
               <Label>이름</Label>
               <Input
                 type="text"
-                value={name}
-                ref={nameInputRef}
-                onChange={(e) => setName(e.target.value)}
-                onKeyDown={(e) => handleKeyDown(e, emailInputRef)}
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
               />
             </InputGroup>
             <InputGroup>
               <Label>이메일</Label>
               <Input
                 type="email"
-                value={email}
-                ref={emailInputRef}
-                onChange={(e) => setEmail(e.target.value)}
-                onKeyDown={(e) => handleKeyDown(e, phoneInputRef)}
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
               />
             </InputGroup>
             <InputGroup>
               <Label>전화번호</Label>
               <Input
-                type="text"
-                value={phone}
-                ref={phoneInputRef}
-                onChange={(e) => setPhone(e.target.value)}
-                onKeyDown={(e) => handleKeyDown(e, null)}
+                type="tel"
+                id="phone"
+                name="phoneNumber"
+                pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+                required
+                value={formData.phoneNumber}
+                onChange={handleChange}
               />
             </InputGroup>
-            <Button onClick={handleEdit}>편집</Button>
           </InputSection>
           <AvatarSection>
-            <Avatar src={Mockuser.avatar} alt={`${user.name} 님의 아바타`} />
+            <Avatar src={Mockuser.avatar} alt={`${formData.name} 님의 아바타`} />
           </AvatarSection>
         </FlexContainer>
       </Section>

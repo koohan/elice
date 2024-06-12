@@ -7,14 +7,11 @@ export const Input = styled.input`
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 5px;
-  &:focus {
-    outline: none;
-    border: 2px solid #455186;
-  }
 `;
 
 export const Button = styled.button`
   width: 8rem;
+  height: 3rem;
   font-size: 16px;
   padding: 10px;
   border: none;
