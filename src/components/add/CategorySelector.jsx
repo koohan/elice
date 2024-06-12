@@ -1,6 +1,5 @@
 import React from "react";
 import { StyledSelect } from "./styles/Content";
-import { CategoryLayOut } from "./styles/AddProductLayOut";
 
 const CategorySelector = ({ setSelectedCategory, setSelectedBrand, brands, categories }) => {
   const handleCategoryChange = (e) => {

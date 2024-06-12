@@ -5,7 +5,6 @@ const useUpdateProductForm = (apiUrl, productId) => {
   const [fetchLoading, setFetchLoading] = useState(true);
   const [fetchError, setFetchError] = useState(null);
   const [updateError, setUpdateError] = useState(null);
-  const [updating, setUpdating] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -27,7 +26,7 @@ const useUpdateProductForm = (apiUrl, productId) => {
   }, [apiUrl, productId]);
 
   const handleUpdateProduct = async (updatedProductData) => {
-    setUpdating(true);
+
     try {
       const response = await fetch(`${apiUrl}/${productId}`, {
         method: 'PUT',
@@ -39,12 +38,9 @@ const useUpdateProductForm = (apiUrl, productId) => {
       if (!response.ok) {
         throw new Error('Failed to update product');
       }
-      alert('Product Update Complete');
     } catch (error) {
       setUpdateError(error);
-    } finally {
-      setUpdating(false);
-    }
+    } 
   };
 
   return {
@@ -54,7 +50,6 @@ const useUpdateProductForm = (apiUrl, productId) => {
     setProductData,
     handleUpdateProduct,
     updateError,
-    updating,
   };
 };
 
