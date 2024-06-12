@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const AddProductLayOut = styled.div`
-  display: flex;
   gap: 20px;
+  width: 80%;
+  margin: 0 auto;
 `;
 
 export const CategoryLayOut = styled.div`

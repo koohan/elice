@@ -39,7 +39,7 @@ const useUpdateProductForm = (apiUrl, productId) => {
       if (!response.ok) {
         throw new Error('Failed to update product');
       }
-      alert('Product updated successfully');
+      alert('Product Update Complete');
     } catch (error) {
       setUpdateError(error);
     } finally {

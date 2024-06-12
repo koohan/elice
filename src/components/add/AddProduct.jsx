@@ -1,13 +1,20 @@
 import React from "react";
 import CategorySelector from "./CategorySelector";
-import ProductDetails from "./Product";
+import ProductDetails from "./ProductDetails";
+import { CategoryLayOut } from "./styles/AddProductLayOut";
 
-const AddProduct = ({ onChange, onAddImage }) => {
+const AddProduct = ({ onChange, brands, categories, setSelectedCategory, setSelectedBrand }) => {
   return (
-    <>
+    <CategoryLayOut>
       <ProductDetails onChange={onChange} />
-      <CategorySelector onChange={onChange} onAddImage={onAddImage} />
-    </>
+      <CategorySelector 
+        onChange={onChange} 
+        brands={brands} 
+        categories={categories}
+        setSelectedCategory={setSelectedCategory}
+        setSelectedBrand={setSelectedBrand}
+      />
+    </CategoryLayOut>
   );
 };
 
