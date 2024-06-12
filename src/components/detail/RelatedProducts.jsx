@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { RelatedProductsStyled, RelatedProductItem, CommonTitle } from './styles/RelatedProductsStyles';
 
 const RelatedProducts = ({ products = [] }) => {
@@ -10,9 +11,11 @@ const RelatedProducts = ({ products = [] }) => {
       <ul>
         {products.map((product) => (
           <RelatedProductItem key={product._id}>
-            <img src={product.images.length > 0 ? product.images[0] : placeholderImage} alt={product.name} />
-            <p>{product.name}</p>
-            <p>{product.price.toLocaleString('ko-KR')}원</p>
+            <Link to={`/product/${product._id}`}>
+              <img src={product.images.length > 0 ? product.images[0] : placeholderImage} alt={product.name} />
+              <p>{product.name}</p>
+              <p>{product.price.toLocaleString('ko-KR')}원</p>
+            </Link>
           </RelatedProductItem>
         ))}
       </ul>
