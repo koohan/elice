@@ -20,7 +20,7 @@ const Sidebar = () => {
     { icon: "order", text: "주문 내역", path: "/orders" },
     { icon: "wishlist", text: "장바구니", path: "/carts" },
     { icon: "settings", text: "계정 설정", path: "/account" },
-    { icon: "payment", text: "결제 정보", path: "아직 안 만듦" },
+    { icon: "payment", text: "결제 정보", path: "/card" },
     { icon: "delivery", text: "주소 정보", path: "아직 안 만듦" },
     { icon: "support", text: "고객센터", path: "/support" },
   ];

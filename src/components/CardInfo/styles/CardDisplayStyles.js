@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const CardImage = styled.div`
-  width: 100%;
-  max-width: 800px;
-  height: 250px;
-  background-image: url(${(props) => props.src});
-  background-size: cover;
-  border-radius: 8px;
-  margin-bottom: 20px;
   position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 1);
+  overflow: hidden;
 `;
 
 export const CardDetails = styled.div`
@@ -31,4 +30,18 @@ export const CardHolder = styled.div`
 export const ExpirationDate = styled.div`
   font-size: 1rem;
   margin-top: 10px;
+`;
+
+export const CardIcons = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+`;
+
+export const Icon = styled.div`
+  font-size: 2rem;
+  color: white;
 `;

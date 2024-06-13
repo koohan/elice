@@ -7,6 +7,7 @@ export const PaymentFormContainer = styled.div`
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -46,13 +47,12 @@ export const Select = styled.select`
 export const ExpiryContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
 `;
 
 export const Button = styled.button`
   width: 100%;
   padding: 15px;
-  background-color: #007bff;
+  background-color: #000;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -61,6 +61,6 @@ export const Button = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #333;
   }
 `;

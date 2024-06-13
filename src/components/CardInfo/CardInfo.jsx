@@ -10,12 +10,16 @@ import {
 } from "./styles/CardInfoStyles";
 import CardDisplay from "./CardDisplay";
 
+const initialCardInfo = {
+  cardNumber: "",
+  cardHolder: "",
+  expiryMonth: "",
+  expiryYear: "",
+  cvc: "",
+};
+
 const CardInfo = () => {
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardHolder, setCardHolder] = useState("");
-  const [expiryMonth, setExpiryMonth] = useState("");
-  const [expiryYear, setExpiryYear] = useState("");
-  const [cvc, setCvc] = useState("");
+  const [cardInfo, setCardInfo] = useState(initialCardInfo);
 
   const months = Array.from({ length: 12 }, (_, i) =>
     String(i + 1).padStart(2, "0")
@@ -26,91 +30,85 @@ const CardInfo = () => {
   );
 
   const handleCardNumberChange = (e) => {
-    const formattedNumber = e.target.value.replace(/\s/g, "").replace(/(\d{4})/g, "$1 ").trim();
-    setCardNumber(formattedNumber);
+    const formattedNumber = e.target.value
+      .replace(/\s/g, "")
+      .replace(/(\d{4})/g, "$1 ")
+      .trim();
+    setCardInfo((prevInfo) => ({ ...prevInfo, cardNumber: formattedNumber }));
+  };
+
+  const handleInputChange = (key, value) => {
+    setCardInfo((prevInfo) => ({ ...prevInfo, [key]: value }));
   };
 
   return (
-    <PaymentFormContainer>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <CardDisplay
-        cardNumber={cardNumber}
-        cardHolder={cardHolder}
-        expiryMonth={expiryMonth}
-        expiryYear={expiryYear}
+        cardNumber={cardInfo.cardNumber}
+        cardHolder={cardInfo.cardHolder}
+        expiryMonth={cardInfo.expiryMonth}
+        expiryYear={cardInfo.expiryYear}
       />
-      <Form>
-        <Label htmlFor="card-number">카드 번호</Label>
-        <Input
-          type="text"
-          id="card-number"
-          name="card-number"
-          placeholder="카드 번호"
-          value={cardNumber}
-          onChange={handleCardNumberChange}
-          required
-        />
+      <PaymentFormContainer>
+        <Form>
+          <Label>카드 번호</Label>
+          <Input
+            type="text"
+            placeholder="카드 번호"
+            value={cardInfo.cardNumber}
+            onChange={handleCardNumberChange}
+          />
 
-        <Label htmlFor="name">카드 소유자</Label>
-        <Input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="카드 소유자"
-          value={cardHolder}
-          onChange={(e) => setCardHolder(e.target.value)}
-          required
-        />
+          <Label>카드 소유자</Label>
+          <Input
+            type="text"
+            placeholder="카드 소유자"
+            value={cardInfo.cardHolder}
+            onChange={(e) => handleInputChange("cardHolder", e.target.value)}
+          />
 
-        <Label htmlFor="expiry-month">만료 날짜</Label>
-        <ExpiryContainer>
-          <Select
-            id="expiry-month"
-            name="expiry-month"
-            value={expiryMonth}
-            onChange={(e) => setExpiryMonth(e.target.value)}
-            required
-          >
-            <option value="" disabled>
-              월
-            </option>
-            {months.map((month) => (
-              <option key={month} value={month}>
-                {month}
+          <Label>만료 날짜</Label>
+          <ExpiryContainer>
+            <Select
+              value={cardInfo.expiryMonth}
+              onChange={(e) => handleInputChange("expiryMonth", e.target.value)}
+            >
+              <option value="" disabled>
+                월
               </option>
-            ))}
-          </Select>
-          <Select
-            id="expiry-year"
-            name="expiry-year"
-            value={expiryYear}
-            onChange={(e) => setExpiryYear(e.target.value)}
-            required
-          >
-            <option value="" disabled>
-              년
-            </option>
-            {years.map((year) => (
-              <option key={year} value={year}>
-                {year}
+              {months.map((month) => (
+                <option key={month} value={month}>
+                  {month}
+                </option>
+              ))}
+            </Select>
+            <Select
+              value={cardInfo.expiryYear}
+              onChange={(e) => handleInputChange("expiryYear", e.target.value)}
+            >
+              <option value="" disabled>
+                년
               </option>
-            ))}
-          </Select>
-        </ExpiryContainer>
+              {years.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </Select>
+          </ExpiryContainer>
 
-        <Label htmlFor="cvc">CVC</Label>
-        <Input
-          type="text"
-          id="cvc"
-          name="cvc"
-          placeholder="CVC"
-          value={cvc}
-          onChange={(e) => setCvc(e.target.value)}
-          required
-        />
+          <Label>CVC</Label>
+          <Input
+            type="password"
+            placeholder="CVC"
+            value={cardInfo.cvc}
+            onChange={(e) => handleInputChange("cvc", e.target.value)}
+          />
 
-        <Button type="submit">등록하기</Button>
-      </Form>
-    </PaymentFormContainer>
+          <Button type="submit">등록하기</Button>
+        </Form>
+      </PaymentFormContainer>
+    </div>
   );
 };
 
