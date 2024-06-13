@@ -6,10 +6,7 @@ const UserInfo = () => {
   const { user, loading, error } = useUserInfo();
 
   if (loading) return <p>Loading...</p>;
-
-  if (error) {
-    return null;
-  }
+  if (error) return null;
 
   const Mockuser = {
     avatar: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png',

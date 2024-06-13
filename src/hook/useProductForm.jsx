@@ -25,8 +25,8 @@ const useProductForm = (apiUrl) => {
       price,
       images,
       longdescription,
-      category, // ID 값을 그대로 사용
-      brand, // ID 값을 그대로 사용
+      category,
+      brand,
     };
 
     try {

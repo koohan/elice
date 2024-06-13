@@ -13,7 +13,7 @@ const useUserInfo = () => {
         });
 
         if (!response.ok) {
-          return setUser(null);
+          throw new Error('Failed to fetch user data');
         }
 
         const data = await response.json();

@@ -29,20 +29,25 @@ export const RelatedProductItem = styled.li`
   transition: transform 0.2s;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
   }
 
-  img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
+  a {
+    text-decoration: none;
 
-  p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
+    img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #e0e0e0;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+    }
   }
 `;
 

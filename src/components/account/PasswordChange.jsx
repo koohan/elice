@@ -14,10 +14,7 @@ import {
   ReadOnlyInput
 } from "./styles/PasswordChangeStyles";
 
-
 const PasswordChange = ({ user }) => {
-
-
   return (
     <Container>
       <Section>

@@ -22,11 +22,7 @@ const ColorSelector = ({ colors = [], selectedColor, setSelectedColor }) => {
   const [availableColors, setAvailableColors] = useState([]);
 
   useEffect(() => {
-    if (colors.length > 0) {
-      setAvailableColors(colors);
-    } else {
-      setAvailableColors(getRandomColors(rainbowColors, 4));
-    }
+    setAvailableColors(colors.length > 0 ? colors : getRandomColors(rainbowColors, 4));
   }, [colors]);
 
   const handleChange = (selectedOption) => {
@@ -47,14 +43,8 @@ const ColorSelector = ({ colors = [], selectedColor, setSelectedColor }) => {
         options={options}
         placeholder="색상 선택"
         styles={{
-          option: (provided) => ({
-            ...provided,
-            padding: 10,
-          }),
-          control: (provided) => ({
-            ...provided,
-            marginBottom: '20px',
-          }),
+          option: (provided) => ({ ...provided, padding: 10 }),
+          control: (provided) => ({ ...provided, marginBottom: '20px' }),
         }}
       />
     </ColorSelectorStyled>

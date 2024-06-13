@@ -34,19 +34,10 @@ export const Input = styled.input`
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 `;
 
-export const Select = styled.select`
-  width: 48%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-`;
-
 export const ExpiryContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 `;
 
 export const Button = styled.button`

@@ -16,7 +16,7 @@ const useUpdateProductForm = (apiUrl, productId) => {
         const data = await response.json();
         setProductData(data);
       } catch (error) {
-        setFetchError(error);
+        setFetchError(error.message);
       } finally {
         setFetchLoading(false);
       }
@@ -26,7 +26,6 @@ const useUpdateProductForm = (apiUrl, productId) => {
   }, [apiUrl, productId]);
 
   const handleUpdateProduct = async (updatedProductData) => {
-
     try {
       const response = await fetch(`${apiUrl}/${productId}`, {
         method: 'PUT',
@@ -39,8 +38,8 @@ const useUpdateProductForm = (apiUrl, productId) => {
         throw new Error('Failed to update product');
       }
     } catch (error) {
-      setUpdateError(error);
-    } 
+      setUpdateError(error.message);
+    }
   };
 
   return {

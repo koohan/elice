@@ -5,13 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const QuantitySelector = ({ quantity, setQuantity }) => {
-  const handleIncrease = () => {
-    setQuantity(prev => Math.min(prev + 1, 10)); 
-  };
-
-  const handleDecrease = () => {
-    setQuantity(prev => Math.max(prev - 1, 1)); 
-  };
+  const handleIncrease = () => setQuantity(prev => Math.min(prev + 1, 10));
+  const handleDecrease = () => setQuantity(prev => Math.max(prev - 1, 1));
 
   return (
     <QuantitySelectorStyled>
@@ -20,11 +15,7 @@ const QuantitySelector = ({ quantity, setQuantity }) => {
         <button onClick={handleDecrease}>
           <FontAwesomeIcon icon={faMinus} />
         </button>
-        <input 
-          type="number" 
-          value={quantity} 
-          readOnly 
-        />
+        <input type="number" value={quantity} readOnly />
         <button onClick={handleIncrease}>
           <FontAwesomeIcon icon={faPlus} />
         </button>

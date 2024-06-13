@@ -12,7 +12,8 @@ const RegisterBox = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
-    // 시간 남을때 스테이트 객체로 관리하는 것으로 변경
+    // 시간 남을때 스테이트 객체로 관리하는 것으로 변경 할려고 했는데 안되네요
+    // 왜 안되는지 모르겠네
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -30,7 +31,7 @@ const RegisterBox = () => {
             <RegisterInput type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
             <RegisterInput type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <RegisterInput type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-            <RegisterInput type="tel" placeholder="Phone Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+            <RegisterInput type="tel" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
             <RegisterBtn loading={loading} />
             {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}

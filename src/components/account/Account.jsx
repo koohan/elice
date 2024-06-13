@@ -7,11 +7,7 @@ import useAccount from '../../hook/useAccount';
 const Account = ({ user, Mockuser }) => {
   const { deleteAccount, loading, error } = useAccount();
 
-//   console.log("User:", user);
-
-  if (loading) {
-    return <p>로딩 중...</p>;
-  }
+  if (loading) return <p>로딩 중...</p>;
 
   return (
     <div style={{ marginTop: "2rem" }}>

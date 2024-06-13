@@ -9,7 +9,7 @@ const RelatedProducts = ({ products = [] }) => {
     <RelatedProductsStyled>
       <CommonTitle>관련 제품</CommonTitle>
       <ul>
-        {products.map((product) => (
+        {products.map(product => (
           <RelatedProductItem key={product._id}>
             <Link to={`/product/${product._id}`}>
               <img src={product.images.length > 0 ? product.images[0] : placeholderImage} alt={product.name} />

@@ -5,7 +5,10 @@ import ProductCard from './ProductCard';
 const addPlaceholders = (products, itemsPerRow) => {
   const placeholdersNeeded = itemsPerRow - (products.length % itemsPerRow);
   if (placeholdersNeeded < itemsPerRow) {
-    return [...products, ...Array.from({ length: placeholdersNeeded }, (_, i) => ({ id: `placeholder-${i}`, placeholder: true }))];
+    return [
+      ...products, 
+      ...Array.from({ length: placeholdersNeeded }, (_, i) => ({ id: `placeholder-${i}`, placeholder: true }))
+    ];
   }
   return products;
 };

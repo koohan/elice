@@ -26,25 +26,14 @@ const DetailPage = () => {
     }
   }, [relatedProductsData, product, productId]);
 
-  if (productLoading || relatedProductsLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (productError) {
-    return <div>Error: {productError.message}</div>;
-  }
-
-  if (relatedProductsError) {
-    return <div>Error: {relatedProductsError.message}</div>;
-  }
+  if (productLoading || relatedProductsLoading) return <div>Loading...</div>;
+  if (productError) return <div>Error: {productError.message}</div>;
+  if (relatedProductsError) return <div>Error: {relatedProductsError.message}</div>;
 
   return (
     <>
       <NavBar />
-      <ProductDetail
-        product={product}
-        relatedProducts={filteredRelatedProducts}
-      />
+      <ProductDetail product={product} relatedProducts={filteredRelatedProducts} />
     </>
   );
 };

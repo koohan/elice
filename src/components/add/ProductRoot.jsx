@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AddProduct from "./AddProduct";
 import { ButtonStyled, TitleStyled } from "./styles/Content";
 import { AddProductLayOut } from "./styles/AddProductLayOut";
 import useProductForm from "../../hook/useProductForm";
-import Notification from "../notification/Notification"
+import Notification from "../notification/Notification";
+import useFetchOptions from "../../hook/useFetchOptions";
 
 const ProductRoot = () => {
   const apiUrl = "/api/admin/products";
@@ -11,30 +12,19 @@ const ProductRoot = () => {
   const categoryUrl = "/api/category";
 
   const { handleProductChange, handleAddProduct } = useProductForm(apiUrl);
+  const { brands, categories, loading, error } = useFetchOptions(brandUrl, categoryUrl);
+
   const [notification, setNotification] = useState("");
-  const [brands, setBrands] = useState([]);
-  const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
 
-  useEffect(() => {
-    const fetchBrandsAndCategories = async () => {
-      try {
-        const [brandResponse, categoryResponse] = await Promise.all([
-          fetch(brandUrl),
-          fetch(categoryUrl),
-        ]);
-        const brandsData = await brandResponse.json();
-        const categoriesData = await categoryResponse.json();
-        setBrands(brandsData);
-        setCategories(categoriesData);
-      } catch (error) {
-        console.error("Error fetching brands and categories:", error);
-      }
-    };
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-    fetchBrandsAndCategories();
-  }, [brandUrl, categoryUrl]);
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   const handleButtonClick = () => {
     if (!selectedCategory || !selectedBrand) {
@@ -43,8 +33,8 @@ const ProductRoot = () => {
     }
     handleAddProduct(selectedCategory, selectedBrand);
     setNotification("제품이 성공적으로 등록되었습니다.");
-    setTimeout(() =>  setNotification(""), 1000);
-    setTimeout(() =>  window.location.reload(), 1500);
+    setTimeout(() => setNotification(""), 1000);
+    setTimeout(() => window.location.reload(), 1500);
   };
 
   const handleFormChange = (field, value) => {
@@ -53,17 +43,8 @@ const ProductRoot = () => {
 
   return (
     <div style={{ paddingTop: "5rem", height: "100%" }}>
-       {notification && <Notification message={notification} />}
-      <div
-        style={{
-          display: "flex",
-          width: "80%",
-          height: "5rem",
-          justifyContent: "space-between",
-          alignItems: "center",
-          margin: "0 auto",
-        }}
-      >
+      {notification && <Notification message={notification} />}
+      <div style={{ display: "flex", width: "80%", height: "5rem", justifyContent: "space-between", alignItems: "center", margin: "0 auto" }}>
         <TitleStyled>제품 추가</TitleStyled>
       </div>
       <AddProductLayOut>
@@ -74,15 +55,7 @@ const ProductRoot = () => {
           setSelectedCategory={setSelectedCategory}
           setSelectedBrand={setSelectedBrand}
         />
-        <div
-          style={{
-            display: "flex",
-            height: "5rem",
-            justifyContent: "end",
-            alignItems: "center",
-            margin: "0 auto",
-          }}
-        >
+        <div style={{ display: "flex", height: "5rem", justifyContent: "end", alignItems: "center", margin: "0 auto" }}>
           <ButtonStyled onClick={handleButtonClick}>저장</ButtonStyled>
         </div>
       </AddProductLayOut>

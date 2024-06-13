@@ -105,6 +105,7 @@ export const ProductInput = styled.input`
 export const ProductButton = styled.button`
   background-color: #333;
   width: 100%;
+  height: 3rem;
   color: #fff;
   border: none;
   border-radius: 5px;

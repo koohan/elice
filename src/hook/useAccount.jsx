@@ -11,21 +11,16 @@ const useAccount = () => {
   const deleteAccount = async () => {
     setLoading(true);
     setError('');
+    const Token = cookies.userCookie || cookies.adminCookie;
+    const email = cookies.email;
+
+    if (!Token || !email) {
+      setError(!Token ? '인증 토큰이 없습니다.' : '이메일이 없습니다.');
+      setLoading(false);
+      return;
+    }
+
     try {
-      const Token = cookies.userCookie || cookies.adminCookie;
-      const email = cookies.email;
-
-      console.log("Auth Token:", Token);
-      console.log("Email:", email);
-
-      if (!Token) {
-        throw new Error('인증 토큰이 없습니다.');
-      }
-
-      if (!email) {
-        throw new Error('이메일이 없습니다.');
-      }
-
       const response = await fetch(`/api/delete/${email}`, {
         method: 'DELETE',
         headers: {
@@ -36,8 +31,7 @@ const useAccount = () => {
       });
 
       if (!response.ok) {
-        const errorMessage = await response.text();
-        throw new Error(errorMessage || '계정 삭제에 실패했습니다.');
+        throw new Error(await response.text() || '계정 삭제에 실패했습니다.');
       }
 
       console.log('계정이 성공적으로 삭제되었습니다.');
@@ -54,3 +48,4 @@ const useAccount = () => {
 };
 
 export default useAccount;
+     

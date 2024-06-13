@@ -24,6 +24,7 @@ export const SizeButton = styled.button`
   border: 1px solid #a3b0dc;
   background: #fff;
   cursor: pointer;
+  border-radius: 5px;
 
   &:hover {
     background-color: rgba(151, 163, 201, 0.5);

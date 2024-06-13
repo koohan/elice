@@ -25,6 +25,7 @@ export const ProductImage = styled.img`
   height: 98%;
   min-height: 85%;
   border-radius: 8px;
+  border: 2px solid #e0e0e0;
 `;
 
 export const InfoContainer = styled.div`

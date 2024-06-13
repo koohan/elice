@@ -14,12 +14,13 @@ import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
 
 const formatCardNumber = (number) => {
-  return number.replace(/(\d{4})/g, "$1 ").trim();
+  const matchedGroups = number.replace(/\s/g, "").match(/.{1,4}/g);
+  return matchedGroups ? matchedGroups.join("-") : "";
 };
 
 const CardDisplay = ({ cardNumber, cardHolder, expiryMonth, expiryYear }) => {
   return (
-    <div style={{ margin: "0 auto", marginBottom: "-2rem", zIndex: 9999 }}>
+    <div style={{ margin: "0 auto", marginBottom: "-1.5rem", zIndex: 1 }}>
       <CardImage>
         <img src={cardImage} alt="Credit Card" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "8px" }} />
         <CardIcons>
@@ -28,7 +29,7 @@ const CardDisplay = ({ cardNumber, cardHolder, expiryMonth, expiryYear }) => {
         </CardIcons>
         <CardDetails>
           <CardNumber>{formatCardNumber(cardNumber) || "#### #### #### ####"}</CardNumber>
-          <CardHolder>{cardHolder || "FULL NAME"}</CardHolder>
+          <CardHolder>{cardHolder || "NAME"}</CardHolder>
           <ExpirationDate>{`${expiryMonth || "MM"}/${expiryYear || "YY"}`}</ExpirationDate>
         </CardDetails>
       </CardImage>

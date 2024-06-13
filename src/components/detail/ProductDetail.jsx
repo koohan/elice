@@ -19,17 +19,15 @@ const ProductDetail = ({ product, relatedProducts = [] }) => {
 
   const handleAddToWishlist = () => {
     const productId = product._id;
-
     const cartItem = {
       productId: productId,
       color: selectedColor,
       sizes: {
-        [selectedSize]: quantity
-      }
+        [selectedSize]: quantity,
+      },
     };
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
     const existingItemIndex = cart.findIndex(item => item.productId === productId && item.color === selectedColor);
 
     if (existingItemIndex !== -1) {
@@ -46,7 +44,6 @@ const ProductDetail = ({ product, relatedProducts = [] }) => {
       window.location.reload();
     }, 1000);
   };
-
 
   if (!product) {
     return <div>Product not found</div>;

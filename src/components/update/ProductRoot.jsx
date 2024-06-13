@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import UpdateProduct from "./UpdateProduct";
 import { ButtonStyled, TitleStyled } from "./styles/Content";
 import { UpdateProductLayOut } from "./styles/UpdateProductLayOut";
 import useUpdateProductForm from "../../hook/useUpdateProductForm";
 import Notification from "../notification/Notification";
+import useFetchOptions from "../../hook/useFetchOptions";
 
 const ProductRoot = () => {
   const { id } = useParams();
@@ -13,43 +14,17 @@ const ProductRoot = () => {
   const categoryUrl = "/api/category";
   const navigate = useNavigate();
 
-  const {
-    productData,
-    fetchLoading,
-    fetchError,
-    setProductData,
-    handleUpdateProduct,
-  } = useUpdateProductForm(apiUrl, id);
+  const { productData, fetchLoading, fetchError, setProductData, handleUpdateProduct } = useUpdateProductForm(apiUrl, id);
+  const { brands, categories, loading, error } = useFetchOptions(brandUrl, categoryUrl);
 
   const [notification, setNotification] = useState("");
-  const [brands, setBrands] = useState([]);
-  const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    const fetchBrandsAndCategories = async () => {
-      try {
-        const [brandResponse, categoryResponse] = await Promise.all([
-          fetch(brandUrl),
-          fetch(categoryUrl),
-        ]);
-        const brandsData = await brandResponse.json();
-        const categoriesData = await categoryResponse.json();
-        setBrands(brandsData);
-        setCategories(categoriesData);
-      } catch (error) {
-        console.error("Error fetching brands and categories:", error);
-      }
-    };
-
-    fetchBrandsAndCategories();
-  }, [brandUrl, categoryUrl]);
-
-  if (fetchLoading) {
+  if (fetchLoading || loading) {
     return <div>Loading...</div>;
   }
 
-  if (fetchError) {
-    return <div>Error: {fetchError.message}</div>;
+  if (fetchError || error) {
+    return <div>Error: {fetchError ? fetchError.message : error.message}</div>;
   }
 
   const handleProductChange = (key, value) => {
@@ -87,38 +62,16 @@ const ProductRoot = () => {
   };
 
   return (
-    <div
-      style={{
-        padding: "50px",
-        width: "100%",
-        height: "auto",
-        marginBottom: "5rem",
-      }}
-    >
-       {notification && <Notification message={notification} />}
+    <div style={{ padding: "50px", width: "100%", height: "auto", marginBottom: "5rem" }}>
+      {notification && <Notification message={notification} />}
       <div style={{ display: "flex", width: "50%", margin: "0 auto" }}>
         <TitleStyled>제품 정보 수정</TitleStyled>
       </div>
       <UpdateProductLayOut>
-        <UpdateProduct
-          data={productData}
-          onChange={handleProductChange}
-          brands={brands}
-          categories={categories}
-        />
+        <UpdateProduct data={productData} onChange={handleProductChange} brands={brands} categories={categories} />
       </UpdateProductLayOut>
-      <div
-        style={{
-          display: "flex",
-          width: "50%",
-          margin: "0 auto",
-          marginTop: "15px",
-          justifyContent: "end",
-        }}
-      >
-        <ButtonStyled onClick={handleSave}>
-          업데이트
-        </ButtonStyled>
+      <div style={{ display: "flex", width: "50%", margin: "0 auto", marginTop: "15px", justifyContent: "end" }}>
+        <ButtonStyled onClick={handleSave}>업데이트</ButtonStyled>
       </div>
     </div>
   );

@@ -1,44 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   PaymentFormContainer,
   Form,
   Label,
   Input,
-  Select,
   ExpiryContainer,
   Button,
 } from "./styles/CardInfoStyles";
 import CardDisplay from "./CardDisplay";
-
-const initialCardInfo = {
-  cardNumber: "",
-  cardHolder: "",
-  expiryMonth: "",
-  expiryYear: "",
-  cvc: "",
-};
+import Select from 'react-select';
+import useCardInfo from "./useCardInfo";
 
 const CardInfo = () => {
-  const [cardInfo, setCardInfo] = useState(initialCardInfo);
+  const {
+    cardInfo,
+    months,
+    years,
+    handleCardNumberChange,
+    handleInputChange,
+    handleSelectChange,
+  } = useCardInfo();
 
-  const months = Array.from({ length: 12 }, (_, i) =>
-    String(i + 1).padStart(2, "0")
-  );
-  const years = Array.from(
-    { length: 10 },
-    (_, i) => new Date().getFullYear() + i
-  );
-
-  const handleCardNumberChange = (e) => {
-    const formattedNumber = e.target.value
-      .replace(/\s/g, "")
-      .replace(/(\d{4})/g, "$1 ")
-      .trim();
-    setCardInfo((prevInfo) => ({ ...prevInfo, cardNumber: formattedNumber }));
-  };
-
-  const handleInputChange = (key, value) => {
-    setCardInfo((prevInfo) => ({ ...prevInfo, [key]: value }));
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      width: '23rem'
+    })
   };
 
   return (
@@ -50,61 +37,54 @@ const CardInfo = () => {
         expiryYear={cardInfo.expiryYear}
       />
       <PaymentFormContainer>
-        <Form>
-          <Label>카드 번호</Label>
+        <Form autoComplete="off">
+          <Label htmlFor="cardNumber">카드 번호</Label>
           <Input
             type="text"
             placeholder="카드 번호"
             value={cardInfo.cardNumber}
             onChange={handleCardNumberChange}
+            autoComplete="new-card-number"
+            maxLength="19"
           />
 
-          <Label>카드 소유자</Label>
+          <Label htmlFor="cardHolder">카드 소유자</Label>
           <Input
             type="text"
             placeholder="카드 소유자"
             value={cardInfo.cardHolder}
             onChange={(e) => handleInputChange("cardHolder", e.target.value)}
+            autoComplete="new-card-holder"
           />
 
           <Label>만료 날짜</Label>
           <ExpiryContainer>
             <Select
-              value={cardInfo.expiryMonth}
-              onChange={(e) => handleInputChange("expiryMonth", e.target.value)}
-            >
-              <option value="" disabled>
-                월
-              </option>
-              {months.map((month) => (
-                <option key={month} value={month}>
-                  {month}
-                </option>
-              ))}
-            </Select>
+              options={months}
+              placeholder="월"
+              onChange={(option) => handleSelectChange("expiryMonth", option)}
+              value={months.find((month) => month.value === cardInfo.expiryMonth)}
+              styles={customStyles}
+            />
             <Select
-              value={cardInfo.expiryYear}
-              onChange={(e) => handleInputChange("expiryYear", e.target.value)}
-            >
-              <option value="" disabled>
-                년
-              </option>
-              {years.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </Select>
+              options={years}
+              placeholder="년"
+              onChange={(option) => handleSelectChange("expiryYear", option)}
+              value={years.find((year) => year.value === cardInfo.expiryYear)}
+              styles={customStyles}
+            />
           </ExpiryContainer>
 
-          <Label>CVC</Label>
+          <Label htmlFor="cvc">CVC</Label>
           <Input
+            id="cvc"
+            name="cvc"
             type="password"
             placeholder="CVC"
             value={cardInfo.cvc}
             onChange={(e) => handleInputChange("cvc", e.target.value)}
+            autoComplete="new-cvc"
           />
-
           <Button type="submit">등록하기</Button>
         </Form>
       </PaymentFormContainer>

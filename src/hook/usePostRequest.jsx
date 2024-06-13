@@ -25,13 +25,9 @@ const usePostRequest = (url) => {
       }
 
       const data = await response.json();
-      setData(data);
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+      setData(data); 
     } catch (err) {
       setError(err.message);
-      console.log(err.message);
     } finally {
       setLoading(false);
     }

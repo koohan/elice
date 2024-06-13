@@ -32,6 +32,14 @@ const ContentWrapper = styled.div`
   z-index: 1;
 `;
 
+const filterData = (data, query) => {
+  const queryLower = query.toLowerCase();
+  return data.filter(product => {
+    const name = product.name ? product.name.toLowerCase() : '';
+    return name.includes(queryLower);
+  });
+};
+
 const ProductPage = () => {
   const { data, loading, error } = useFetchData("/api/product");
   const [filteredData, setFilteredData] = useState([]);
@@ -44,34 +52,30 @@ const ProductPage = () => {
   }, [data]);
 
   const handleSearch = () => {
-    const queryLower = searchInputRef.current.toLowerCase();
-    const filtered = data.filter(product => {
-      const name = product.name ? product.name.toLowerCase() : '';
-      return name.includes(queryLower);
-    });
-    setFilteredData(filtered);
+    if (data) {
+      const filtered = filterData(data, searchInputRef.current);
+      setFilteredData(filtered);
+    }
   };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-
-      <ContentWrapper>
-        <NavBar setSearchQuery={handleSearch} searchInputRef={searchInputRef} />
-        <PageLayout>
-          <SidebarLayout>
-            <Sidebar />
-          </SidebarLayout>
-          <ContentLayout>
+    <ContentWrapper>
+      <NavBar setSearchQuery={handleSearch} searchInputRef={searchInputRef} />
+      <PageLayout>
+        <SidebarLayout>
+          <Sidebar />
+        </SidebarLayout>
+        <ContentLayout>
           <BackgroundWrapper>
-          <BackgroundImage />
+            <BackgroundImage />
             <ProductList products={filteredData} />
-            </BackgroundWrapper>
-          </ContentLayout>
-        </PageLayout>
-      </ContentWrapper>
-
+          </BackgroundWrapper>
+        </ContentLayout>
+      </PageLayout>
+    </ContentWrapper>
   );
 };
 
