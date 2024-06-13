@@ -1,6 +1,7 @@
 import React from 'react';
 import CombinedTemplate from '../components/cart/CombinedTemplate';
 import Sidebar from '../components/sidebar/Sidebar';
+import NavBar from "../components/nav/nav";
 import { PageLayout, SidebarLayout, ContentLayout } from '../GlobalStyles/LayoutStyles';
 import useFetchData from '../hook/useFetchData';
 
@@ -32,15 +33,15 @@ const CartPage = () => {
   // 데이터 관리 준비하실때 제 설명 한번씩 참고해주세요
   // ui 개발 단계에선 프롭스 네이밍을 신경 안쓰고 했는데 데이터 구조화 됐다고 가정하고
   // 프롭스 네이밍을 구조 분해 할당 할때 나눠도 괜찮고 컴포넌트 단위로 들어가서 직접 바꿔도 괜찮아요
-  const items = data.flatMap(({ product }) => 
-    product.flatMap(({ variants }) => 
+  const items = data.flatMap(({ product }) =>
+    product.flatMap(({ variants }) =>
       variants.map(({ variantId, name, shortdescription, price, stock, images }) => ({
         id: variantId,
         product: {
           name,
           description: shortdescription,
           price,
-          image: images[0]  
+          image: images[0]
         },
         stock
       }))
@@ -52,14 +53,17 @@ const CartPage = () => {
   }, 0);
 
   return (
-    <PageLayout>
-      <SidebarLayout>
-        <Sidebar user={user} />
-      </SidebarLayout>
-      <ContentLayout>
-        <CombinedTemplate items={items} totalAmount={totalAmount} />
-      </ContentLayout>
-    </PageLayout>
+    <>
+      <NavBar />
+      <PageLayout>
+        <SidebarLayout>
+          <Sidebar user={user} />
+        </SidebarLayout>
+        <ContentLayout>
+          <CombinedTemplate items={items} totalAmount={totalAmount} />
+        </ContentLayout>
+      </PageLayout>
+    </>
   );
 };
 

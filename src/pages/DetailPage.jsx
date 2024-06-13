@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ProductDetail from '../components/detail/ProductDetail';
-import useFetchData from '../hook/useFetchData'; 
+import useFetchData from '../hook/useFetchData';
+import NavBar from "../components/nav/nav";
 
 const DetailPage = () => {
   const { productId } = useParams();
@@ -38,10 +39,13 @@ const DetailPage = () => {
   }
 
   return (
-    <ProductDetail
-      product={product}
-      relatedProducts={filteredRelatedProducts}
-    />
+    <>
+      <NavBar />
+      <ProductDetail
+        product={product}
+        relatedProducts={filteredRelatedProducts}
+      />
+    </>
   );
 };
 
