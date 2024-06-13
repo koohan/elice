@@ -47,6 +47,8 @@ const NavLink = styled.a`
   &:hover::before {
     width: 100%;
   }
+
+  visibility: ${(props) => (props.invisible ? "hidden" : "visible")};
 `;
 
 const SearchContainer = styled.div`

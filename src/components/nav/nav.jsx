@@ -7,10 +7,10 @@ const NavBar = ({ setSearchQuery, searchInputRef }) => {
   const [searchActive, setSearchActive] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-  const [cookies, , removeCookie] = useCookies(['loginstate']);
+  const [cookies, , removeCookie] = useCookies(['loginstate', 'userCookie', 'adminCookie']);
 
   useEffect(() => {
-    if (cookies.loginstate) {
+    if (cookies.loginstate || cookies.userCookie || cookies.adminCookie) {
       setIsLoggedIn(true);
     }
   }, [cookies]);
@@ -30,10 +30,28 @@ const NavBar = ({ setSearchQuery, searchInputRef }) => {
     navigate(path);
   };
 
-  const handleLogout = () => {
-    removeCookie('loginstate');
-    setIsLoggedIn(false);
-    navigate('/');
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('api/login/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        removeCookie('loginstate');
+        removeCookie('userCookie');
+        removeCookie('adminCookie');
+        setIsLoggedIn(false);
+        console.log('성공적으로 로그아웃되었습니다.');
+        navigate('/');
+      } else {
+        console.error('로그아웃에 실패했습니다.');
+      }
+    } catch (error) {
+      console.error('로그아웃 요청 중 오류가 발생했습니다.', error);
+    }
   };
 
   return (
@@ -55,12 +73,14 @@ const NavBar = ({ setSearchQuery, searchInputRef }) => {
           </SearchButton>
         </SearchContainer>
         {isLoggedIn ? (
-          <NavLink onClick={handleLogout}>LOGOUT</NavLink>
+          <>
+            <NavLink onClick={handleLogout}>LOGOUT</NavLink>
+            <NavLink onClick={() => handleNavigation('/carts')}>CART</NavLink>
+            <NavLink onClick={() => handleNavigation('/account')}>MYPAGE</NavLink>
+          </>
         ) : (
           <NavLink onClick={() => handleNavigation('/login')}>LOGIN</NavLink>
         )}
-        <NavLink onClick={() => handleNavigation('/carts')}>CART</NavLink>
-        <NavLink onClick={() => handleNavigation('/account')}>MYPAGE</NavLink>
       </Navbar>
     </Header>
   );

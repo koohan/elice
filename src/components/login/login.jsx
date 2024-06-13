@@ -22,6 +22,7 @@ function Login() {
   useEffect(() => {
     if (data) {
       setCookie("loginstate", data.token, { path: '/' });
+      console.log("User Email:", data.email); 
       navigate("/");
     }
   }, [data, navigate, setCookie]);
