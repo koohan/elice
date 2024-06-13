@@ -2,16 +2,6 @@ import styled from "styled-components";
 
 export const ColorSelectorStyled = styled.div`
   margin-bottom: 20px;
-  label {
-    font-size: 16px;
-    display: block;
-    margin-bottom: 5px;
-  }
-  select {
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #A3B0DC;
-  }
 `;
 
 export const QuantitySelectorStyled = styled.div`
@@ -34,7 +24,7 @@ export const QuantitySelectorStyled = styled.div`
       padding: 10px 20px;
       width: 50%;
       font-size: 20px;
-      color: #131B36;
+      color: #131b36;
       cursor: pointer;
       transition: background 0.3s ease;
 
@@ -45,7 +35,7 @@ export const QuantitySelectorStyled = styled.div`
 
     input {
       text-align: center;
-      border: 1px solid #A3B0DC;
+      border: 1px solid #a3b0dc;
       width: 100%;
       height: 2.5rem;
       padding-left: 15px;
