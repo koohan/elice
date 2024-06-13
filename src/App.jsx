@@ -15,6 +15,7 @@ import Dashboard from '../src/pages/DashboardPage';
 import SupportPage from './pages/SupportPage';
 import AddProductPages from './pages/AddProductPages';
 import UpdateProduct from './components/update/ProductRoot';
+import CardInfo from './pages/CardInfoPage';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/support" element={<SupportPage />} />
         <Route path="/add" element={<AddProductPages />} />
+        <Route path="/card" element={<CardInfo />} />
         <Route path="/update/:id" element={<UpdateProduct />} />
       </Routes>
     </Router>
