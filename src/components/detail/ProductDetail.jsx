@@ -6,6 +6,7 @@ import QuantitySelector from './QuantitySelector';
 import ProductDescription from './ProductDescription';
 import RelatedProducts from './RelatedProducts';
 import { CheckoutButton, WishlistButton } from "./styles/AddToWishlistButtonStyles";
+import Notification from '../notification/Notification';
 
 const ProductDetail = ({ product, relatedProducts = [] }) => {
   const placeholderImage = 'https://via.placeholder.com/150';
@@ -14,13 +15,10 @@ const ProductDetail = ({ product, relatedProducts = [] }) => {
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [notification, setNotification] = useState(null);
 
-  const fetchProductIdFromDB = async () => {
-    return product.id;
-  };
-
-  const handleAddToWishlist = async () => {
-    const productId = await fetchProductIdFromDB();
+  const handleAddToWishlist = () => {
+    const productId = product._id;
 
     const cartItem = {
       productId: productId,
@@ -31,7 +29,7 @@ const ProductDetail = ({ product, relatedProducts = [] }) => {
     };
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
+
     const existingItemIndex = cart.findIndex(item => item.productId === productId && item.color === selectedColor);
 
     if (existingItemIndex !== -1) {
@@ -41,7 +39,8 @@ const ProductDetail = ({ product, relatedProducts = [] }) => {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert('장바구니에 추가되었습니다.');
+    setNotification('장바구니에 추가되었습니다.');
+    setTimeout(() => setNotification(null), 3000);
   };
 
   if (!product) {
@@ -50,6 +49,7 @@ const ProductDetail = ({ product, relatedProducts = [] }) => {
 
   return (
     <Container>
+      {notification && <Notification message={notification} />}
       <ImageContainer>
         <ProductImage src={productImage} alt={product.name} />
       </ImageContainer>
