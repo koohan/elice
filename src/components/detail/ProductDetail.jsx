@@ -40,8 +40,13 @@ const ProductDetail = ({ product, relatedProducts = [] }) => {
 
     localStorage.setItem('cart', JSON.stringify(cart));
     setNotification('장바구니에 추가되었습니다.');
-    setTimeout(() => setNotification(null), 3000);
+
+    setTimeout(() => {
+      setNotification(null);
+      window.location.reload();
+    }, 1000);
   };
+
 
   if (!product) {
     return <div>Product not found</div>;
