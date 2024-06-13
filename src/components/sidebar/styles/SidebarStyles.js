@@ -18,22 +18,63 @@ export const MenuContainer = styled.div`
 
 export const MenuItemContainer = styled.div`
   display: flex;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #d1dcfd;
-  margin-bottom: 2rem;
+  padding: 16px 20px;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #d1dcfd;
+  border-radius: 5px;
   cursor: pointer;
-  width: 100%;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
   &:hover {
-    background-color: #f0f0f0;
-    color: #95a5df;
-    border-radius: 10px;
+    font-weight: bold;
+    transform: scale(1.02);
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    display: block;
+    transform: skewX(-20deg);
+    left: -10%;
+    top: 95%;
+    transition: all 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  &:before {
+    background: #97a6d9;
+    z-index: -12;
+    opacity: 1;
+  }
+
+  &:after {
+    background: #7485bc;
+    z-index: -15;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.2, 0.95, 0.57, 0.99);
+  }
+
+  &:hover:before {
+    opacity: 1;
+    width: 116%;
+  }
+
+  &:hover:after {
+    opacity: 1;
+    width: 120%;
   }
 `;
 
 export const MenuIcon = styled(FontAwesomeIcon)`
-  margin-right: 3.5rem;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 3rem;
+  width: 1.5rem;
 `;
 
 export const UserInfoContainer = styled.div`
