@@ -9,7 +9,13 @@ const CartList = ({ items }) => (
       <span>결제 전에 품목을 확인하세요</span>
     </CartListHeader>
     {items.map(item => (
-      <CartItem key={item.id} product={item.product}  stock={item.stock} />
+      <CartItem
+        key={item.id}
+        product={item.product}
+        stock={item.quantity}
+        selectedColor={item.selectedColor}
+        selectedSize={item.selectedSize}
+      />
     ))}
   </CartListContainer>
 );

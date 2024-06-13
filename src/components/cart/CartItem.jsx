@@ -4,8 +4,7 @@ import { StyledButton } from './Styles/ButtonStyles';
 import Image from './Image';
 import Label from './Label';
 
-const CartItem = ({ product, stock }) => {
-
+const CartItem = ({ product, stock, selectedColor, selectedSize }) => {
   const { image, name, description, price } = product;
   const totalPrice = (price * stock).toLocaleString('ko-KR');
   const unitPrice = price.toLocaleString('ko-KR');
@@ -18,6 +17,17 @@ const CartItem = ({ product, stock }) => {
       <CartItemInfo>
         <Label size="18px" style={{ fontWeight: 'bold' }}>{name}</Label>
         <Label size="14px" style={{ color: '#aaa' }}>{description}</Label>
+        
+        <Label size="16px" style={{ marginTop: '10px' }}>색상: {selectedColor}</Label>
+        <Label size="16px" style={{ marginTop: '10px' }}>
+          사이즈:
+          {Object.entries(selectedSize).map(([size, qty]) => (
+            <span key={size} style={{ marginLeft: '10px' }}>
+              {size}: {qty}개
+            </span>
+          ))}
+        </Label>
+
         <CartItemPrice>
           <Label size="18px" style={{ fontWeight: 'bold' }}>
             {totalPrice}원
