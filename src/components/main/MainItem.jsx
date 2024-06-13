@@ -1,5 +1,5 @@
 import React from 'react';
-import BrandSrc from '../../assets/adidas.webp';
+import BrandSrc from '../../../public/assets/adidas.webp';
 import {
     Container,
     Brand,

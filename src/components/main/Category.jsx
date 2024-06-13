@@ -3,13 +3,13 @@ import CategoryList from "./CategoryList";
 
 function Category() {
     const images = [
-        "/src/assets/shoes.webp",
-        "/src/assets/shoes.webp",
-        "/src/assets/shoes.webp",
-        "/src/assets/shoes.webp",
-        "/src/assets/shoes.webp",
-        "/src/assets/shoes.webp",
-        "/src/assets/shoes.webp",
+        "/public/assets/shoes.webp",
+        "/public/assets/shoes.webp",
+        "/public/assets/shoes.webp",
+        "/public/assets/shoes.webp",
+        "/public/assets/shoes.webp",
+        "/public/assets/shoes.webp",
+        "/public/assets/shoes.webp",
     ];
 
     const categories = [

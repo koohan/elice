@@ -1,9 +1,9 @@
 import React from 'react';
 import { OauthContainer, BtnContainer } from '../register/styles/OauthContainerStyles';
-import googleLogo from '../../assets/google.webp';
-import naverLogo from '../../assets/naver.webp';
-import kakaoLogo from '../../assets/kakao.webp';
-import appleLogo from '../../assets/apple.webp';
+import googleLogo from '../../../public/assets/google.webp';
+import naverLogo from '../../../public/assets/naver.webp';
+import kakaoLogo from '../../../public/assets/kakao.webp';
+import appleLogo from '../../../public/assets/apple.webp';
 
 const Oauth = () => (
   <OauthContainer>

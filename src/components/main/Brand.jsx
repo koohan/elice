@@ -3,13 +3,13 @@ import BrandList from "./BrandList";
 
 function Brand() {
     const images = [
-        { id: 1, src: "/src/assets/adidas.webp" },
-        { id: 2, src: "/src/assets/adidas.webp" },
-        { id: 3, src: "/src/assets/adidas.webp" },
-        { id: 4, src: "/src/assets/adidas.webp" },
-        { id: 5, src: "/src/assets/adidas.webp" },
-        { id: 6, src: "/src/assets/adidas.webp" },
-        { id: 7, src: "/src/assets/adidas.webp" },
+        { id: 1, src: "/public/assets/adidas.webp" },
+        { id: 2, src: "/public/assets/adidas.webp" },
+        { id: 3, src: "/public/assets/adidas.webp" },
+        { id: 4, src: "/public/assets/adidas.webp" },
+        { id: 5, src: "/public/assets/adidas.webp" },
+        { id: 6, src: "/public/assets/adidas.webp" },
+        { id: 7, src: "/public/assets/adidas.webp" },
     ];
 
     const brands = [

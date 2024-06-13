@@ -5,7 +5,7 @@ import Sidebar from '../components/sidebar/Sidebar';
 import { PageLayout, SidebarLayout, ContentLayout } from '../GlobalStyles/LayoutStyles';
 import NavBar from '../components/nav/nav';
 import useFetchData from '../hook/useFetchData'; 
-import background from "../assets/product.png";
+import background from "../../public/assets/product.png";
 
 const BackgroundWrapper = styled.div`
   position: relative;

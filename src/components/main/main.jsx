@@ -5,7 +5,7 @@ import Brand from './Brand';
 import ItemList from './ItemList';
 import ThemaItem from './ThemaItem';
 import { Line } from '../../GlobalStyles/LayoutStyles';
-import logo from '../../assets/logo.png';
+import logo from '../../../public/assets/logo.png';
 import {
   SlidersContainer,
   CategoryContainer,

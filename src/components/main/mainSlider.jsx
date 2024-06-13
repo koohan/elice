@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ImageBtn, Slider } from './Slider';
 import { ButtonContainer, PageIndicator } from './styled/mainSlider';
-import PrevSrc from '../../assets/prevbtn.webp';
-import NextSrc from '../../assets/nextbtn.webp';
+import PrevSrc from '../../../public/assets/prevbtn.webp';
+import NextSrc from '../../../public/assets/nextbtn.webp';
 import imageData from './imageData';
 
 const Sliders = () => {
