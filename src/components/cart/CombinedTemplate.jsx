@@ -9,28 +9,27 @@ import CartList from "./CartList";
 import CartSummary from "./CartSummary";
 import { StyledShoppingButton } from "./Styles/ButtonStyles";
 
-const CombinedTemplate = ({ user, items, totalAmount }) => {
+const CombinedTemplate = ({ user, items, totalAmount, onDelete }) => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleOrderClick = () => {
     navigate('/Checkouts');
   };
 
-
-return (
+  return (
     <ContentLayout>
       <MainContent>
         <CartContainer>
-          <CartList items={items} />
+          <CartList items={items} onDelete={onDelete} />
           <CartSummary items={items} totalAmount={totalAmount} />
           <div style={{ display: "flex", margin: "20px", gap: "40rem" }}>
-            <StyledShoppingButton style={{ flex: 1, backgroundColor: "#97A6D9"}}>쇼핑하기</StyledShoppingButton>
-            <StyledShoppingButton style={{ flex: 1, backgroundColor: "#97A6D9"}} onClick={handleOrderClick}>주문하기</StyledShoppingButton>
+            <StyledShoppingButton style={{ flex: 1, backgroundColor: "#97A6D9" }}>쇼핑하기</StyledShoppingButton>
+            <StyledShoppingButton style={{ flex: 1, backgroundColor: "#97A6D9" }} onClick={handleOrderClick}>주문하기</StyledShoppingButton>
           </div>
         </CartContainer>
       </MainContent>
     </ContentLayout>
-)
+  );
 }
 
 export default CombinedTemplate;

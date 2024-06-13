@@ -1,11 +1,11 @@
 import React from 'react';
 import { CartItemContainer, CartItemImageContainer, CartItemInfo, CartItemPrice } from './Styles/CartItemStyles';
-import { StyledButton } from './Styles/ButtonStyles'; 
+import { StyledButton } from './Styles/ButtonStyles';
 import Image from './Image';
 import Label from './Label';
 
-const CartItem = ({ product, stock, selectedColor, selectedSize }) => {
-  const { image, name, description, price } = product;
+const CartItem = ({ product, stock, selectedColor, selectedSize, onDelete }) => {
+  const { image, name, price } = product;
   const totalPrice = (price * stock).toLocaleString('ko-KR');
   const unitPrice = price.toLocaleString('ko-KR');
 
@@ -16,8 +16,6 @@ const CartItem = ({ product, stock, selectedColor, selectedSize }) => {
       </CartItemImageContainer>
       <CartItemInfo>
         <Label size="18px" style={{ fontWeight: 'bold' }}>{name}</Label>
-        <Label size="14px" style={{ color: '#aaa' }}>{description}</Label>
-        
         <Label size="16px" style={{ marginTop: '10px' }}>색상: {selectedColor}</Label>
         <Label size="16px" style={{ marginTop: '10px' }}>
           사이즈:
@@ -35,7 +33,7 @@ const CartItem = ({ product, stock, selectedColor, selectedSize }) => {
               ({stock} x {unitPrice}원)
             </span>
           </Label>
-          <StyledButton variant="delete">삭제하기</StyledButton>
+          <StyledButton $variant="delete" onClick={onDelete}>삭제하기</StyledButton>
         </CartItemPrice>
       </CartItemInfo>
     </CartItemContainer>

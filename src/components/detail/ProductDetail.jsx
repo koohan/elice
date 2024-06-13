@@ -18,8 +18,17 @@ const ProductDetail = ({ product, relatedProducts = [] }) => {
   const [notification, setNotification] = useState(null);
 
   const handleAddToWishlist = () => {
+    if (!selectedColor || !selectedSize) {
+      setNotification('‼️색상과 사이즈를 선택해주세요‼️');
+      setTimeout(() => {
+        setNotification(null);
+      }, 2000);
+      return;
+    }
+
     const productId = product._id;
     const cartItem = {
+      name: product.name,
       productId: productId,
       color: selectedColor,
       sizes: {
