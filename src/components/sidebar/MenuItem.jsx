@@ -14,7 +14,7 @@ const iconMap = {
 };
 
 const MenuItem = ({ icon, text, onClick }) => (
-  <MenuItemContainer onClick={onClick}>
+  <MenuItemContainer style={{textAlign: "start"}} onClick={onClick}>
     <MenuIcon icon={iconMap[icon]} />
     <Label size="16px">{text}</Label>
   </MenuItemContainer>
