@@ -1,16 +1,20 @@
 import React from 'react';
 import { SizeSelectorContainer, SizeLabel, SizeButtonGroup, SizeButton } from './styles/SizeSelectorStyles';
 
-const SizeSelector = () => {
+const SizeSelector = ({ selectedSize, setSelectedSize }) => {
   return (
     <SizeSelectorContainer>
       <SizeLabel>사이즈</SizeLabel>
       <SizeButtonGroup>
-        <SizeButton>XS</SizeButton>
-        <SizeButton>S</SizeButton>
-        <SizeButton>M</SizeButton>
-        <SizeButton>L</SizeButton>
-        <SizeButton>XL</SizeButton>
+        {['XS', 'S', 'M', 'L', 'XL'].map((size) => (
+          <SizeButton
+            key={size}
+            onClick={() => setSelectedSize(size)}
+            style={{ backgroundColor: selectedSize === size ? 'gray' : 'white' }}
+          >
+            {size}
+          </SizeButton>
+        ))}
       </SizeButtonGroup>
     </SizeSelectorContainer>
   );
