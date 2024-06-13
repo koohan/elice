@@ -7,6 +7,7 @@ import {
   ContentLayout,
 } from "../GlobalStyles/LayoutStyles";
 import Sidebar from "../components/sidebar/Sidebar";
+import NavBar from "../components/nav/nav";
 
 const user = {
   avatar: "https://cdn-icons-png.flaticon.com/512/6596/6596121.png",
@@ -80,18 +81,21 @@ const OrdersPage = () => {
   };
 
   return (
-    <PageLayout>
-      <SidebarLayout>
-        <Sidebar user={user} />
-      </SidebarLayout>
-      <ContentLayout>
-        <div style={{ marginTop: "4rem" }}>
-          <PageContainer>
-            <OrderList orders={orders} onDelete={handleDelete} />
-          </PageContainer>
-        </div>
-      </ContentLayout>
-    </PageLayout>
+    <>
+      <NavBar />
+      <PageLayout>
+        <SidebarLayout>
+          <Sidebar user={user} />
+        </SidebarLayout>
+        <ContentLayout>
+          <div style={{ marginTop: "4rem" }}>
+            <PageContainer>
+              <OrderList orders={orders} onDelete={handleDelete} />
+            </PageContainer>
+          </div>
+        </ContentLayout>
+      </PageLayout>
+    </>
   );
 };
 

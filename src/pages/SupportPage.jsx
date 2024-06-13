@@ -5,7 +5,8 @@ import {
     ContentLayout,
 } from "../GlobalStyles/LayoutStyles";
 import Sidebar from "../components/sidebar/Sidebar";
-import Support from '../components/support/support'
+import Support from '../components/support/support';
+import NavBar from "../components/nav/nav";
 
 
 const SupportPage = () => {
@@ -18,6 +19,7 @@ const SupportPage = () => {
 
     return (
         <>
+            <NavBar />
             <PageLayout>
                 <SidebarLayout>
                     <Sidebar user={user} />

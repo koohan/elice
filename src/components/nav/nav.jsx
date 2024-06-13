@@ -56,7 +56,7 @@ const NavBar = ({ setSearchQuery, searchInputRef }) => {
 
   return (
     <Header>
-      <Logo src="src/assets/logo2.png" onClick={() => handleNavigation('/')} />
+      <Logo src="/public/logo2.png" onClick={() => handleNavigation('/')} />
       <Navbar>
         <SearchContainer>
           <SearchInput 
