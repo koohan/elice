@@ -9,7 +9,7 @@ import CartList from "./CartList";
 import CartSummary from "./CartSummary";
 import { StyledShoppingButton } from "./Styles/ButtonStyles";
 
-const CombinedTemplate = ({ items, totalAmount, onDelete }) => {
+const CombinedTemplate = ({ items, totalAmount, onDelete, onDeleteAll }) => {
 
   const navigate = useNavigate();
   const handleOrderClick = () => {
@@ -20,7 +20,7 @@ const CombinedTemplate = ({ items, totalAmount, onDelete }) => {
     <ContentLayout>
       <MainContent>
         <CartContainer>
-          <CartList items={items} onDelete={onDelete} />
+          <CartList items={items} onDelete={onDelete} onDeleteAll={onDeleteAll} />
           <CartSummary items={items} totalAmount={totalAmount} />
           <div style={{ display: "flex", margin: "20px", gap: "40rem" }}>
             <StyledShoppingButton style={{ flex: 1, backgroundColor: "#97A6D9" }}>쇼핑하기</StyledShoppingButton>

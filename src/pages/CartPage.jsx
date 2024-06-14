@@ -12,11 +12,6 @@ const CartPage = () => {
   const [notification, setNotification] = useState(null);
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem('cart')) ?? [];
-    setCartItems(storedCart);
-  }, []);
-
-  useEffect(() => {
     const fetchRelatedProducts = async () => {
       try {
         const response = await fetch('/api/product');
@@ -42,6 +37,15 @@ const CartPage = () => {
     setCartItems(updatedCartItems);
     localStorage.setItem('cart', JSON.stringify(updatedCartItems));
     setNotification('상품이 장바구니에서 삭제되었습니다.');
+    setTimeout(() => {
+      setNotification(null);
+    }, 2000);
+  };
+
+  const handleDeleteAll = () => {
+    setCartItems([]);
+    localStorage.removeItem('cart');
+    setNotification('장바구니가 비워졌습니다.');
     setTimeout(() => {
       setNotification(null);
     }, 2000);
@@ -76,11 +80,11 @@ const CartPage = () => {
       <NavBar />
       <PageLayout>
         <SidebarLayout>
-          <Sidebar/>
+          <Sidebar />
         </SidebarLayout>
         <ContentLayout>
           {error && <div>{error}</div>}
-          <CombinedTemplate items={cartItemsWithDetails} totalAmount={totalAmount} onDelete={handleDelete} />
+          <CombinedTemplate items={cartItemsWithDetails} totalAmount={totalAmount} onDelete={handleDelete} onDeleteAll={handleDeleteAll} />
         </ContentLayout>
       </PageLayout>
       {notification && <Notification message={notification} />}

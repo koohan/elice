@@ -30,3 +30,8 @@ export const CartItemPrice = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+
+export const BtnContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
