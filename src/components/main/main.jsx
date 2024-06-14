@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Category from './Category';
 import Sliders from './mainSlider';
 import Brand from './Brand';
@@ -14,18 +15,30 @@ import {
   LineContainer,
   StyledH2,
   AdStyled,
+  AdContainer,
   ThemaContainer,
   CategoryTitle
 } from './styled/main';
 
+
+
 const Mainpage = () => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/products`);
+};
+
+
   return (
     <>
       <SlidersContainer>
         <Sliders />
       </SlidersContainer>
       <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-      <AdStyled src={logo} />
+      <AdContainer>
+      <AdStyled src={logo} onClick={handleClick} />
+      </AdContainer>
       <CategoryTitle>CATEGORY</CategoryTitle>
       </div>
       <CategoryContainer>

@@ -6,6 +6,7 @@ export const ImgBtn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: not-allowed;
   border: none;
   position: relative;
 
