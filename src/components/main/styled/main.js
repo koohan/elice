@@ -45,7 +45,7 @@ export const StyledH2 = styled.h2`
 `;
 
 export const AdStyled = styled.img`
-  width: 100%;
+  width: 1280px;
   height: 120px;
   display: flex;
   justify-content: center;
@@ -62,7 +62,8 @@ export const CategoryTitle = styled.h2`
   position: relative;
   font-size: 32px;
   font-weight: normal;
-  width: 85%;
+  width: 1220px;
+  margin-right: 40px;
   letter-spacing: 50px;
   font-style: italic;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);

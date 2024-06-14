@@ -43,7 +43,7 @@ export const ImgBtn = styled.button`
 `;
 
 export const Container = styled.div`
-  width: 90vw;
+  width: 1280px;
   display: flex;
   justify-content: space-between;
   align-items: center;
