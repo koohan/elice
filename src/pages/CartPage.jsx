@@ -6,20 +6,13 @@ import { PageLayout, SidebarLayout, ContentLayout } from '../GlobalStyles/Layout
 import Notification from '../components/notification/Notification';
 
 const CartPage = () => {
-  const user = {
-    avatar: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png',
-    name: '홍길동',
-    email: 'honggildong@example.com',
-    phone: '010-1234-5678'
-  };
-
   const [cartItems, setCartItems] = useState([]);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [error, setError] = useState(null);
   const [notification, setNotification] = useState(null);
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    const storedCart = JSON.parse(localStorage.getItem('cart')) ?? [];
     setCartItems(storedCart);
   }, []);
 
@@ -80,7 +73,7 @@ const CartPage = () => {
       <NavBar />
       <PageLayout>
         <SidebarLayout>
-          <Sidebar user={user} />
+          <Sidebar/>
         </SidebarLayout>
         <ContentLayout>
           {error && <div>{error}</div>}

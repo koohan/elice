@@ -9,7 +9,7 @@ import CartList from "./CartList";
 import CartSummary from "./CartSummary";
 import { StyledShoppingButton } from "./Styles/ButtonStyles";
 
-const CombinedTemplate = ({ user, items, totalAmount, onDelete }) => {
+const CombinedTemplate = ({ items, totalAmount, onDelete }) => {
 
   const navigate = useNavigate();
   const handleOrderClick = () => {
