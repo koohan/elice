@@ -32,6 +32,9 @@ const CartPage = () => {
     };
 
     fetchRelatedProducts();
+
+    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    setCartItems(storedCart);
   }, []);
 
   const handleDelete = (id) => {
