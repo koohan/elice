@@ -18,10 +18,10 @@ function Category() {
     }
 
     const images = [
-        "/public/assets/shoes.webp",
-        "/public/assets/shoes.webp",
-        "/public/assets/shoes.webp",
-        "/public/assets/shoes.webp",
+        "/public/assets/men-top.webp",
+        "/public/assets/men-pants.webp",
+        "/public/assets/women-top.webp",
+        "/public/assets/women-pants.webp",
     ];
 
     const ImageBtn = ({ imgSrc, category }) => {
@@ -34,7 +34,7 @@ function Category() {
         return (
             <ImgBtn onClick={handleClick}>
                 <img src={imgSrc} alt={category.name} />
-                <span>{category.name}</span>
+                <button>{category.name}</button>
             </ImgBtn>
         );
     };

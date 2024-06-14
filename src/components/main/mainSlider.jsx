@@ -13,12 +13,10 @@ const Sliders = () => {
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setCurrentPage((currentPage) => (currentPage + 1) % imageData.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(slideInterval);
   }, []);
-
-  const totalPage = imageData.length;
 
   const sliderStyle = {
     transform: `translateX(-${currentPage * 100}%)`,  

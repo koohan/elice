@@ -14,19 +14,25 @@ import {
   LineContainer,
   StyledH2,
   AdStyled,
-  ThemaContainer
+  ThemaContainer,
+  CategoryTitle
 } from './styled/main';
+import FontStyles from '../../GlobalStyles/FontStyles'; 
 
 const Mainpage = () => {
   return (
     <>
+      <FontStyles />
       <SlidersContainer>
         <Sliders />
       </SlidersContainer>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+      <AdStyled src={logo} />
+      <CategoryTitle>CATEGORY</CategoryTitle>
+      </div>
       <CategoryContainer>
         <Category />
       </CategoryContainer>
-      <AdStyled src={logo} />
       <StyledH2>여름의 신선함을 만나보세요</StyledH2>
       <ItemContainer>
         <ItemList />
