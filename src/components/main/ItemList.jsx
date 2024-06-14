@@ -43,11 +43,11 @@ const BrandItemList = () => {
 
   const brand = brandData.find((brand) => brand.name === selectedBrandName);
 
-  const filterBrand = productData
+  const firstBox = productData
     .filter((product) => product.brand && product.brand._id === brand._id)
     .slice(0, 2);
 
-  const filterProducts = productData
+  const secondBox = productData
     .filter((product) => product.brand && product.brand._id === brand._id)
     .slice(2, 4);
 
@@ -87,7 +87,7 @@ const BrandItemList = () => {
         <BrandImage src={getBrandImage(selectedBrandName)} alt="Brand" />
         <ProductContainer>
           <Products>
-            {filterBrand.map((product) => (
+            {firstBox.map((product) => (
               <ProductBox key={product._id}>
                 <ProductImage
                   src={
@@ -108,7 +108,7 @@ const BrandItemList = () => {
         </ProductContainer>
         <ProductContainer>
           <Products>
-            {filterProducts.map((product) => (
+            {secondBox.map((product) => (
               <ProductBox key={product._id}>
                 <ProductImage
                   src={

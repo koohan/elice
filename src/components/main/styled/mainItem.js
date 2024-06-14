@@ -31,13 +31,13 @@ export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 100%;
 `;
 
 export const Products = styled.div`
   display: flex;
   flex-direction: column;
-  width: 97%;
+  width: 95%;
   height: 100%;
   justify-content: center;
   gap: 15px;
@@ -53,7 +53,7 @@ export const ProductBox = styled.div`
   height: 100%;
   transition: transform 0.3s ease;
   &:hover {
-    transform: translateY(-6px);
+    transform: translate(-6px, -6px) rotate(-1deg);
   }
 `;
 
