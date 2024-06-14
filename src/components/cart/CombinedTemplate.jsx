@@ -16,6 +16,10 @@ const CombinedTemplate = ({ items, totalAmount, onDelete, onDeleteAll }) => {
     navigate('/Checkouts');
   };
 
+  const handleShoppingClick = () => {
+    navigate('/products');
+  };
+
   return (
     <ContentLayout>
       <MainContent>
@@ -23,7 +27,7 @@ const CombinedTemplate = ({ items, totalAmount, onDelete, onDeleteAll }) => {
           <CartList items={items} onDelete={onDelete} onDeleteAll={onDeleteAll} />
           <CartSummary items={items} totalAmount={totalAmount} />
           <div style={{ display: "flex", margin: "20px", gap: "40rem" }}>
-            <StyledShoppingButton style={{ flex: 1, backgroundColor: "#97A6D9" }}>쇼핑하기</StyledShoppingButton>
+            <StyledShoppingButton style={{ flex: 1, backgroundColor: "#97A6D9" }} onClick={handleShoppingClick}>쇼핑하기</StyledShoppingButton>
             <StyledShoppingButton style={{ flex: 1, backgroundColor: "#97A6D9" }} onClick={handleOrderClick}>주문하기</StyledShoppingButton>
           </div>
         </CartContainer>
