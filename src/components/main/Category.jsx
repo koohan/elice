@@ -34,7 +34,7 @@ function Category() {
         return (
             <ImgBtn onClick={handleClick}>
                 <img src={imgSrc} alt={category.name} />
-                <button>{category.name}</button>
+                <button style={{ fontSize: "24px", fontWeight: "bold" }}>{category.name}</button>
             </ImgBtn>
         );
     };

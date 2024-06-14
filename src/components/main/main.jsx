@@ -17,12 +17,10 @@ import {
   ThemaContainer,
   CategoryTitle
 } from './styled/main';
-import FontStyles from '../../GlobalStyles/FontStyles'; 
 
 const Mainpage = () => {
   return (
     <>
-      <FontStyles />
       <SlidersContainer>
         <Sliders />
       </SlidersContainer>
@@ -33,10 +31,12 @@ const Mainpage = () => {
       <CategoryContainer>
         <Category />
       </CategoryContainer>
-      <StyledH2>여름의 신선함을 만나보세요</StyledH2>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+      <CategoryTitle>여름의 신선함을 만나보세요</CategoryTitle>
       <ItemContainer>
         <ItemList />
       </ItemContainer>
+      </div>
       <LineContainer>
         <Line />
       </LineContainer>

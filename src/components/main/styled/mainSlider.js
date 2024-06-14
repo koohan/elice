@@ -1,18 +1,5 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-  border: none;
-  border-radius: 4px;
-  background-color: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const SlideContainer = styled.div`
   flex: 0 0 auto;
   width: 100%;
@@ -43,4 +30,35 @@ export const SliderWrapper = styled.div`
   display: flex;
   transition: transform 0.3s ease-out;
   width: fit-content;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  margin: 10px auto;
+  margin-bottom: 8rem;
+`;
+
+export const PrevButton = styled.button`
+  color: #000;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent;
+`;
+
+export const NextButton = styled.button`
+  color: #000;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent;
+`;
+
+export const PageIndicator = styled.div`
+  color: #000;
+  font-size: 16px;
 `;

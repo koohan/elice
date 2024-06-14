@@ -14,13 +14,21 @@ import {
   ProductName,
   ProductNameMedium,
   ProductNameSmall,
-  BrandImage
+  BrandImage,
 } from "./styled/mainItem";
 import useFetchData from "../../hook/useFetchData";
 
 const BrandItemList = () => {
-  const { data: brandData, loading: brandLoading, error: brandError } = useFetchData(`/api/brand`);
-  const { data: productData, loading: productLoading, error: productError } = useFetchData(`/api/product`);
+  const {
+    data: brandData,
+    loading: brandLoading,
+    error: brandError,
+  } = useFetchData(`/api/brand`);
+  const {
+    data: productData,
+    loading: productLoading,
+    error: productError,
+  } = useFetchData(`/api/product`);
   const [selectedBrandName, setSelectedBrandName] = useState("");
 
   useEffect(() => {
@@ -33,11 +41,15 @@ const BrandItemList = () => {
   if (brandError) return <div>Error: {brandError.message}</div>;
   if (productError) return <div>Error: {productError.message}</div>;
 
-  const brand = brandData.find(brand => brand.name === selectedBrandName);
+  const brand = brandData.find((brand) => brand.name === selectedBrandName);
 
-  const filteredProducts = productData.filter(product => product.brand && product.brand._id === brand._id).slice(0, 2);
+  const filterBrand = productData
+    .filter((product) => product.brand && product.brand._id === brand._id)
+    .slice(0, 2);
 
-  const filterProducts = productData.filter(product => product.brand && product.brand._id === brand._id).slice(2, 4);
+  const filterProducts = productData
+    .filter((product) => product.brand && product.brand._id === brand._id)
+    .slice(2, 4);
 
   const handleBrandSelect = (brandName) => {
     setSelectedBrandName(brandName);
@@ -65,7 +77,9 @@ const BrandItemList = () => {
             className={selectedBrandName === brand.name ? "selected" : ""}
             onClick={() => handleBrandSelect(brand.name)}
           >
-            {brand.name}
+            <span>
+              <p>{brand.name}</p>
+            </span>
           </StyledButton>
         ))}
       </ButtonContainer>
@@ -73,15 +87,21 @@ const BrandItemList = () => {
         <BrandImage src={getBrandImage(selectedBrandName)} alt="Brand" />
         <ProductContainer>
           <Products>
-            {filteredProducts.map((product) => (
+            {filterBrand.map((product) => (
               <ProductBox key={product._id}>
-                <ProductImage 
-                  src={product.images && product.images[0] ? product.images[0] : "https://via.placeholder.com/150"} 
-                  alt={product.name} 
+                <ProductImage
+                  src={
+                    product.images && product.images[0]
+                      ? product.images[0]
+                      : "https://via.placeholder.com/150"
+                  }
+                  alt={product.name}
                 />
                 <ProductName>{product.name}</ProductName>
                 <ProductNameSmall>{product.description}</ProductNameSmall>
-                <ProductNameMedium>{`${product.price.toLocaleString("ko-KR")} 원`}</ProductNameMedium>
+                <ProductNameMedium>{`${product.price.toLocaleString(
+                  "ko-KR"
+                )} 원`}</ProductNameMedium>
               </ProductBox>
             ))}
           </Products>
@@ -90,13 +110,19 @@ const BrandItemList = () => {
           <Products>
             {filterProducts.map((product) => (
               <ProductBox key={product._id}>
-                <ProductImage 
-                  src={product.images && product.images[0] ? product.images[0] : "https://via.placeholder.com/150"} 
-                  alt={product.name} 
+                <ProductImage
+                  src={
+                    product.images && product.images[0]
+                      ? product.images[0]
+                      : "https://via.placeholder.com/150"
+                  }
+                  alt={product.name}
                 />
                 <ProductName>{product.name}</ProductName>
                 <ProductNameSmall>{product.description}</ProductNameSmall>
-                <ProductNameMedium>{`${product.price.toLocaleString("ko-KR")} 원`}</ProductNameMedium>
+                <ProductNameMedium>{`${product.price.toLocaleString(
+                  "ko-KR"
+                )} 원`}</ProductNameMedium>
               </ProductBox>
             ))}
           </Products>

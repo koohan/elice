@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ImgBtn = styled.button`
+export const ImgBtn = styled.div`
   background: transparent;
   margin: 0;
   display: flex;

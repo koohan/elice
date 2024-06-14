@@ -34,14 +34,10 @@ export const LineContainer = styled.div`
 `;
 
 export const StyledH2 = styled.h2`
-  width: 1280px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 10px auto;
-  padding-top: 100px;
-  padding-bottom: 15px;
-  color: #070b19;
+  font-size: 32px;
+  font-weight: normal;
+  padding-bottom: 20px;
+  margin: 0 auto;
 `;
 
 export const AdStyled = styled.img`
@@ -52,7 +48,7 @@ export const AdStyled = styled.img`
   align-items: center;
   margin: 0 auto;
   object-fit: cover;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 `;
 export const ThemaContainer = styled.div`
   margin-bottom: 100px;
@@ -68,6 +64,7 @@ export const CategoryTitle = styled.h2`
   font-style: italic;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   padding-bottom: 20px;
+  margin-bottom: 5rem;
 
   &::after {
     content: "";
