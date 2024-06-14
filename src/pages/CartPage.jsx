@@ -19,11 +19,6 @@ const CartPage = () => {
   const [notification, setNotification] = useState(null);
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-    setCartItems(storedCart);
-  }, []);
-
-  useEffect(() => {
     const fetchRelatedProducts = async () => {
       try {
         const response = await fetch('/api/product');
@@ -39,6 +34,9 @@ const CartPage = () => {
     };
 
     fetchRelatedProducts();
+
+    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    setCartItems(storedCart);
   }, []);
 
   const handleDelete = (id) => {
