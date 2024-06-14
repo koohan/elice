@@ -12,9 +12,6 @@ const RegisterBox = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
-    // 시간 남을때 스테이트 객체로 관리하는 것으로 변경 할려고 했는데 안되네요
-    // 왜 안되는지 모르겠네
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (password !== confirmPassword) {

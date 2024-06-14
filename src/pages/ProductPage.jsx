@@ -34,7 +34,8 @@ const ContentWrapper = styled.div`
 `;
 
 const filterCategory = (data, categoryName) => {
-  return data.filter(product => product.category && product.category.name === categoryName);
+  if (!data ?? !categoryName) return data;
+  return data.filter(product => product.category?.name === categoryName);
 };
 
 const ProductPage = () => {
@@ -42,14 +43,9 @@ const ProductPage = () => {
   const { data, loading, error } = useFetchData("/api/product");
   const [filteredData, setFilteredData] = useState([]);
 
-  console.log( categoryName); 
-  console.log( data); 
-
   useEffect(() => {
     if (data) {
-      const filtered = categoryName ? filterCategory(data, categoryName) : data;
-      setFilteredData(filtered);
-      console.log(filtered); 
+      setFilteredData(filterCategory(data, categoryName));
     }
   }, [data, categoryName]);
 

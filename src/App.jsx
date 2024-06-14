@@ -30,6 +30,7 @@ function App() {
         <Route path="/side" element={<Sidebar />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products/:categoryName" element={<ProductPage />} /> 
+        <Route path="/products/:brandName" element={<ProductPage />} />{/*이거는 좀 나중에...*/} 
         <Route path="/products" element={<ProductPage />} /> 
         <Route path="/carts" element={<CartPage />} />
         <Route path="/checkouts" element={<CheckoutPage />} />
