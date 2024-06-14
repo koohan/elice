@@ -1,30 +1,51 @@
-import React from "react";
-import CategoryList from "./CategoryList";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Container, ImgBtn } from './styled/mainCategory';
+import useFetchData from '../../hook/useFetchData';
 
 function Category() {
+    const CategoryUrl = `/api/category`;
+    const { data, loading, error } = useFetchData(CategoryUrl);
+
+   // console.log(data);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
     const images = [
         "/public/assets/shoes.webp",
         "/public/assets/shoes.webp",
         "/public/assets/shoes.webp",
         "/public/assets/shoes.webp",
-        "/public/assets/shoes.webp",
-        "/public/assets/shoes.webp",
-        "/public/assets/shoes.webp",
     ];
 
-    const categories = [
-        "카테고리1",
-        "카테고리2",
-        "카테고리3",
-        "카테고리4",
-        "카테고리5",
-        "카테고리6",
-        "카테고리7",
-    ];
+    const ImageBtn = ({ imgSrc, category }) => {
+        const navigate = useNavigate();
+
+        const handleClick = () => {
+            navigate(`/products/${category.name}`);
+        };
+
+        return (
+            <ImgBtn onClick={handleClick}>
+                <img src={imgSrc} alt={category.name} />
+                <span>{category.name}</span>
+            </ImgBtn>
+        );
+    };
 
     return (
         <div>
-            <CategoryList images={images} categories={categories} />
+            <Container>
+                {data.map((category, index) => (
+                    <ImageBtn key={category._id} imgSrc={images[index]} category={category} />
+                ))}
+            </Container>
         </div>
     );
 }

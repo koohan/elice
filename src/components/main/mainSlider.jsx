@@ -1,41 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import { ImageBtn, Slider } from './Slider';
-import { ButtonContainer, PageIndicator } from './styled/mainSlider';
-import PrevSrc from '../../../public/assets/prevbtn.webp';
-import NextSrc from '../../../public/assets/nextbtn.webp';
-import imageData from './imageData';
+import React, { useEffect, useState } from "react";
+import {
+  SlideContainer,
+  Image,
+  SliderContainer,
+  SliderWrapper,
+} from "./styled/mainSlider";
+import imageData from "./imageData";
 
 const Sliders = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
-      setCurrentPage(currentPage => (currentPage + 1) % imageData.length);
-    }, 7000);
+      setCurrentPage((currentPage) => (currentPage + 1) % imageData.length);
+    }, 3000);
 
     return () => clearInterval(slideInterval);
-  }, [imageData.length]);
+  }, []);
 
   const totalPage = imageData.length;
 
-  const handlePrevClick = () => {
-    setCurrentPage(currentPage => currentPage > 0 ? currentPage - 1 : totalPage - 1);
-  };
-
-  const handleNextClick = () => {
-    setCurrentPage(currentPage => currentPage < totalPage - 1 ? currentPage + 1 : 0);
+  const sliderStyle = {
+    transform: `translateX(-${currentPage * 100}%)`,  
   };
 
   return (
     <>
       <div>
-        <Slider images={imageData} currentPage={currentPage} />
+        <SliderContainer>
+          <SliderWrapper style={sliderStyle}>
+            {imageData.map((image, index) => (
+              <SlideContainer
+                key={index}
+                style={{ backgroundColor: image.bgColor }}
+              >
+                <Image src={image.src} alt={`slide-${index}`} />
+              </SlideContainer>
+            ))}
+          </SliderWrapper>
+        </SliderContainer>
       </div>
-      <ButtonContainer>
-        <ImageBtn src={PrevSrc} alt="Prev" onClick={handlePrevClick} />
-        <PageIndicator>{currentPage + 1} / {totalPage}</PageIndicator>
-        <ImageBtn src={NextSrc} alt="Next" onClick={handleNextClick} />
-      </ButtonContainer>
     </>
   );
 };

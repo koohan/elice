@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import ProductList from '../components/product/ProductList';
 import Sidebar from '../components/sidebar/Sidebar';
 import { PageLayout, SidebarLayout, ContentLayout } from '../GlobalStyles/LayoutStyles';
 import NavBar from '../components/nav/nav';
-import useFetchData from '../hook/useFetchData'; 
+import useFetchData from '../hook/useFetchData';
 import background from "../../public/assets/product.png";
 
 const BackgroundWrapper = styled.div`
@@ -24,7 +25,7 @@ const BackgroundImage = styled.div`
   background-size: cover;
   background-position: center;
   z-index: -1;
-  opacity : 0.1;
+  opacity: 0.1;
 `;
 
 const ContentWrapper = styled.div`
@@ -32,38 +33,32 @@ const ContentWrapper = styled.div`
   z-index: 1;
 `;
 
-const filterData = (data, query) => {
-  const queryLower = query.toLowerCase();
-  return data.filter(product => {
-    const name = product.name ? product.name.toLowerCase() : '';
-    return name.includes(queryLower);
-  });
+const filterCategory = (data, categoryName) => {
+  return data.filter(product => product.category && product.category.name === categoryName);
 };
 
 const ProductPage = () => {
+  const { categoryName } = useParams();
   const { data, loading, error } = useFetchData("/api/product");
   const [filteredData, setFilteredData] = useState([]);
-  const searchInputRef = useRef('');
+
+  console.log( categoryName); 
+  console.log( data); 
 
   useEffect(() => {
     if (data) {
-      setFilteredData(data);
-    }
-  }, [data]);
-
-  const handleSearch = () => {
-    if (data) {
-      const filtered = filterData(data, searchInputRef.current);
+      const filtered = categoryName ? filterCategory(data, categoryName) : data;
       setFilteredData(filtered);
+      console.log(filtered); 
     }
-  };
+  }, [data, categoryName]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
     <ContentWrapper>
-      <NavBar setSearchQuery={handleSearch} searchInputRef={searchInputRef} />
+      <NavBar />
       <PageLayout>
         <SidebarLayout>
           <Sidebar />

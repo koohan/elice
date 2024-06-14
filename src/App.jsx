@@ -16,6 +16,7 @@ import SupportPage from './pages/SupportPage';
 import AddProductPages from './pages/AddProductPages';
 import UpdateProduct from './components/update/ProductRoot';
 import CardInfo from './pages/CardInfoPage';
+import Category from './components/main/Category';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Route path="/account" element={<AccountPage />} />
         <Route path="/side" element={<Sidebar />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/products" element={<ProductPage />} />
+        <Route path="/products/:categoryName" element={<ProductPage />} /> 
         <Route path="/carts" element={<CartPage />} />
         <Route path="/checkouts" element={<CheckoutPage />} />
         <Route path="/product/:productId" element={<DetailPage />} />
@@ -37,6 +38,7 @@ function App() {
         <Route path="/add" element={<AddProductPages />} />
         <Route path="/card" element={<CardInfo />} />
         <Route path="/update/:id" element={<UpdateProduct />} />
+        <Route path="/category" element={<Category />} /> 
       </Routes>
     </Router>
   );

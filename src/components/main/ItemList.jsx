@@ -1,24 +1,109 @@
-import React, { useState } from "react";
-import { Container, ButtonContainer, ItemContainer, StyledButton } from './styled/mainItem';
-import MainItem from './MainItem';
+import React, { useState, useEffect } from "react";
+import Nike from "../../../public/assets/nike.webp";
+import Adidas from "../../../public/assets/adidas.webp";
+import Puma from "../../../public/assets/puma.webp";
+import {
+  Container,
+  ButtonContainer,
+  StyledButton,
+  Brand,
+  ProductContainer,
+  Products,
+  ProductBox,
+  ProductImage,
+  ProductName,
+  ProductNameMedium,
+  ProductNameSmall,
+  BrandImage
+} from "./styled/mainItem";
+import useFetchData from "../../hook/useFetchData";
 
-const ItemList = () => {
-    const [selectedItem, setSelectedItem] = useState(1);
+const BrandItemList = () => {
+  const { data: brandData, loading: brandLoading, error: brandError } = useFetchData(`/api/brand`);
+  const { data: productData, loading: productLoading, error: productError } = useFetchData(`/api/product`);
+  const [selectedBrandName, setSelectedBrandName] = useState("");
 
-    return (
-        <Container>
-            <ButtonContainer>
-                <StyledButton className={selectedItem === 1 ? 'selected' : ''} onClick={() => setSelectedItem(1)}>브랜드 1</StyledButton>
-                <StyledButton className={selectedItem === 2 ? 'selected' : ''} onClick={() => setSelectedItem(2)}>브랜드 2</StyledButton>
-                <StyledButton className={selectedItem === 3 ? 'selected' : ''} onClick={() => setSelectedItem(3)}>브랜드 3</StyledButton>
-                <StyledButton className={selectedItem === 4 ? 'selected' : ''} onClick={() => setSelectedItem(4)}>브랜드 4</StyledButton>
-                <StyledButton className={selectedItem === 5 ? 'selected' : ''} onClick={() => setSelectedItem(5)}>브랜드 5</StyledButton>
-            </ButtonContainer>
-            <ItemContainer>
-                <MainItem itemKey={`item${selectedItem}`} />
-            </ItemContainer>
-        </Container>
-    )
-}
+  useEffect(() => {
+    if (brandData && brandData.length > 0) {
+      setSelectedBrandName(brandData[0].name);
+    }
+  }, [brandData]);
 
-export default ItemList;
+  if (brandLoading || productLoading) return <div>Loading...</div>;
+  if (brandError) return <div>Error: {brandError.message}</div>;
+  if (productError) return <div>Error: {productError.message}</div>;
+
+  const brand = brandData.find(brand => brand.name === selectedBrandName);
+
+  const filteredProducts = productData.filter(product => product.brand && product.brand._id === brand._id).slice(0, 2);
+
+  const filterProducts = productData.filter(product => product.brand && product.brand._id === brand._id).slice(2, 4);
+
+  const handleBrandSelect = (brandName) => {
+    setSelectedBrandName(brandName);
+  };
+
+  const getBrandImage = (brandName) => {
+    switch (brandName) {
+      case "나이키":
+        return Nike;
+      case "아디다스":
+        return Adidas;
+      case "푸마":
+        return Puma;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <Container>
+      <ButtonContainer>
+        {brandData.map((brand) => (
+          <StyledButton
+            key={brand._id}
+            className={selectedBrandName === brand.name ? "selected" : ""}
+            onClick={() => handleBrandSelect(brand.name)}
+          >
+            {brand.name}
+          </StyledButton>
+        ))}
+      </ButtonContainer>
+      <Brand>
+        <BrandImage src={getBrandImage(selectedBrandName)} alt="Brand" />
+        <ProductContainer>
+          <Products>
+            {filteredProducts.map((product) => (
+              <ProductBox key={product._id}>
+                <ProductImage 
+                  src={product.images && product.images[0] ? product.images[0] : "https://via.placeholder.com/150"} 
+                  alt={product.name} 
+                />
+                <ProductName>{product.name}</ProductName>
+                <ProductNameSmall>{product.description}</ProductNameSmall>
+                <ProductNameMedium>{`${product.price.toLocaleString("ko-KR")} 원`}</ProductNameMedium>
+              </ProductBox>
+            ))}
+          </Products>
+        </ProductContainer>
+        <ProductContainer>
+          <Products>
+            {filterProducts.map((product) => (
+              <ProductBox key={product._id}>
+                <ProductImage 
+                  src={product.images && product.images[0] ? product.images[0] : "https://via.placeholder.com/150"} 
+                  alt={product.name} 
+                />
+                <ProductName>{product.name}</ProductName>
+                <ProductNameSmall>{product.description}</ProductNameSmall>
+                <ProductNameMedium>{`${product.price.toLocaleString("ko-KR")} 원`}</ProductNameMedium>
+              </ProductBox>
+            ))}
+          </Products>
+        </ProductContainer>
+      </Brand>
+    </Container>
+  );
+};
+
+export default BrandItemList;

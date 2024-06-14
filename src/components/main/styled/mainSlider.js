@@ -1,16 +1,16 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Button = styled.button`
-    width: 40px;
-    height: 40px;    
-    padding: 8px;    
-    border: none;    
-    border-radius: 4px;   
-    background-color: transparent;     
-    cursor: pointer;
-    display: flex;     
-    align-items: center;
-    justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const SlideContainer = styled.div`
@@ -43,17 +43,4 @@ export const SliderWrapper = styled.div`
   display: flex;
   transition: transform 0.3s ease-out;
   width: fit-content;
-`;
-
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-`;
-
-export const PageIndicator = styled.span`
-  margin: 0 20px;
-  font-size: 16px;
-  color: #0C0E46;
 `;
