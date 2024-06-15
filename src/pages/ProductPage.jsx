@@ -30,10 +30,10 @@ const ProductPage = () => {
   const handleFilter = (type) => {
     setFilterType(type);
     if (type === 'brand') {
-      setSelectedBrand(brands[0]?._id || null);
+      setSelectedBrand(brands.length > 0 ? brands[0]._id : null);
       setSelectedCategory(null);
     } else if (type === 'category') {
-      setSelectedCategory(categories[0]?._id || null);
+      setSelectedCategory(categories.length > 0 ? categories[0]._id : null);
       setSelectedBrand(null);
     } else {
       setSelectedBrand(null);
