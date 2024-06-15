@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import API_PATHS from '../utils/apiPaths';
 
-const useUpdateProductForm = (apiUrl, productId) => {
+const useProductUpdateForm = (productId) => {
   const [productData, setProductData] = useState(null);
   const [fetchLoading, setFetchLoading] = useState(true);
   const [fetchError, setFetchError] = useState(null);
@@ -9,7 +10,7 @@ const useUpdateProductForm = (apiUrl, productId) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`${apiUrl}/${productId}`);
+        const response = await fetch(`${API_PATHS.PRODUCTS}/${productId}`);
         if (!response.ok) throw new Error('Failed to fetch product');
         const data = await response.json();
         setProductData(data);
@@ -21,18 +22,22 @@ const useUpdateProductForm = (apiUrl, productId) => {
     };
 
     fetchProduct();
-  }, [apiUrl, productId]);
+  }, [productId]);
 
-  const handleUpdateProduct = async (updatedProductData) => {
-    if (!updatedProductData.images || updatedProductData.images.length === 0) {
+  const handleProductChange = (field, value) => {
+    setProductData(prevData => ({ ...prevData, [field]: value }));
+  };
+
+  const handleUpdateProduct = async () => {
+    if (!productData.images || productData.images.length === 0) {
       setUpdateError('이미지를 추가해주세요!');
       return;
     }
     try {
-      const response = await fetch(`${apiUrl}/${productId}`, {
+      const response = await fetch(`${API_PATHS.PRODUCTS}/${productId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedProductData),
+        body: JSON.stringify(productData),
       });
       if (!response.ok) throw new Error('Failed to update product');
     } catch (error) {
@@ -45,9 +50,10 @@ const useUpdateProductForm = (apiUrl, productId) => {
     fetchLoading,
     fetchError,
     setProductData,
+    handleProductChange,
     handleUpdateProduct,
     updateError,
   };
 };
 
-export default useUpdateProductForm;
+export default useProductUpdateForm;

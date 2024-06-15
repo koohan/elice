@@ -11,7 +11,7 @@ const AccountPage = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-  const Mockuser = {
+  const mockUser = {
     avatar: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png'
   };
 
@@ -30,7 +30,7 @@ const AccountPage = () => {
           <Sidebar user={user} />
         </SidebarLayout>
         <ContentLayout>
-          <Account user={displayedUser} Mockuser={Mockuser} />
+          <Account user={displayedUser} mockUser={mockUser} />
         </ContentLayout>
       </PageLayout>
     </>

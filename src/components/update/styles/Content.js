@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ImageUrl = styled.h5`
-  width: 60%;
+  width: 400px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

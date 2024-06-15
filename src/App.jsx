@@ -14,7 +14,7 @@ import Nav from './components/nav/nav';
 import Dashboard from '../src/pages/DashboardPage';
 import SupportPage from './pages/SupportPage';
 import AddProductPages from './pages/AddProductPages';
-import UpdateProduct from './components/update/ProductRoot';
+import UpdateProduct from './components/update/UpdateProductRoot';
 import CardInfo from './pages/CardInfoPage';
 import Category from './components/main/Category';
 
@@ -30,7 +30,7 @@ function App() {
         <Route path="/side" element={<Sidebar />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products/:categoryName" element={<ProductPage />} /> 
-        <Route path="/products/:brandName" element={<ProductPage />} />{/*이거는 좀 나중에...*/} 
+        <Route path="/products/:brandName" element={<ProductPage />} />
         <Route path="/products" element={<ProductPage />} /> 
         <Route path="/carts" element={<CartPage />} />
         <Route path="/checkouts" element={<CheckoutPage />} />

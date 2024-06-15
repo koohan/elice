@@ -46,7 +46,6 @@ const ProductDetails = ({ onChange }) => {
     setTimeout(() => setNotification(""), 1000);
   };
 
-
   const isValidUrl = (url) => {
     try {
       new URL(url);

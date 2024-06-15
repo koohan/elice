@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import AddProduct from "./AddProduct";
 import { useNavigate } from "react-router-dom";
+import AddProduct from "./AddProduct";
 import { ButtonStyled, TitleStyled } from "./styles/Content";
 import { AddProductLayOut } from "./styles/AddProductLayOut";
-import useProductForm from "../../hook/useProductForm";
 import Notification from "../notification/Notification";
 import useFetchOptions from "../../hook/useFetchOptions";
+import useProductForm from "../../hook/useProductForm";
+import API_PATHS from "../../utils/apiPaths";
 
-const ProductRoot = () => {
-  const apiUrl = "/api/admin/products";
-  const brandUrl = "/api/brand";
-  const categoryUrl = "/api/category";
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const AddProductRoot = () => {
+  const apiUrl = API_PATHS.ADMIN_PRODUCTS;
+  const brandUrl = API_PATHS.BRANDS;
+  const categoryUrl = API_PATHS.CATEGORIES;
   const navigate = useNavigate();
   const { handleProductChange, handleAddProduct, productData } = useProductForm(apiUrl);
   const { brands, categories, loading, error } = useFetchOptions(brandUrl, categoryUrl);
@@ -26,18 +29,21 @@ const ProductRoot = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  const handleButtonClick = () => {
+  const handleButtonClick = async () => {
     if (!selectedCategory || !selectedBrand || !productData.images || productData.images.length === 0) {
       console.error("Category, Brand, and Images are required.");
       setNotification("필수 항목들을 입력해주세요!");
+      await delay(1000);
+      setNotification("");
       return;
     }
     handleAddProduct(selectedCategory, selectedBrand);
     setNotification("제품이 성공적으로 등록되었습니다.");
-    setTimeout(() => setNotification(""), 1000);
-    setTimeout(() => navigate(-1), 1500);
+    await delay(1000);
+    setNotification("");
+    await delay(500);
+    navigate(-1);
   };
-  
 
   const handleFormChange = (field, value) => {
     handleProductChange(field, value);
@@ -54,7 +60,9 @@ const ProductRoot = () => {
           onChange={handleFormChange}
           brands={brands}
           categories={categories}
+          selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          selectedBrand={selectedBrand}
           setSelectedBrand={setSelectedBrand}
         />
         <div style={{ display: "flex", height: "5rem", justifyContent: "end", alignItems: "center", margin: "0 auto" }}>
@@ -65,4 +73,4 @@ const ProductRoot = () => {
   );
 };
 
-export default ProductRoot;
+export default AddProductRoot;

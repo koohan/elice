@@ -3,7 +3,7 @@ import Select from 'react-select';
 import { ColorSelectorStyled } from './styles/ColorSelectorStyles';
 import { SizeLabel } from './styles/SizeSelectorStyles';
 
-const rainbowColors = [
+const RAINBOW_COLORS = [
   { name: '빨강', value: '#FF0000' },
   { name: '주황', value: '#FFA500' },
   { name: '노랑', value: '#FFFF00' },
@@ -18,11 +18,12 @@ const getRandomColors = (colorsArray, numColors) => {
   return shuffled.slice(0, numColors);
 };
 
-const ColorSelector = ({ colors = [], selectedColor, setSelectedColor }) => {
+const ColorSelector = ({ colors, selectedColor, setSelectedColor }) => {
   const [availableColors, setAvailableColors] = useState([]);
 
   useEffect(() => {
-    setAvailableColors(colors.length > 0 ? colors : getRandomColors(rainbowColors, 4));
+    const validColors = Array.isArray(colors) && colors.length > 0 ? colors : getRandomColors(RAINBOW_COLORS, 4);
+    setAvailableColors(validColors);
   }, [colors]);
 
   const handleChange = (selectedOption) => {
@@ -30,7 +31,7 @@ const ColorSelector = ({ colors = [], selectedColor, setSelectedColor }) => {
   };
 
   const options = availableColors.map((color) => ({
-    value: color.name,
+    value: color.value,
     label: color.name,
   }));
 

@@ -9,30 +9,15 @@ import { ProductInput, ProductButton } from "./styles/ProductLayout";
 import { CommonTitle } from "./styles/FontStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import useProductActions from "../../hook/useProductActions";
 
-const Dashboard = ({ data, total }) => {
+const Dashboard = ({ data: { productList: initialProductList }, total }) => {
   const navigate = useNavigate();
-  const [productList, setProductList] = useState(data.productList);
-  const [notification, setNotification] = useState("");
+  const { productList, notification, handleDelete } = useProductActions({ initialProductList });
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
-  };
-
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(`/api/product/${id}`, {
-        method: 'DELETE',
-      });
-      if (response.ok) {
-        setProductList(productList.filter(product => product._id !== id));
-        setNotification("제품이 성공적으로 삭제되었습니다.");
-        setTimeout(() => setNotification(""), 2000);
-      }
-    } catch (error) {
-      console.error("Error deleting product:", error);
-    }
   };
 
   const filteredProductList = productList.filter((product) => {

@@ -14,20 +14,20 @@ import {
   AvatarSection,
 } from "./styles/PersonalInfoStyles";
 
-const handleChange = (e, setFormData, formData) => {
-  const { name, value } = e.target;
-  setFormData({
-    ...formData,
-    [name]: value
-  });
-};
-
-const PersonalInfo = ({ user, Mockuser }) => {
+const PersonalInfo = ({ user, mockUser }) => {
   const [formData, setFormData] = useState({
     name: user.name,
     email: user.email,
     phoneNumber: user.phoneNumber
   });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
   return (
     <Container>
@@ -41,7 +41,7 @@ const PersonalInfo = ({ user, Mockuser }) => {
                 type="text"
                 name="name"
                 value={formData.name}
-                onChange={(e) => handleChange(e, setFormData, formData)}
+                onChange={handleChange}
               />
             </InputGroup>
             <InputGroup>
@@ -50,7 +50,7 @@ const PersonalInfo = ({ user, Mockuser }) => {
                 type="email"
                 name="email"
                 value={formData.email}
-                onChange={(e) => handleChange(e, setFormData, formData)}
+                onChange={handleChange}
               />
             </InputGroup>
             <InputGroup>
@@ -62,12 +62,12 @@ const PersonalInfo = ({ user, Mockuser }) => {
                 pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
                 required
                 value={formData.phoneNumber}
-                onChange={(e) => handleChange(e, setFormData, formData)}
+                onChange={handleChange}
               />
             </InputGroup>
           </InputSection>
           <AvatarSection>
-            <Avatar src={Mockuser.avatar} alt={`${formData.name} 님의 아바타`} />
+            <Avatar src={mockUser.avatar} alt={`${formData.name} 님의 아바타`} />
           </AvatarSection>
         </FlexContainer>
       </Section>

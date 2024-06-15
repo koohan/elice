@@ -18,24 +18,25 @@ import {
   BrandImage,
 } from "./styled/mainItem";
 import useFetchData from "../../hook/useFetchData";
+import API_PATHS from "../../utils/apiPaths";
 
-const BrandItemList = () => {
-  const navigate = useNavigate()
+const ItemList = () => {
+  const navigate = useNavigate();
 
   const handleNavigation = () => {
-    navigate("/products")
-  }
+    navigate("/products");
+  };
 
   const {
     data: brandData,
     loading: brandLoading,
     error: brandError,
-  } = useFetchData(`/api/brand`);
+  } = useFetchData(API_PATHS.BRANDS);
   const {
     data: productData,
     loading: productLoading,
     error: productError,
-  } = useFetchData(`/api/product`);
+  } = useFetchData(API_PATHS.PRODUCTS);
   const [selectedBrandName, setSelectedBrandName] = useState("");
 
   useEffect(() => {
@@ -139,4 +140,4 @@ const BrandItemList = () => {
   );
 };
 
-export default BrandItemList;
+export default ItemList;

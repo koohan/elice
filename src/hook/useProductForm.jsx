@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import API_PATHS from '../utils/apiPaths';
 
-const useProductForm = (apiUrl) => {
+const useProductForm = () => {
   const [productData, setProductData] = useState({
     name: '',
     price: '',
     description: '',
     longdescription: '',
-    images: []
+    images: [],
+    brand: '',
+    category: ''
   });
 
   const handleProductChange = (field, value) => {
@@ -15,7 +18,7 @@ const useProductForm = (apiUrl) => {
 
   const handleAddProduct = async (selectedCategory, selectedBrand) => {
     try {
-      const response = await fetch(apiUrl, {
+      const response = await fetch(API_PATHS.ADMIN_PRODUCTS, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

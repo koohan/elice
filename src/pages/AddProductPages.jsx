@@ -7,7 +7,7 @@ import {
 } from "../GlobalStyles/LayoutStyles";
 import NavBar from "../components/nav/nav";
 import Footer from "../components/footer/footer";
-import ProductRoot from "../components/add/ProductRoot";
+import ProductRoot from "../components/add/AddProductRoot";
 
 const AddProductPages = () => {
   return (
