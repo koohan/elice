@@ -12,12 +12,14 @@ const useUserInfo = () => {
           credentials: 'include'
         });
 
-        if (!response.ok) {
+        if (response.status === 401) {
+          setUser(null);
+        } else if (!response.ok) {
           throw new Error('Failed to fetch user data');
+        } else {
+          const data = await response.json();
+          setUser(data);
         }
-
-        const data = await response.json();
-        setUser(data);
       } catch (error) {
         setError(error.message);
       } finally {

@@ -10,9 +10,7 @@ const useUpdateProductForm = (apiUrl, productId) => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(`${apiUrl}/${productId}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch product');
-        }
+        if (!response.ok) throw new Error('Failed to fetch product');
         const data = await response.json();
         setProductData(data);
       } catch (error) {
@@ -26,17 +24,17 @@ const useUpdateProductForm = (apiUrl, productId) => {
   }, [apiUrl, productId]);
 
   const handleUpdateProduct = async (updatedProductData) => {
+    if (!updatedProductData.images || updatedProductData.images.length === 0) {
+      setUpdateError('이미지를 추가해주세요!');
+      return;
+    }
     try {
       const response = await fetch(`${apiUrl}/${productId}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedProductData),
       });
-      if (!response.ok) {
-        throw new Error('Failed to update product');
-      }
+      if (!response.ok) throw new Error('Failed to update product');
     } catch (error) {
       setUpdateError(error.message);
     }

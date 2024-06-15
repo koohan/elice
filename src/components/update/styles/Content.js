@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const ImageUrl = styled.h5`
+  width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
 export const ButtonStyled = styled.button`
   width: 10rem;
   height: 3rem;
