@@ -1,4 +1,15 @@
-const apiRequest = async (url, options = {}) => {
+export const apiRequest = async (url, method = 'GET', data = null) => {
+    const options = {
+      method,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+  
+    if (data) {
+      options.body = JSON.stringify(data);
+    }
+  
     try {
       const response = await fetch(url, options);
       if (!response.ok) {
@@ -12,7 +23,15 @@ const apiRequest = async (url, options = {}) => {
     }
   };
   
+
   export const deleteProduct = async (id) => {
-    return await apiRequest(`/api/product/${id}`, { method: 'DELETE' });
+    return await apiRequest(`/api/product/${id}`, 'DELETE');
   };
+  
+  export const deleteUserAccount = async () => {
+    return await apiRequest('/api/users/me', 'DELETE');
+  };
+  
+
+
   

@@ -45,7 +45,7 @@ const Footer = () => {
             <DeveloperInfo>
                 <FontAwesomeIcon icon={faStore} style={{ marginRight: "5px" }} />
                 <span>Elice Store Developed by </span>
-                <a href="https://example.com">2TEAM</a>
+                <a href="https://kdt-gitlab.elice.io/iot_track/class_03/web_project2/team2">2TEAM</a>
             </DeveloperInfo>
             <ProjectLink>
                 <a href="https://gitlab.com">

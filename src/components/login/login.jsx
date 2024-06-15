@@ -6,12 +6,13 @@ import { Title, LineContainer, Line } from "./styles/LoginStyles";
 import Input from "./Input";
 import LoginButton from "./LoginButton";
 import Oauth from "./Oauth";
+import API_PATHS from '../../utils/apiPaths';
 
-function Login() {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { data, loading, error, postData } = usePostRequest("/api/login/login");
+  const { data, loading, error, postData } = usePostRequest(API_PATHS.LOGIN);
   const [cookies, setCookie] = useCookies(['loginstate']);
 
   const handleLogin = async (e) => {
@@ -22,7 +23,6 @@ function Login() {
   useEffect(() => {
     if (data) {
       setCookie("loginstate", data.token, { path: '/' });
-      console.log("User Email:", data.email); 
       navigate("/");
     }
   }, [data, navigate, setCookie]);
@@ -30,28 +30,15 @@ function Login() {
   return (
     <>
       <Title id="title">LOGIN</Title>
-      <form onSubmit={handleLogin}>
-        <div className="login-box">
-          <Input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <Input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <LoginButton type="submit" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
-        </LoginButton>
-      </form>
+      <LoginForm 
+        email={email} 
+        setEmail={setEmail} 
+        password={password} 
+        setPassword={setPassword} 
+        handleLogin={handleLogin} 
+        loading={loading} 
+        error={error}
+      />
       <LineContainer style={{ margin: "1.5rem" }}>
         <Line />
         <div>Register in seconds</div>
@@ -60,6 +47,31 @@ function Login() {
       <Oauth />
     </>
   );
-}
+};
+
+const LoginForm = ({ email, setEmail, password, setPassword, handleLogin, loading, error }) => (
+  <form onSubmit={handleLogin}>
+    <div className="login-box">
+      <Input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <Input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
+    </div>
+    {error && <p style={{ color: "red" }}>{error}</p>}
+    <LoginButton type="submit" disabled={loading}>
+      {loading ? "Logging in..." : "Login"}
+    </LoginButton>
+  </form>
+);
 
 export default Login;

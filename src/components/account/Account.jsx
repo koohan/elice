@@ -1,18 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PersonalInfo from './PersonalInfo';
 import PasswordChange from './PasswordChange';
-import { Button, DelBtn } from "./styles/PasswordChangeStyles";
+import { DelBtn } from "./styles/PasswordChangeStyles";
+import { deleteUserAccount } from '../../utils/api';
+import Notification from '../notification/Notification';
+import { useNavigate } from 'react-router-dom';
+import { useCookieManager } from '../../utils/cookies';
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Account = ({ user, mockUser }) => {
+  const navigate = useNavigate();
+  const [notification, setNotification] = useState("");
+  const { clearAllCookies } = useCookieManager();
 
+  const handleDeleteAccount = async () => {
+    if (window.confirm("정말로 회원 탈퇴를 하시겠습니까?")) {
+      try {
+        await deleteUserAccount();
+        setNotification("회원 탈퇴가 완료되었습니다.");
+        clearAllCookies();
+      } catch (error) {
+        setNotification("회원 탈퇴에 실패했습니다. 다시 시도해주세요.");
+      } finally {
+        await delay(1500);
+        setNotification("");
+        navigate("/");
+      }
+    }
+  };
 
   return (
     <div style={{ marginTop: "2rem" }}>
+      {notification && <Notification message={notification} />}
       <PersonalInfo user={user} mockUser={mockUser} />
       <PasswordChange user={user} />
       <div style={{ display: "flex", width: "95%", margin: "0 auto", justifyContent: "end", marginBottom: "5rem" }}>
-        <Button type="button">회원 정보 변경</Button>
-        <DelBtn type="button" >회원 탈퇴하기</DelBtn>
+        <DelBtn type="button" onClick={handleDeleteAccount}>회원 탈퇴하기</DelBtn>
       </div>
     </div>
   );

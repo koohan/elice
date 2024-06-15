@@ -1,25 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import { Header, Logo, Navbar, NavLink, SearchContainer, SearchButton, SearchInput } from './Stylednav.js';
+import { Header, Logo, Navbar, NavLink, SearchContainer, SearchButton, SearchInput } from './Stylednav';
+import { useCookieManager } from '../../utils/cookies';
 
 const NavBar = ({ setSearchQuery, searchInputRef }) => {
   const [searchActive, setSearchActive] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-  const [cookies, , removeCookie] = useCookies(['loginstate', 'userCookie', 'adminCookie']);
+  const [cookies] = useCookies(['loginstate']);
+  const { clearAllCookies } = useCookieManager();
+
+  // 아직 백엔드 엔드포인트가 없어서 주석 처리함...........
+  // 밑에 handleLogout 함수도 훅으로 뺄건데 시간 부족 이슈로 수요일 이전까지 리팩토링 작업 할때 다시 봐야함
+  // useEffect(() => {
+  //   const checkAuthStatus = async () => {
+  //     try {
+  //       const response = await fetch('/api/(나온 주소가 없음)', {
+  //         method: 'GET',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //       });
+  //       if (response.ok) {
+  //         setIsLoggedIn(true);
+  //       } else {
+  //         throw new Error('Not authenticated');
+  //       }
+  //     } catch (error) {
+  //       clearAllCookies();
+  //       setIsLoggedIn(false);
+  //       navigate('/login');
+  //     }
+  //   };
+  //   checkAuthStatus();
+  // }, [navigate, clearAllCookies]);
 
   useEffect(() => {
-    if (cookies.loginstate || cookies.userCookie || cookies.adminCookie) {
-      setIsLoggedIn(true);
-    }
+    setIsLoggedIn(!!cookies.loginstate);
   }, [cookies]);
 
   const handleSearchClick = () => {
     if (searchActive && setSearchQuery && searchInputRef) {
       setSearchQuery(searchInputRef.current);
     }
-    setSearchActive((prev) => !prev);
+    setSearchActive(prev => !prev);
   };
 
   const handleSearchChange = (e) => {
@@ -34,7 +59,7 @@ const NavBar = ({ setSearchQuery, searchInputRef }) => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('api/login/logout', {
+      const response = await fetch('/api/login/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,11 +67,8 @@ const NavBar = ({ setSearchQuery, searchInputRef }) => {
       });
 
       if (response.ok) {
-        removeCookie('loginstate');
-        removeCookie('userCookie');
-        removeCookie('adminCookie');
+        clearAllCookies();
         setIsLoggedIn(false);
-        console.log('성공적으로 로그아웃되었습니다.');
         navigate('/');
       } else {
         console.error('로그아웃에 실패했습니다.');

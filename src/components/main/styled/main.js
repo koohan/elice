@@ -8,7 +8,7 @@ export const SlidersContainer = styled.div`
 export const CategoryContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 30px;
   margin-bottom: 100px;
 `;
 

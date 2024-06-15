@@ -26,9 +26,11 @@ const usePostRequest = (url) => {
       }
 
       const data = await response.json();
-      setData(data); 
+      setData(data);
+      return data; 
     } catch (err) {
       setError(err.message);
+      throw err; 
     } finally {
       setLoading(false);
     }

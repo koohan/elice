@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Container,
   Section,
@@ -11,39 +11,21 @@ import {
 } from "./styles/commonStyles";
 import {
   Input,
-  ReadOnlyInput
+  ReadOnlyInput,
+  Button,
 } from "./styles/PasswordChangeStyles";
+import Notification from "../notification/Notification";
+import usePasswordChange from "../../hook/usePasswordChange";
 
 const PasswordChange = ({ user }) => {
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const validatePasswords = () => {
-    if (newPassword === "" || confirmPassword === "") {
-      setError("모든 필드를 입력해주세요.");
-      return false;
-    }
-    if (newPassword !== confirmPassword) {
-      setError("비밀번호가 일치하지 않습니다.");
-      return false;
-    }
-    if (newPassword.length < 8) {
-      setError("비밀번호는 최소 8자리여야 합니다.");
-      return false;
-    }
-    setError("");
-    return true;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validatePasswords()) {
-      // 일요일 전까지 백엔드 api랑 연동
-      // 커스텀 훅 관련 resolve 끝나면 작업 시작
-      console.log("비밀번호 변경 성공");
-    }
-  };
+  const {
+    newPassword,
+    confirmPassword,
+    notification,
+    setNewPassword,
+    setConfirmPassword,
+    handleSubmit,
+  } = usePasswordChange(user);
 
   return (
     <Container>
@@ -72,9 +54,9 @@ const PasswordChange = ({ user }) => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </InputGroup>
-              {error && <p style={{ color: "red" }}>{error}</p>}
+              {notification && <Notification message={notification} />}
               <InputGroup>
-                <Input type="submit" value="비밀번호 변경" />
+                <Button type="submit">비밀번호 변경</Button>
               </InputGroup>
             </form>
           </InputSection>

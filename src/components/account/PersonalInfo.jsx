@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Container,
   Section,
@@ -12,64 +12,67 @@ import {
   Input,
   Avatar,
   AvatarSection,
+  Button,
 } from "./styles/PersonalInfoStyles";
+import Notification from "../notification/Notification";
+import usePersonalInfo from "../../hook/usePersonalInfo";
+
+const PersonalInfoForm = ({ formData, handleChange }) => (
+  <>
+    <InputGroup>
+      <Label>이름</Label>
+      <Input
+        type="text"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        required
+      />
+    </InputGroup>
+    <InputGroup>
+      <Label>이메일</Label>
+      <Input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+      />
+    </InputGroup>
+    <InputGroup>
+      <Label>전화번호</Label>
+      <Input
+        type="tel"
+        id="phone"
+        name="phoneNumber"
+        pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+        required
+        value={formData.phoneNumber}
+        onChange={handleChange}
+      />
+    </InputGroup>
+  </>
+);
 
 const PersonalInfo = ({ user, mockUser }) => {
-  const [formData, setFormData] = useState({
-    name: user.name,
-    email: user.email,
-    phoneNumber: user.phoneNumber
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
+  const { formData, notification, handleChange, handleSubmit } = usePersonalInfo(user);
 
   return (
     <Container>
       <Section>
         <Title>{formData.name} 님의 정보</Title>
-        <FlexContainer>
-          <InputSection>
-            <InputGroup>
-              <Label>이름</Label>
-              <Input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-            </InputGroup>
-            <InputGroup>
-              <Label>이메일</Label>
-              <Input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </InputGroup>
-            <InputGroup>
-              <Label>전화번호</Label>
-              <Input
-                type="tel"
-                id="phone"
-                name="phoneNumber"
-                pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-                required
-                value={formData.phoneNumber}
-                onChange={handleChange}
-              />
-            </InputGroup>
-          </InputSection>
-          <AvatarSection>
-            <Avatar src={mockUser.avatar} alt={`${formData.name} 님의 아바타`} />
-          </AvatarSection>
-        </FlexContainer>
+        {notification && <Notification message={notification} />}
+        <form onSubmit={handleSubmit}>
+          <FlexContainer>
+            <InputSection>
+              <PersonalInfoForm formData={formData} handleChange={handleChange} />
+            </InputSection>
+            <AvatarSection>
+              <Avatar src={mockUser.avatar} alt={`${formData.name} 님의 아바타`} />
+            </AvatarSection>
+          </FlexContainer>
+          <Button style={{ height: "3rem", marginTop: "8px" }} type="submit">회원정보 변경</Button>
+        </form>
       </Section>
     </Container>
   );
