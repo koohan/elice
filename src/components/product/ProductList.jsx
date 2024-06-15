@@ -2,19 +2,24 @@ import React from 'react';
 import { Flex, Items } from './styles/LayoutStyles';
 import ProductCard from './ProductCard';
 
+
 const addPlaceholders = (products, itemsPerRow) => {
   const placeholdersNeeded = itemsPerRow - (products.length % itemsPerRow);
   if (placeholdersNeeded < itemsPerRow) {
     return [
-      ...products, 
+      ...products,
       ...Array.from({ length: placeholdersNeeded }, (_, i) => ({ id: `placeholder-${i}`, placeholder: true }))
     ];
   }
   return products;
 };
 
-const ProductList = ({ products }) => {
-  const productItems = addPlaceholders(products, 4);
+const ProductList = ({ products, searchQuery }) => {
+  const filteredProducts = products.filter(product =>
+    product.name && product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const productItems = addPlaceholders(filteredProducts, 4);
 
   return (
     <Flex>

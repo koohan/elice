@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Nike from "../../../public/assets/nike.webp";
 import Adidas from "../../../public/assets/adidas.webp";
 import Puma from "../../../public/assets/puma.webp";
@@ -19,6 +20,12 @@ import {
 import useFetchData from "../../hook/useFetchData";
 
 const BrandItemList = () => {
+  const navigate = useNavigate()
+
+  const handleNavigation = () => {
+    navigate("/products")
+  }
+
   const {
     data: brandData,
     loading: brandLoading,
@@ -88,7 +95,7 @@ const BrandItemList = () => {
         <ProductContainer>
           <Products>
             {firstBox.map((product) => (
-              <ProductBox key={product._id}>
+              <ProductBox key={product._id} onClick={handleNavigation}>
                 <ProductImage
                   src={
                     product.images && product.images[0]

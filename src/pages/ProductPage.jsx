@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import ProductList from '../components/product/ProductList';
 import Sidebar from '../components/sidebar/Sidebar';
@@ -6,13 +6,89 @@ import { PageLayout, SidebarLayout, ContentLayout } from '../GlobalStyles/Layout
 import NavBar from '../components/nav/nav';
 import useFetchData from '../hook/useFetchData';
 import background from "../../public/assets/product.png";
+import FilterButtons from '../components/product/FilterButtons';
+import BackgroundWrapper from '../components/product/styles/BackgroundWrapper';
+import {ContentWrapper} from '../components/product/styles/ContentWrapper';
 
-const BackgroundWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-`;
+const ProductPage = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filterType, setFilterType] = useState('all');
+  const [selectedBrand, setSelectedBrand] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const searchInputRef = useRef('');
+
+  const fetchUrl = '/api/product';
+  const brandUrl = '/api/brand';
+  const categoryUrl = '/api/category';
+  const { data: products, loading: productsLoading, error: productsError } = useFetchData(fetchUrl);
+  const { data: brands, loading: brandsLoading, error: brandsError } = useFetchData(brandUrl);
+  const { data: categories, loading: categoriesLoading, error: categoriesError } = useFetchData(categoryUrl);
+
+  if (productsLoading || brandsLoading || categoriesLoading) return <div>Loading...</div>;
+  if (productsError || brandsError || categoriesError) return <div>Error loading data</div>;
+
+  const handleFilter = (type) => {
+    setFilterType(type);
+    if (type === 'brand') {
+      setSelectedBrand(brands[0]?._id || null);
+      setSelectedCategory(null);
+    } else if (type === 'category') {
+      setSelectedCategory(categories[0]?._id || null);
+      setSelectedBrand(null);
+    } else {
+      setSelectedBrand(null);
+      setSelectedCategory(null);
+    }
+  };
+
+  const filteredProducts = filterProducts(products, filterType, selectedBrand, selectedCategory);
+  const searchedProducts = searchProducts(filteredProducts, searchQuery);
+
+  return (
+    <ContentWrapper>
+      <NavBar setSearchQuery={setSearchQuery} searchInputRef={searchInputRef} />
+      <PageLayout>
+        <SidebarLayout>
+          <Sidebar />
+        </SidebarLayout>
+        <ContentLayout>
+          <FilterButtons 
+            filterType={filterType}
+            brands={brands}
+            categories={categories}
+            handleFilter={handleFilter}
+            setSelectedBrand={setSelectedBrand}
+            setSelectedCategory={setSelectedCategory}
+            selectedBrand={selectedBrand}
+            selectedCategory={selectedCategory}
+          />
+          <BackgroundWrapper>
+            <BackgroundImage />
+            <ProductList products={searchedProducts} searchQuery={searchQuery} />
+          </BackgroundWrapper>
+        </ContentLayout>
+      </PageLayout>
+    </ContentWrapper>
+  );
+};
+
+const filterProducts = (products, filterType, selectedBrand, selectedCategory) => {
+  return products.filter(product => {
+    if (filterType === 'brand' && selectedBrand) {
+      return product.brand && product.brand._id === selectedBrand;
+    } else if (filterType === 'category' && selectedCategory) {
+      return product.category && product.category._id === selectedCategory;
+    } else {
+      return true;
+    }
+  });
+};
+
+const searchProducts = (products, searchQuery) => {
+  return products.filter(product =>
+    product.name && product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+};
 
 const BackgroundImage = styled.div`
   position: absolute;
@@ -26,38 +102,5 @@ const BackgroundImage = styled.div`
   z-index: -1;
   opacity: 0.1;
 `;
-
-const ContentWrapper = styled.div`
-  position: relative;
-  z-index: 1;
-`;
-
-const ProductPage = () => {
-  const fetchUrl = '/api/product';
-  const { data, loading, error } = useFetchData(fetchUrl);
-  console.log(data)
-
-
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-
-  return (
-    <ContentWrapper>
-      <NavBar />
-      <PageLayout>
-        <SidebarLayout>
-          <Sidebar />
-        </SidebarLayout>
-        <ContentLayout>
-          <BackgroundWrapper>
-            <BackgroundImage />
-            <ProductList products={data} />
-          </BackgroundWrapper>
-        </ContentLayout>
-      </PageLayout>
-    </ContentWrapper>
-  );
-};
 
 export default ProductPage;

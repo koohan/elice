@@ -5,7 +5,7 @@ export const Flex = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-between;
-  padding: 60px;
+  padding: 30px;
 `;
 
 export const Items = styled.div`

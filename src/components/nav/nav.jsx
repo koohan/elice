@@ -16,14 +16,16 @@ const NavBar = ({ setSearchQuery, searchInputRef }) => {
   }, [cookies]);
 
   const handleSearchClick = () => {
-    if (searchActive) {
+    if (searchActive && setSearchQuery && searchInputRef) {
       setSearchQuery(searchInputRef.current);
     }
     setSearchActive((prev) => !prev);
   };
 
   const handleSearchChange = (e) => {
-    searchInputRef.current = e.target.value;
+    if (searchInputRef) {
+      searchInputRef.current = e.target.value;
+    }
   };
 
   const handleNavigation = (path) => {
@@ -58,20 +60,22 @@ const NavBar = ({ setSearchQuery, searchInputRef }) => {
     <Header>
       <Logo src="/public/logo2.png" onClick={() => handleNavigation('/')} />
       <Navbar>
-        <SearchContainer>
-          <SearchInput 
-            type="text" 
-            placeholder="SEARCH" 
-            className={searchActive ? 'active' : ''} 
-            onChange={handleSearchChange}
-          />
-          <SearchButton 
-            className={searchActive ? 'active' : ''} 
-            onClick={handleSearchClick}
-          >
-            {searchActive ? 'CLICK' : 'SEARCH'}
-          </SearchButton>
-        </SearchContainer>
+        {setSearchQuery && searchInputRef && (
+          <SearchContainer>
+            <SearchInput 
+              type="text" 
+              placeholder="SEARCH" 
+              className={searchActive ? 'active' : ''} 
+              onChange={handleSearchChange}
+            />
+            <SearchButton 
+              className={searchActive ? 'active' : ''} 
+              onClick={handleSearchClick}
+            >
+              {searchActive ? 'CLICK' : 'SEARCH'}
+            </SearchButton>
+          </SearchContainer>
+        )}
         {isLoggedIn ? (
           <>
             <NavLink onClick={handleLogout}>LOGOUT</NavLink>
