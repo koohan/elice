@@ -3,7 +3,7 @@ import { validateForm } from "../utils/validation";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const usePersonalInfo = (initialUser) => {
+const usePersonalInfo = (initialUser, apiUrl) => {
   const [formData, setFormData] = useState({
     name: initialUser.name,
     email: initialUser.email,
@@ -28,7 +28,7 @@ const usePersonalInfo = (initialUser) => {
       setNotification("");
     } else {
       try {
-        const response = await fetch("/api/users/user/me", {
+        const response = await fetch(apiUrl, { 
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

@@ -16,6 +16,7 @@ import {
 } from "./styles/PersonalInfoStyles";
 import Notification from "../notification/Notification";
 import usePersonalInfo from "../../hook/usePersonalInfo";
+import API_PATHS from "../../utils/apiPaths";
 
 const PersonalInfoForm = ({ formData, handleChange }) => (
   <>
@@ -55,7 +56,7 @@ const PersonalInfoForm = ({ formData, handleChange }) => (
 );
 
 const PersonalInfo = ({ user, mockUser }) => {
-  const { formData, notification, handleChange, handleSubmit } = usePersonalInfo(user);
+  const { formData, notification, handleChange, handleSubmit } = usePersonalInfo(user, API_PATHS.USER); 
 
   return (
     <Container>

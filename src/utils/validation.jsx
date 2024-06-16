@@ -1,7 +1,7 @@
 export const validateForm = (formData, user = {}) => {
   const { name, email, phoneNumber, password, confirmPassword } = formData;
 
-  if (!name || !email || !phoneNumber || !password || !confirmPassword) {
+  if (!name || !email || !phoneNumber) {
     return "모든 필드를 입력해주세요.";
   }
 

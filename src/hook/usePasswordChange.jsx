@@ -1,8 +1,9 @@
 import { useState } from "react";
+import API_PATHS from "../utils/apiPaths";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const usePasswordChange = (user) => {
+const usePasswordChange = (apiUrl) => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [notification, setNotification] = useState("");
@@ -28,7 +29,7 @@ const usePasswordChange = (user) => {
     e.preventDefault();
     if (validatePasswords()) {
       try {
-        const response = await fetch("/api/users/user/me", {
+        const response = await fetch(apiUrl, { 
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

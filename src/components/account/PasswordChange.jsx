@@ -16,6 +16,7 @@ import {
 } from "./styles/PasswordChangeStyles";
 import Notification from "../notification/Notification";
 import usePasswordChange from "../../hook/usePasswordChange";
+import API_PATHS from "../../utils/apiPaths";
 
 const PasswordChange = ({ user }) => {
   const {
@@ -25,7 +26,7 @@ const PasswordChange = ({ user }) => {
     setNewPassword,
     setConfirmPassword,
     handleSubmit,
-  } = usePasswordChange(user);
+  } = usePasswordChange(API_PATHS.USER); 
 
   return (
     <Container>
