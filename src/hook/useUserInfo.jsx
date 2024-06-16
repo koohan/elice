@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
-import API_PATHS from '../utils/apiPaths';
 
 const useUserInfo = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(API_PATHS.INFO, {
+        // api 문제 생겼는데 원인 찾기 불가
+        // 맵핑해서 해봤고 백엔드 코드도 봤는데 이유를 모르겠음
+        const response = await fetch("api/users/me", {
           credentials: 'include'
         });
 
