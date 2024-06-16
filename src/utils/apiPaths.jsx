@@ -8,7 +8,8 @@ const API_PATHS = {
   REGISTER: `${API_BASE_URL}/register`,
   LOGIN: `${API_BASE_URL}/login/login`,
   LOGOUT: `${API_BASE_URL}/login/logout`,
-  USER: `${API_BASE_URL}/users/user/me`, 
+  USER: `${API_BASE_URL}/users/user/me`,
+  INFO: `${API_BASE_URL}/users/me`, 
 };
 
 export default API_PATHS;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import API_PATHS from '../utils/apiPaths';
 
 const useUserInfo = () => {
   const [user, setUser] = useState(null);
@@ -8,7 +9,7 @@ const useUserInfo = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch('/api/users/me', {
+        const response = await fetch(API_PATHS.INFO, {
           credentials: 'include'
         });
 
