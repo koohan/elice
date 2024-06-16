@@ -21,7 +21,7 @@ const usePostRequest = (url) => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        const errorMessage = errorData.errors ? errorData.errors.map(e => e.msg).join(', ') : 'An error occurred';
+        const errorMessage = errorData.message ?? errorData.error;
         throw new Error(errorMessage);  
       }
 
