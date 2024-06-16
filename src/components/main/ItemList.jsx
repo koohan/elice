@@ -117,7 +117,7 @@ const ItemList = () => {
         <ProductContainer>
           <Products>
             {secondBox.map((product) => (
-              <ProductBox key={product._id}>
+              <ProductBox key={product._id} onClick={handleNavigation}> 
                 <ProductImage
                   src={
                     product.images && product.images[0]
