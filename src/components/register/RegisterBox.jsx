@@ -25,18 +25,29 @@ const RegisterBox = () => {
         const { name, value } = e.target;
         setFormData((prevFormData) => ({
             ...prevFormData,
-            [name]: value,
+            [name]: name === "phoneNumber" ? formatPhoneNumber(value) : value,
         }));
     };
 
+    const formatPhoneNumber = (value) => {
+        const phoneNumber = value.replace(/\D/g, ""); 
+        let formattedNumber = "";
+        
+        if (phoneNumber.length > 0) {
+            formattedNumber += phoneNumber.slice(0, 3);
+        }
+        if (phoneNumber.length > 3) {
+            formattedNumber += "-" + phoneNumber.slice(3, 7);
+        }
+        if (phoneNumber.length > 7) {
+            formattedNumber += "-" + phoneNumber.slice(7, 11);
+        }
+        
+        return formattedNumber;
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (formData.password !== formData.confirmPassword) {
-            setNotification("Passwords do not match.");
-            await delay(1500);
-            setNotification("");
-            return;
-        }
 
         const validationError = validateForm(formData);
         if (validationError) {
