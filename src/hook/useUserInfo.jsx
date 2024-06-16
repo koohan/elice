@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import API_PATHS from '../utils/apiPaths';
 
 const useUserInfo = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
