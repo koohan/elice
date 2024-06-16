@@ -27,7 +27,7 @@ const ColorSelector = ({ colors, selectedColor, setSelectedColor }) => {
   }, [colors]);
 
   const handleChange = (selectedOption) => {
-    setSelectedColor(selectedOption ? selectedOption.value : '');
+    setSelectedColor(selectedOption ? selectedOption.label : '');
   };
 
   const options = availableColors.map((color) => ({
@@ -39,7 +39,7 @@ const ColorSelector = ({ colors, selectedColor, setSelectedColor }) => {
     <ColorSelectorStyled>
       <SizeLabel style={{ marginBottom: "20px" }}>색상</SizeLabel>
       <Select
-        value={options.find(option => option.value === selectedColor)}
+        value={options.find(option => option.label === selectedColor)}
         onChange={handleChange}
         options={options}
         placeholder="색상 선택"

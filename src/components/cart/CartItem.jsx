@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CartItemContainer, CartItemImageContainer, CartItemInfo, CartItemPrice, BtnContainer } from './Styles/CartItemStyles';
-import { StyledButton } from './Styles/ButtonStyles';
+import { StyledButton, EditButton } from './Styles/ButtonStyles';
 import Image from './Image';
 import Label from './Label';
 
@@ -16,7 +16,6 @@ const CartItem = ({ product, stock, selectedColor, selectedSize, onDelete }) => 
     const savedCart = JSON.parse(localStorage.getItem('cart')) || {};
     savedCart[product.id] = editedSize;
     localStorage.setItem('cart', JSON.stringify(savedCart));
-    console.log('로컬 스토리지 업데이트:', savedCart);
   }, [editedSize, product.id]);
 
   const handleEditClick = () => {
@@ -70,9 +69,9 @@ const CartItem = ({ product, stock, selectedColor, selectedSize, onDelete }) => 
             </span>
           </Label>
           <BtnContainer>
-            <StyledButton onClick={handleEditClick}>
+            <EditButton onClick={handleEditClick}>
               {isEditing ? '저장하기' : '수정하기'}
-            </StyledButton>
+            </EditButton>
             <StyledButton $variant="delete" onClick={onDelete}>삭제하기</StyledButton>
           </BtnContainer>
         </CartItemPrice>

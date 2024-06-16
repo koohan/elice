@@ -17,6 +17,7 @@ import AddProductPages from './pages/AddProductPages';
 import UpdateProduct from './components/update/UpdateProductRoot';
 import CardInfo from './pages/CardInfoPage';
 import Category from './components/main/Category';
+import MG from './components/management/management';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/card" element={<CardInfo />} />
         <Route path="/update/:id" element={<UpdateProduct />} />
         <Route path="/category" element={<Category />} /> 
+        <Route path="/mg" element={<MG />} /> 
       </Routes>
     </Router>
   );
