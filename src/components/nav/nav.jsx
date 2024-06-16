@@ -11,31 +11,6 @@ const NavBar = ({ setSearchQuery, searchInputRef }) => {
   const [cookies] = useCookies(['loginstate']);
   const { clearAllCookies } = useCookieManager();
 
-  // 아직 백엔드 엔드포인트가 없어서 주석 처리함...........
-  // 밑에 handleLogout 함수도 훅으로 뺄건데 시간 부족 이슈로 수요일 이전까지 리팩토링 작업 할때 다시 봐야함
-  // useEffect(() => {
-  //   const checkAuthStatus = async () => {
-  //     try {
-  //       const response = await fetch('/api/(나온 주소가 없음)', {
-  //         method: 'GET',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //       });
-  //       if (response.ok) {
-  //         setIsLoggedIn(true);
-  //       } else {
-  //         throw new Error('Not authenticated');
-  //       }
-  //     } catch (error) {
-  //       clearAllCookies();
-  //       setIsLoggedIn(false);
-  //       navigate('/login');
-  //     }
-  //   };
-  //   checkAuthStatus();
-  // }, [navigate, clearAllCookies]);
-
   useEffect(() => {
     setIsLoggedIn(!!cookies.loginstate);
   }, [cookies]);
@@ -80,7 +55,7 @@ const NavBar = ({ setSearchQuery, searchInputRef }) => {
 
   return (
     <Header>
-      <Logo src="/public/logo2.png" onClick={() => handleNavigation('/')} />
+      <Logo src="/assets/logo2.png" onClick={() => handleNavigation('/')} />
       <Navbar>
         {setSearchQuery && searchInputRef && (
           <SearchContainer>
